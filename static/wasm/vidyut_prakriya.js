@@ -180,6 +180,97 @@ function isLikeNone(x) {
     return x === undefined || x === null;
 }
 /**
+* Defines a gaṇa.
+*
+* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
+* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
+* before sarvadhatuka suffixes.
+*/
+export const Gana = Object.freeze({
+/**
+* The first gaṇa, whose first dhatu is `BU`.
+*/
+Bhvadi:0,"0":"Bhvadi",
+/**
+* The second gaṇa, whose first dhatu is `ad`.
+*/
+Adadi:1,"1":"Adadi",
+/**
+* The third gaṇa, whose first dhatu is `hu`.
+*/
+Juhotyadi:2,"2":"Juhotyadi",
+/**
+* The fourth gaṇa, whose first dhatu is `div`.
+*/
+Divadi:3,"3":"Divadi",
+/**
+* The fifth gaṇa, whose first dhatu is `su`.
+*/
+Svadi:4,"4":"Svadi",
+/**
+* The sixth gaṇa, whose first dhatu is `tud`.
+*/
+Tudadi:5,"5":"Tudadi",
+/**
+* The seventh gaṇa, whose first dhatu is `rudh`.
+*/
+Rudhadi:6,"6":"Rudhadi",
+/**
+* The eighth gaṇa, whose first dhatu is `tan`.
+*/
+Tanadi:7,"7":"Tanadi",
+/**
+* The ninth gaṇa, whose first dhatu is `krI`.
+*/
+Kryadi:8,"8":"Kryadi",
+/**
+* The tenth gaṇa, whose first dhatu is `cur`.
+*/
+Curadi:9,"9":"Curadi", });
+/**
+* One of the three common *sanAdi* pratyayas.
+*
+* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
+* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
+* 3.4.114.
+*
+* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
+* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
+*
+* For details on what these pratyayas mean and what kinds of words they produce, see the comments
+* below.
+*/
+export const Sanadi = Object.freeze({
+/**
+* `san`, which creates desiderative roots per 3.1.7.
+*
+* Examples: buBUzati, ninIzati.
+*/
+San:0,"0":"San",
+/**
+* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
+* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
+*
+* Examples: boBUyate, nenIyate.
+*
+* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
+* vowel. If this constraint is violated, our APIs will return an `Error`.
+*/
+Yan:1,"1":"Yan",
+/**
+* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
+* very different form.
+*
+* Examples: boBavIti, boBoti, nenayIti, neneti.
+*/
+YanLuk:2,"2":"YanLuk",
+/**
+* `Nic`, which creates causal roots per 3.1.26.
+*
+* Examples: BAvayati, nAyayati.
+*/
+Nic:3,"3":"Nic", });
+/**
 * The prayoga of some tinanta.
 */
 export const Prayoga = Object.freeze({
@@ -277,127 +368,17 @@ Lun:9,"9":"Lun",
 */
 Lrn:10,"10":"Lrn", });
 /**
-* Defines a gaṇa.
-*
-* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
-* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
-* before sarvadhatuka suffixes.
+* The pada of some tinanta.
 */
-export const Gana = Object.freeze({
+export const Pada = Object.freeze({
 /**
-* The first gaṇa, whose first dhatu is `BU`.
+* Parasmaipada.
 */
-Bhvadi:0,"0":"Bhvadi",
+Parasmai:0,"0":"Parasmai",
 /**
-* The second gaṇa, whose first dhatu is `ad`.
+* Atmanepada.
 */
-Adadi:1,"1":"Adadi",
-/**
-* The third gaṇa, whose first dhatu is `hu`.
-*/
-Juhotyadi:2,"2":"Juhotyadi",
-/**
-* The fourth gaṇa, whose first dhatu is `div`.
-*/
-Divadi:3,"3":"Divadi",
-/**
-* The fifth gaṇa, whose first dhatu is `su`.
-*/
-Svadi:4,"4":"Svadi",
-/**
-* The sixth gaṇa, whose first dhatu is `tud`.
-*/
-Tudadi:5,"5":"Tudadi",
-/**
-* The seventh gaṇa, whose first dhatu is `rudh`.
-*/
-Rudhadi:6,"6":"Rudhadi",
-/**
-* The eighth gaṇa, whose first dhatu is `tan`.
-*/
-Tanadi:7,"7":"Tanadi",
-/**
-* The ninth gaṇa, whose first dhatu is `krI`.
-*/
-Kryadi:8,"8":"Kryadi",
-/**
-* The tenth gaṇa, whose first dhatu is `cur`.
-*/
-Curadi:9,"9":"Curadi", });
-/**
-* Defines an antargana.
-*
-* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. Within these larger
-* *gaṇa*s, certain *antargaṇa*s or subclasses have extra properties that affect the derivations
-* they produce. For example, dhatus in the *kuṭādi antargaṇa* generally do not allow *guṇa* vowel
-* changes.
-*
-* Since most dhatus appear exactly once per *gaṇa*, this crate can usually infer whether a dhatu
-* is in a specific *antargaṇa*. However, some *gaṇa*s have dhatus that repeat, and these
-* repeating dhatus cause ambiguities for our code. (Examples: `juqa~` appears twice in
-* *tudādigaṇa*, once in *kuṭādi* and once outside of it.)
-*
-* To avoid this ambiguity, we require that certain *antargaṇa*s are declared up-front.
-*
-* (Can't we disambiguate by checking the dhatu's index within its gana? Unfortunately, no. There
-* is no canonical version of the Dhatupatha, and we cannot expect that a dhatu's index is
-* consistent across all of these versions. So we thought it better to avoid hard-coding indices
-* or requiring callers to follow our specific conventions.)
-*/
-export const Antargana = Object.freeze({
-/**
-* Antargana of *tud* gana. Pratyayas that follow dhatus in kut-Adi will generally be marked
-* Nit per 1.2.1. Required because of duplicates like `juqa~`.
-*/
-Kutadi:0,"0":"Kutadi",
-/**
-* Antargana of *cur* gana ending with `kusma~`. A dhatu in this antargana is always
-* ātmanepadī. Required because of duplicates like `daSi~`.
-*/
-Akusmiya:1,"1":"Akusmiya", });
-/**
-* One of the three common *sanAdi* pratyayas.
-*
-* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
-* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
-* 3.4.114.
-*
-* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
-* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
-*
-* For details on what these pratyayas mean and what kinds of words they produce, see the comments
-* below.
-*/
-export const Sanadi = Object.freeze({
-/**
-* `san`, which creates desiderative roots per 3.1.7.
-*
-* Examples: buBUzati, ninIzati.
-*/
-San:0,"0":"San",
-/**
-* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
-* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
-*
-* Examples: boBUyate, nenIyate.
-*
-* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
-* vowel. If this constraint is violated, our APIs will return an `ArgumentError`.
-*/
-Yan:1,"1":"Yan",
-/**
-* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
-* very different form.
-*
-* Examples: boBavIti, boBoti, nenayIti, neneti.
-*/
-YanLuk:2,"2":"YanLuk",
-/**
-* `Nic`, which creates causal roots per 3.1.26.
-*
-* Examples: BAvayati, nAyayati.
-*/
-Nic:3,"3":"Nic", });
+Atmane:1,"1":"Atmane", });
 /**
 * WebAssembly API for vidyut-prakriya.
 */
@@ -422,7 +403,7 @@ export class Vidyut {
         wasm.__wbg_vidyut_free(ptr);
     }
     /**
-    * Creates a new API manager
+    * Creates a new API manager.
     *
     * This constructor is not called `new` because `new` is a reserved word in JavaScript.
     * @param {string} dhatupatha
@@ -435,20 +416,22 @@ export class Vidyut {
         return Vidyut.__wrap(ret);
     }
     /**
-    * Returns each possible *prakriyā* for `upadesha` in "laṭ".
-    * See documentation of Dhatu::new etc.
+    * Returns each possible *prakriyā* for the given args.
+    *
+    * TODO: how might we reduce the number of arguments here?
     * @param {string} code
     * @param {number} lakara
     * @param {number} prayoga
     * @param {number} purusha
     * @param {number} vacana
+    * @param {number | undefined} pada
     * @param {number | undefined} sanadi
     * @returns {any}
     */
-    derive(code, lakara, prayoga, purusha, vacana, sanadi) {
+    derive(code, lakara, prayoga, purusha, vacana, pada, sanadi) {
         const ptr0 = passStringToWasm0(code, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_derive(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(sanadi) ? 4 : sanadi);
+        const ret = wasm.vidyut_derive(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi);
         return takeObject(ret);
     }
 }

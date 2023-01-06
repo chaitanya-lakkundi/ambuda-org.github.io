@@ -102,41 +102,33 @@
     </div>
   </template>
 
-  <template x-if="!activePada">
+  <div x-show="!activePada">
     <div>
-      <div>
-        <label>प्रयोगः</label>
-        <select x-model="prayoga" class="p-2 bg-white rounded border">
-          <option :value="Prayoga.Kartari">कर्तरि</option>
-          <option :value="Prayoga.Karmani">कर्मनि</option>
-        </select>
+      <label>प्रयोगः</label>
+      <select x-model="prayoga" class="p-2 bg-white rounded border">
+        <option :value="Prayoga.Kartari" x-text="deva('kartari')"></option>
+        <option :value="Prayoga.Karmani" x-text="deva('karmaNi')"></option>
+      </select>
 
-        <label>सनादि</label>
-        <select x-model="sanadi" class="p-2 bg-white rounded border">
-          <option value="">(none)</option>
-          <option :value="Sanadi.San">सन्नन्ते</option>
-          <option :value="Sanadi.Nic">णिजन्ते</option>
-          <option :value="Sanadi.Yan">यङन्ते</option>
-        </select>
-      </div>
+      <label>सनादि</label>
+      <select x-model="sanadi" class="p-2 bg-white rounded border">
+        <option value="">(none)</option>
+        <option :value="Sanadi.San" x-text="deva('sannante')"></option>
+        <option :value="Sanadi.Nic" x-text="deva('Nijante')"></option>
+        <option :value="Sanadi.Yan" x-text="deva('yaGante')"></option>
+      </select>
+    </div>
 
-      <template x-for="la in Object.entries(createTinantas())">
-        <section>
-          <h1 x-show="la[0] == 'Lat'">लट्</h1>
-          <h1 x-show="la[0] == 'Lit'">लिट्</h1>
-          <h1 x-show="la[0] == 'Lut'">लुट्</h1>
-          <h1 x-show="la[0] == 'Lrt'">ल्ण्ट्</h1>
-          <h1 x-show="la[0] == 'Lot'">लोट्</h1>
-          <h1 x-show="la[0] == 'Lan'">लङ्</h1>
-          <h1 x-show="la[0] == 'VidhiLin'">विधिलिङ्</h1>
-          <h1 x-show="la[0] == 'AshirLin'">आशीर्लिङ्</h1>
-          <h1 x-show="la[0] == 'Lun'">लुङ्</h1>
-          <h1 x-show="la[0] == 'Lrn'">लृङ्</h1>
+    <template x-for="la in createTinantas()">
+      <section>
+        <h1 x-text="la.title"></h1>
+
+        <template x-if="la.Parasmai">
           <table class="w-full my-4 text-left table-fixed text-xl border">
             <tr>
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][0]">
+  <template x-for="(pada, i) in la.Parasmai[0]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -150,7 +142,7 @@
 
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][1]">
+  <template x-for="(pada, i) in la.Parasmai[1]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -164,51 +156,7 @@
 
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][2]">
-    <span>
-      <span x-show="i !== 0">, </span><a
-          href="#"
-          class="hover:underline"
-          @click.prevent="setActivePada(pada)"
-          x-text="deva(pada.text)"
-          >
-    </a></span>
-  </template>
-</td>
-
-            </tr>
-            <tr>
-                
-<td class="p-1">
-  <template x-for="(pada, i) in la[1][3]">
-    <span>
-      <span x-show="i !== 0">, </span><a
-          href="#"
-          class="hover:underline"
-          @click.prevent="setActivePada(pada)"
-          x-text="deva(pada.text)"
-          >
-    </a></span>
-  </template>
-</td>
-
-                
-<td class="p-1">
-  <template x-for="(pada, i) in la[1][4]">
-    <span>
-      <span x-show="i !== 0">, </span><a
-          href="#"
-          class="hover:underline"
-          @click.prevent="setActivePada(pada)"
-          x-text="deva(pada.text)"
-          >
-    </a></span>
-  </template>
-</td>
-
-                
-<td class="p-1">
-  <template x-for="(pada, i) in la[1][5]">
+  <template x-for="(pada, i) in la.Parasmai[2]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -224,7 +172,7 @@
             <tr>
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][6]">
+  <template x-for="(pada, i) in la.Parasmai[3]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -238,7 +186,7 @@
 
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][7]">
+  <template x-for="(pada, i) in la.Parasmai[4]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -252,7 +200,51 @@
 
                 
 <td class="p-1">
-  <template x-for="(pada, i) in la[1][8]">
+  <template x-for="(pada, i) in la.Parasmai[5]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+            </tr>
+            <tr>
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Parasmai[6]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Parasmai[7]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Parasmai[8]">
     <span>
       <span x-show="i !== 0">, </span><a
           href="#"
@@ -266,24 +258,168 @@
 
             </tr>
           </table>
-        </section>
-      </template>
-    </div>
+        </template>
+
+        <template x-if="la.Atmane">
+          <table class="w-full my-4 text-left table-fixed text-xl border">
+            <tr>
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[0]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
   </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[1]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[2]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+            </tr>
+            <tr>
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[3]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[4]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[5]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+            </tr>
+            <tr>
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[6]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[7]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+                
+<td class="p-1">
+  <template x-for="(pada, i) in la.Atmane[8]">
+    <span>
+      <span x-show="i !== 0">, </span><a
+          href="#"
+          class="hover:underline"
+          @click.prevent="setActivePada(pada)"
+          x-text="deva(pada.text)"
+          >
+    </a></span>
+  </template>
+</td>
+
+            </tr>
+          </table>
+        </template>
+      </section>
+    </template>
+  </div>
+
 </div>
 </template>
 
       
-<ol x-show="!activeDhatu">
-  <template x-for="d in dhatus">
-    <li class="my-1">
-      <a href="#" @click.prevent="setActiveDhatu(d.code)" class="block hover:bg-slate-50 p-1 text-lg">
-        <span class="bg-slate-100 text-slate-700 rounded p-1" x-text="deva(d.code).replaceAll('।', '.')"></span>
-        <span class="text-red-700" x-text="devaNoSvara(d.upadesha)"></span>
-        <span class="text-slate-600" x-text="deva(d.artha)"></span>
-      </a>
-    </li>
-  </template>
+<div x-show="!activeDhatu">
+
+  <input type="text" x-model="dhatuFilter" class="w-full border p-1 my-2"
+    placeholder="Enter a numeric code (01.0001, etc.)"></input>
+
+  <ol>
+    <template x-for="d in filteredDhatus()">
+      <li class="my-1">
+        <a href="#" @click.prevent="setActiveDhatu(d.code)" class="block hover:bg-slate-50 p-1 text-lg">
+          <span class="bg-slate-100 text-slate-700 rounded p-1" x-text="deva(d.code).replaceAll('।', '.')"></span>
+          <span class="text-red-700" x-text="devaNoSvara(d.upadesha)"></span>
+          <span class="text-slate-600" x-text="deva(d.artha)"></span>
+        </a>
+      </li>
+    </template>
+  </ol>
 </ol>
 
     </section>

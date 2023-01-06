@@ -33,12 +33,14 @@
 
 
 
+
 <body>
 <article x-data="app">
   <header class="py-12 bg-slate-100 text-center">
     <h1 class="text-4xl font-bold mb-2">विद्युल्लेखा</h1>
     <p class="text-slate-800">
-      (A demo of <a class="underline" href="https://github.com/ambuda-org/vidyut/tree/main/vidyut-prakriya">vidyut-prakriya</a>)
+    (A demo of <a class="underline" href="https://github.com/ambuda-org/vidyut/tree/main/vidyut-prakriya" target="_blank">vidyut-prakriya</a>.
+     Please file bugs <a class="underline" href="https://github.com/ambuda-org/vidyut/issues" target="_blank">here</a>.)
     </p>
   </header>
 
@@ -46,8 +48,8 @@
     
 <ul class="flex my-4">
   <a class="py-2 mr-4" href="#" :class="tab('tin')" @click.prevent="show('tin')">तिङन्तानि</a>
-  <a class="py-2 mr-4" href="#" :class="tab('sup')" @click.prevent="show('sup')">कृदन्तानि</a>
-  <a class="py-2 mr-4" href="#" :class="tab('krt')" @click.prevent="show('krt')">सुबन्तानि</a>
+  
+  
   <a class="py-2 mr-4" href="#" :class="tab('about')" @click.prevent="show('about')">About</a>
 </ul>
 
@@ -114,8 +116,8 @@
       <select x-model="sanadi" class="p-2 bg-white rounded border">
         <option value="">(none)</option>
         <option :value="Sanadi.San" x-text="deva('sannante')"></option>
-        <option :value="Sanadi.Nic" x-text="deva('Nijante')"></option>
-        <option :value="Sanadi.Yan" x-text="deva('yaGante')"></option>
+        <option :value="Sanadi.Nic" x-text="deva('Rijante')"></option>
+        <option :value="Sanadi.Yan" x-text="deva('yaNante')"></option>
       </select>
     </div>
 
@@ -407,7 +409,7 @@
 <div x-show="!activeDhatu">
 
   <input type="text" x-model="dhatuFilter" class="w-full border p-1 my-2"
-    placeholder="Enter a numeric code (01.0001, etc.)"></input>
+    placeholder="Type query (भू, bhU, etc.)"></input>
 
   <ol>
     <template x-for="d in filteredDhatus()">
@@ -432,7 +434,6 @@
       <p>Coming soon.</p>
     </section>
 
-    
     
     
     <section x-show="activeTab === 'about'">

@@ -34,6 +34,11 @@
 
 
 
+
+
+
+
+
 <body>
 <article x-data="app">
   <header class="py-12 bg-slate-100 text-center">
@@ -47,10 +52,10 @@
   <div class="max-w-3xl mx-auto my-8">
     
 <ul class="flex my-4">
-  <a class="py-2 mr-4" href="#" :class="tab('tin')" @click.prevent="show('tin')">तिङन्तानि</a>
+  <a class="py-2 mr-4" href="#" :class="tab('tin')" @click.prevent="changeTab('tin')">तिङन्तानि</a>
+  <a class="py-2 mr-4" href="#" :class="tab('krt')" @click.prevent="changeTab('krt')">कृदन्तानि</a>
   
-  
-  <a class="py-2 mr-4" href="#" :class="tab('about')" @click.prevent="show('about')">About</a>
+  <a class="py-2 mr-4" href="#" :class="tab('about')" @click.prevent="changeTab('about')">About</a>
 </ul>
 
   
@@ -58,8 +63,9 @@
       <p>Loading &hellip;</p>
     </section>
   
-    <section x-show="activeTab === 'tin'">
-      
+    <section x-show="activeTab === 'tin' || activeTab === 'krt'">
+      <div x-show="activeTab === 'tin'">
+        
 <template x-if="activeDhatu">
 <div>
   <button class="bg-slate-600 text-white rounded p-2 hover:bg-slate-800" @click="clearActiveDhatu">
@@ -405,6 +411,79 @@
 </div>
 </template>
 
+      </div>
+      <div x-show="activeTab === 'krt'">
+        
+<template x-if="activeDhatu">
+<div>
+  <button class="bg-slate-600 text-white rounded p-2 hover:bg-slate-800" @click="clearActiveDhatu">
+    &times; <span x-text="devaNoSvara(activeDhatu.upadesha)"></span>
+  </button>
+  <template x-if="activePada">
+    <button class="bg-slate-600 text-white rounded p-2 hover:bg-slate-800" @click="clearActivePada">
+      &times; <span x-text="deva(activePada.text)"></span>
+    </button>
+  </template>
+
+  <header class="text-center">
+    <h1 class="font-bold text-3xl" x-text="devaNoSvara(activeDhatu.upadesha)"></h1>
+    <p x-text="deva(activeDhatu.artha)"></p>
+  </header>
+
+  <template x-if="prakriya">
+    <div>
+      
+<table class="border min-w-xl">
+  <caption class="font-bold text-2xl text-left mb-2" x-text="deva(prakriya.text)"></caption>
+  <thead class="font-bold text-left border-b">
+    <tr>
+      <th class="py-2 px-4">सूत्रम्</th>
+      <th class="py-2 px-4">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="step in prakriya.history">
+      <tr>
+        <td class="py-2 px-4">
+          <a class="text-blue-500 underline"
+              x-text="deva(step.rule).replaceAll('।', '.')"
+              target="_blank"
+              :href="'https://ashtadhyayi.com/sutraani/' + step.rule"></a>
+        </td>
+        <td class="py-2 px-4" x-text="devaNoSvara(step.result)"></td>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+    </div>
+  </template>
+  
+  <table class="w-full my-4 text-left table-fixed text-xl border">
+    <thead>
+      <tr class="bg-slate-200">
+          <th class="p-2" x-text="deva('kft-pratyaya')"></th>
+          <th class="p-2" x-text="deva('kfdanta')"></th>
+      </tr>
+    </thead>
+    <template x-for="k in createKrdantas()">
+      <tr class="even:bg-slate-50">
+        <th class="p-2" x-text="deva(k.title)"></th>
+        <td class="p-2">
+          <template x-for="pada in k.padas">
+            <a href="#"
+               class="block hover:underline"
+               x-text="deva(pada.text || '-')"
+               @click.prevent="setActivePada(pada)"></div>
+          </template>
+        </td>
+      </tr>
+    </template>
+  </table>
+</div>
+</template>
+
+      </div>
       
 <div x-show="!activeDhatu">
 
@@ -426,10 +505,6 @@
 
     </section>
 
-    <section x-show="activeTab === 'krt'">
-      <p>Coming soon.</p>
-    </section>
-
     <section x-show="activeTab === 'sup'">
       <p>Coming soon.</p>
     </section>
@@ -443,9 +518,9 @@
 
         <p class="mb-4">Please note that this site is <strong>for demonstration
         purposes only</strong>: we have not polished it much, and it might disappear or
-        break at any time. And although we have done our best to keep our
-        generator's output high quality, many of the words or prakriyas here
-        will have small errors.</p>
+        break at any time. We have done our best to keep our generator's output
+        high quality, but even so, many of the words or prakriyas here will
+        have small errors.</p>
 
         <p class="mb-4">To notify us of any word or prakriya errors, please <a
             href="https://github.com/ambuda-org/vidyut/issues">create an issue</a> on our project's GitHub

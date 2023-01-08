@@ -180,6 +180,63 @@ function isLikeNone(x) {
     return x === undefined || x === null;
 }
 /**
+* The gender of some subanta.
+*/
+export const Linga = Object.freeze({
+/**
+* The masculine.
+*/
+Pum:0,"0":"Pum",
+/**
+* The feminine.
+*/
+Stri:1,"1":"Stri",
+/**
+* The neuter.
+*/
+Napumsaka:2,"2":"Napumsaka", });
+/**
+* The case ending of some subanta.
+*/
+export const Vibhakti = Object.freeze({
+/**
+* The first vibhakti . Sometimes called the *nominative case*.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second vibhakti. Sometimes called the *accusative case*.
+*/
+Dvitiya:1,"1":"Dvitiya",
+/**
+* The third vibhakti. Sometimes called the *instrumental case*.
+*/
+Trtiya:2,"2":"Trtiya",
+/**
+* The fourth vibhakti. Sometimes called the *dative case*.
+*/
+Caturthi:3,"3":"Caturthi",
+/**
+* The fifth vibhakti. Sometimes called the *ablative case*.
+*/
+Panchami:4,"4":"Panchami",
+/**
+* The sixth vibhakti. Sometimes called the *genitive case*.
+*/
+Sasthi:5,"5":"Sasthi",
+/**
+* The seventh vibhakti. Sometimes called the *locative case*.
+*/
+Saptami:6,"6":"Saptami",
+/**
+* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+*
+* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
+* that conditions the first vibhakti. But we felt that users would find it more convenient to
+* have this condition available on `Vibhakti` directly rather than have to define the
+* *sambodhana* condition separately.
+*/
+Sambodhana:7,"7":"Sambodhana", });
+/**
 * Defines a gaṇa.
 *
 * The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
@@ -380,6 +437,314 @@ Parasmai:0,"0":"Parasmai",
 */
 Atmane:1,"1":"Atmane", });
 /**
+* The complete list of krt-pratyayas.
+*
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
+*/
+export const Krt = Object.freeze({
+/**
+* -Alu
+*/
+Aluc:0,"0":"Aluc",
+/**
+* -Aru
+*/
+Aru:1,"1":"Aru",
+/**
+* -a
+*/
+Ga:2,"2":"Ga",
+/**
+* -a
+*/
+GaY:3,"3":"GaY",
+/**
+* -in
+*/
+GinuR:4,"4":"GinuR",
+/**
+* -ura
+*/
+Gurac:5,"5":"Gurac",
+/**
+* -a (Izatkara, duzkara, sukara, ...)
+*/
+Kal:6,"6":"Kal",
+/**
+* -van
+*/
+Nvanip:7,"7":"Nvanip",
+/**
+* -a
+*/
+Ra:8,"8":"Ra",
+/**
+* -in
+*/
+Rini:9,"9":"Rini",
+/**
+* -aka
+*/
+Rvuc:10,"10":"Rvuc",
+/**
+* -aka
+*/
+Rvul:11,"11":"Rvul",
+/**
+* -ya
+*/
+Ryat:12,"12":"Ryat",
+/**
+* -ana
+*/
+Ryuw:13,"13":"Ryuw",
+/**
+* -Ana (laBamAna, sevamAna, ...)
+*/
+SAnac:14,"14":"SAnac",
+/**
+* -Ana
+*/
+SAnan:15,"15":"SAnan",
+/**
+* -a
+*/
+Sa:16,"16":"Sa",
+/**
+* -at (gacCat, Bavat, ...)
+*/
+Satf:17,"17":"Satf",
+/**
+* -Taka (gATaka)
+*/
+Takan:18,"18":"Takan",
+/**
+* -Tu (vepaTu). Allowed only for dhatus that are `qvit`.
+*/
+Tuc:19,"19":"Tuc",
+/**
+* -Uka
+*/
+Uka:20,"20":"Uka",
+/**
+* -a
+*/
+aR:21,"21":"aR",
+/**
+* -a
+*/
+ac:22,"22":"ac",
+/**
+* -anIya (gamanIya, BavanIya, ...)
+*/
+anIyar:23,"23":"anIyar",
+/**
+* -ani
+*/
+ani:24,"24":"ani",
+/**
+* -at (jarat)
+*/
+atfn:25,"25":"atfn",
+/**
+* -Ana
+*/
+cAnaS:26,"26":"cAnaS",
+/**
+* -in
+*/
+ini:27,"27":"ini",
+/**
+* -itra
+*/
+itra:28,"28":"itra",
+/**
+* -izRu (alaMkarizRu, prajanizRu, ...)
+*/
+izRuc:29,"29":"izRuc",
+/**
+* -a
+*/
+ka:30,"30":"ka",
+/**
+* -Ana (cakrARa, ...)
+*/
+kAnac:31,"31":"kAnac",
+/**
+* -i (udaDi, ...)
+*/
+ki:32,"32":"ki",
+/**
+* -i
+*/
+kin:33,"33":"kin",
+/**
+* -luka (BIluka)
+*/
+klukan:34,"34":"klukan",
+/**
+* -mara
+*/
+kmarac:35,"35":"kmarac",
+/**
+* -nu
+*/
+knu:36,"36":"knu",
+/**
+* -ru (BIru)
+*/
+kru:37,"37":"kru",
+/**
+* -ruka (BIruka)
+*/
+kruka:38,"38":"kruka",
+/**
+* -snu (glAsnu, jizRu, ...)
+*/
+ksnu:39,"39":"ksnu",
+/**
+* -ta (gata, bhUta, ...)
+*/
+kta:40,"40":"kta",
+/**
+* -tavat (gatavat, bhUtavat, ...)
+*/
+ktavatu:41,"41":"ktavatu",
+/**
+* -ti
+*/
+ktic:42,"42":"ktic",
+/**
+* -ti
+*/
+ktin:43,"43":"ktin",
+/**
+* -tri
+*/
+ktri:44,"44":"ktri",
+/**
+* -tvA (gatvA, bhUtva, ...)
+*/
+ktvA:45,"45":"ktvA",
+/**
+* -ura (BaNgura, ...)
+*/
+kurac:46,"46":"kurac",
+/**
+* -vara
+*/
+kvarap:47,"47":"kvarap",
+/**
+* -vas
+*/
+kvasu:48,"48":"kvasu",
+/**
+* (empty suffix)
+*/
+kvip:49,"49":"kvip",
+/**
+* -ya
+*/
+kyap:50,"50":"kyap",
+/**
+* -ana
+*/
+lyu:51,"51":"lyu",
+/**
+* -ana
+*/
+lyuw:52,"52":"lyuw",
+/**
+* -na
+*/
+naN:53,"53":"naN",
+/**
+* -naj
+*/
+najiN:54,"54":"najiN",
+/**
+* -na (svapna)
+*/
+nan:55,"55":"nan",
+/**
+* -u
+*/
+qu:56,"56":"qu",
+/**
+* -na (namra, kampra, ...)
+*/
+ra:57,"57":"ra",
+/**
+* -ru
+*/
+ru:58,"58":"ru",
+/**
+* -tavya (gantavya, bhavitavya, ...)
+*/
+tavya:59,"59":"tavya",
+/**
+* -tavya
+*/
+tavyat:60,"60":"tavyat",
+/**
+* -tf (gantA, bhavitA, ...)
+*/
+tfc:61,"61":"tfc",
+/**
+* -tf
+*/
+tfn:62,"62":"tfn",
+/**
+* -tum (gantum, bhavitum, ...)
+*/
+tumun:63,"63":"tumun",
+/**
+* -u (yuyutsu, Bikzu, ...)
+*/
+u:64,"64":"u",
+/**
+* -uka
+*/
+ukaY:65,"65":"ukaY",
+/**
+* -vaca
+*/
+varac:66,"66":"varac",
+/**
+* -aka
+*/
+vuY:67,"67":"vuY",
+/**
+* -aka
+*/
+vun:68,"68":"vun",
+/**
+* -a
+*/
+wak:69,"69":"wak",
+/**
+* -ya
+*/
+yat:70,"70":"yat",
+/**
+* -ana
+*/
+yuc:71,"71":"yuc",
+/**
+* -Aka
+*/
+zAkan:72,"72":"zAkan",
+/**
+* -aka
+*/
+zvun:73,"73":"zvun",
+/**
+* -tra
+*/
+zwran:74,"74":"zwran", });
+/**
 * WebAssembly API for vidyut-prakriya.
 */
 export class Vidyut {
@@ -416,7 +781,7 @@ export class Vidyut {
         return Vidyut.__wrap(ret);
     }
     /**
-    * Returns each possible *prakriyā* for the given args.
+    * Wrapper for `Ashtadhyayi::derive_tinantas`.
     *
     * TODO: how might we reduce the number of arguments here?
     * @param {string} code
@@ -428,10 +793,38 @@ export class Vidyut {
     * @param {number | undefined} sanadi
     * @returns {any}
     */
-    derive(code, lakara, prayoga, purusha, vacana, pada, sanadi) {
+    derive_tinantas(code, lakara, prayoga, purusha, vacana, pada, sanadi) {
         const ptr0 = passStringToWasm0(code, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_derive(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi);
+        const ret = wasm.vidyut_derive_tinantas(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi);
+        return takeObject(ret);
+    }
+    /**
+    * Wrapper for `Ashtadhyayi::derive_subantas`.
+    * @param {string} pratipadika
+    * @param {number} linga
+    * @param {number} vacana
+    * @param {number} vibhakti
+    * @returns {any}
+    */
+    derive_subantas(pratipadika, linga, vacana, vibhakti) {
+        const ptr0 = passStringToWasm0(pratipadika, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.vidyut_derive_subantas(this.ptr, ptr0, len0, linga, vacana, vibhakti);
+        return takeObject(ret);
+    }
+    /**
+    * Wrapper for `Ashtadhyayi::derive_krdantas`.
+    *
+    * TODO: how might we reduce the number of arguments here?
+    * @param {string} code
+    * @param {number} krt
+    * @returns {any}
+    */
+    derive_krdantas(code, krt) {
+        const ptr0 = passStringToWasm0(code, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.vidyut_derive_krdantas(this.ptr, ptr0, len0, krt);
         return takeObject(ret);
     }
 }
@@ -473,8 +866,8 @@ function getImports() {
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
-    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1, arg2, arg3) {
-        console.error(getStringFromWasm0(arg0, arg1), getStringFromWasm0(arg2, arg3));
+    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1) {
+        console.error(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
         const ret = getObject(arg0);
@@ -497,6 +890,24 @@ function getImports() {
     };
     imports.wbg.__wbg_set_a68214f35c417fa9 = function(arg0, arg1, arg2) {
         getObject(arg0)[arg1 >>> 0] = takeObject(arg2);
+    };
+    imports.wbg.__wbg_new_abda76e883ba8a5f = function() {
+        const ret = new Error();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_stack_658279fe44541cf6 = function(arg0, arg1) {
+        const ret = getObject(arg1).stack;
+        const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len0;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+    };
+    imports.wbg.__wbg_error_f851667af71bcfc6 = function(arg0, arg1) {
+        try {
+            console.error(getStringFromWasm0(arg0, arg1));
+        } finally {
+            wasm.__wbindgen_free(arg0, arg1);
+        }
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
         const ret = debugString(getObject(arg1));

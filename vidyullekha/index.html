@@ -8,7 +8,7 @@
   <title>Vidyullekha</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript@1.2.7/sanscript.min.js"></script>
-  <script type="module" src="/static/app.js"></script>
+  <script type="module" src="/static/app.js?v=3"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style type="text/css">
     .a-underline a {
@@ -52,16 +52,12 @@
   <div class="max-w-3xl mx-auto my-8">
     
 <ul class="flex my-4">
-  <a class="py-2 mr-4" href="#" :class="tab('tin')" @click.prevent="changeTab('tin')">तिङन्तानि</a>
-  <a class="py-2 mr-4" href="#" :class="tab('krt')" @click.prevent="changeTab('krt')">कृदन्तानि</a>
+  <a class="py-2 mr-4" href="#" :class="tab('tin')" @click.prevent="setTab('tin')">तिङन्तानि</a>
+  <a class="py-2 mr-4" href="#" :class="tab('krt')" @click.prevent="setTab('krt')">कृदन्तानि</a>
   
-  <a class="py-2 mr-4" href="#" :class="tab('about')" @click.prevent="changeTab('about')">About</a>
+  <a class="py-2 mr-4" href="#" :class="tab('about')" @click.prevent="setTab('about')">About</a>
 </ul>
 
-  
-    <section x-show="dhatus.length === 0">
-      <p>Loading &hellip;</p>
-    </section>
   
     <section x-show="activeTab === 'tin' || activeTab === 'krt'">
       <div x-show="activeTab === 'tin'">
@@ -459,31 +455,36 @@
     </div>
   </template>
   
-  <table class="w-full my-4 text-left table-fixed text-xl border">
-    <thead>
-      <tr class="bg-slate-200">
-          <th class="p-2" x-text="deva('kft-pratyaya')"></th>
-          <th class="p-2" x-text="deva('kfdanta')"></th>
-      </tr>
-    </thead>
-    <template x-for="k in createKrdantas()">
-      <tr class="even:bg-slate-50">
-        <th class="p-2" x-text="deva(k.title)"></th>
-        <td class="p-2">
-          <template x-for="pada in k.padas">
-            <a href="#"
-               class="block hover:underline"
-               x-text="deva(pada.text || '-')"
-               @click.prevent="setActivePada(pada)"></div>
-          </template>
-        </td>
-      </tr>
-    </template>
-  </table>
+  <template x-for="krtType in createKrdantas()">
+    <table class="w-full my-4 text-left table-fixed text-xl border">
+      <thead>
+        <tr class="bg-slate-200">
+            <th class="p-2" x-text="deva('kft-pratyaya')"></th>
+            <th class="p-2" x-text="deva('kfdanta')"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="k in krtType">
+          <tr class="even:bg-slate-50">
+            <th class="p-2" x-text="deva(k.title)"></th>
+            <td class="p-2">
+              <template x-for="pada in k.padas">
+                <a href="#"
+                   class="block hover:underline"
+                   x-text="deva(pada.text || '-')"
+                   @click.prevent="setActivePada(pada)"></div>
+              </template>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </template>
 </div>
 </template>
 
       </div>
+
       
 <div x-show="!activeDhatu">
 
@@ -503,6 +504,7 @@
   </ol>
 </ol>
 
+      <p x-show="dhatus.length === 0">Loading &hellip;</p>
     </section>
 
     <section x-show="activeTab === 'sup'">

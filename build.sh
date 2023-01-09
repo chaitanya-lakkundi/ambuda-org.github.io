@@ -13,5 +13,6 @@ cp ${CRATE}/www/static/app.js static
 cp ${CRATE}/pkg/vidyut_prakriya_bg.wasm static/wasm
 cp ${CRATE}/pkg/vidyut_prakriya.js static/wasm
 cp ${CRATE}/data/dhatupatha.tsv static/data
+cp ${CRATE}/data/sutrapatha.tsv static/data
 
 echo "Complete. Please manually copy over index.html."

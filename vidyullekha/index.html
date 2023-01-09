@@ -8,7 +8,7 @@
   <title>Vidyullekha</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript@1.2.7/sanscript.min.js"></script>
-  <script type="module" src="/static/app.js?v=3"></script>
+  <script type="module" src="/static/app.js?v=4"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style type="text/css">
     .a-underline a {
@@ -85,6 +85,7 @@
   <thead class="font-bold text-left border-b">
     <tr>
       <th class="py-2 px-4">सूत्रम्</th>
+      <th class="py-2 px-4"></th>
       <th class="py-2 px-4">Result</th>
     </tr>
   </thead>
@@ -97,9 +98,15 @@
               target="_blank"
               :href="'https://ashtadhyayi.com/sutraani/' + step.rule"></a>
         </td>
+        <td class="py-2 px-4" x-text="await sutraText(step.rule)"></td>
         <td class="py-2 px-4" x-text="devaNoSvara(step.result)"></td>
       </tr>
     </template>
+    <tr>
+      <td></td>
+      <td></td>
+      <td x-text="deva(prakriya.text)" class="py-2 px-4 font-bold"></td>
+    </tr>
   </tbody>
 </table>
 
@@ -434,6 +441,7 @@
   <thead class="font-bold text-left border-b">
     <tr>
       <th class="py-2 px-4">सूत्रम्</th>
+      <th class="py-2 px-4"></th>
       <th class="py-2 px-4">Result</th>
     </tr>
   </thead>
@@ -446,9 +454,15 @@
               target="_blank"
               :href="'https://ashtadhyayi.com/sutraani/' + step.rule"></a>
         </td>
+        <td class="py-2 px-4" x-text="await sutraText(step.rule)"></td>
         <td class="py-2 px-4" x-text="devaNoSvara(step.result)"></td>
       </tr>
     </template>
+    <tr>
+      <td></td>
+      <td></td>
+      <td x-text="deva(prakriya.text)" class="py-2 px-4 font-bold"></td>
+    </tr>
   </tbody>
 </table>
 

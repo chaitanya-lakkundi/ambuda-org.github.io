@@ -5,6 +5,8 @@ const NOMINAL_KRTS = [
     Krt.GaY,
     Krt.lyuw,
     Krt.Rvul,
+    Krt.kvip,
+    Krt.kvin,
 ];
 
 // Krts that are generally called *participles*.
@@ -132,6 +134,10 @@ const App = () => ({
     sanadi: null,
     // A filter to apply to the dhatu list.
     dhatuFilter: null,
+
+    // Transliteration script (devanagari, iast, telugu, etc.)
+    // devanagari is default
+    script: 'devanagari',
 
     async init() {
         const data = await loadVidyut();
@@ -264,11 +270,11 @@ const App = () => ({
     },
 
     deva(s) {
-        return Sanscript.t(s, 'slp1', 'devanagari');
+        return Sanscript.t(s, 'slp1', this.script);
     },
 
     devaNoSvara(s) {
-        return Sanscript.t(removeSlpSvaras(s), 'slp1', 'devanagari');
+        return Sanscript.t(removeSlpSvaras(s), 'slp1', this.script);
     },
 
     async sutraText(rule) {

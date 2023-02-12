@@ -8,7 +8,7 @@
   <title>Vidyullekha</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript@1.2.7/sanscript.min.js"></script>
-  <script type="module" src="/static/app.js?v=4"></script>
+  <script type="module" src="/static/app.js"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style type="text/css">
     .a-underline a {
@@ -48,6 +48,17 @@
      Please file bugs <a class="underline" href="https://github.com/ambuda-org/vidyut/issues" target="_blank">here</a>.)
     </p>
   </header>
+
+  <div class="max-w-3xl mx-auto text-right">
+    <select x-model="script" class="p-2 my-2">
+      <option value="devanagari">devanagari</option>
+      <option value="iast">iast</option>
+      <option value="slp1">slp1</option>
+      <option value="itrans">itrans</option>
+      <option value="telugu">telugu</option>
+      <option value="kannada">kannada</option>
+    </select>
+  </div>
 
   <div class="max-w-3xl mx-auto my-8">
     
@@ -118,7 +129,7 @@
       <label>प्रयोगः</label>
       <select x-model="prayoga" class="p-2 bg-white rounded border">
         <option :value="Prayoga.Kartari" x-text="deva('kartari')"></option>
-        <option :value="Prayoga.Karmani" x-text="deva('karmaNi')"></option>
+        <option :value="Prayoga.Karmani" x-text="deva('karmaRi')"></option>
       </select>
 
       <label>सनादि</label>
@@ -486,7 +497,7 @@
                 <a href="#"
                    class="block hover:underline"
                    x-text="deva(pada.text || '-')"
-                   @click.prevent="setActivePada(pada)"></div>
+                   @click.prevent="setActivePada(pada)"></a>
               </template>
             </td>
           </tr>
@@ -503,7 +514,7 @@
 <div x-show="!activeDhatu">
 
   <input type="text" x-model="dhatuFilter" class="w-full border p-1 my-2"
-    placeholder="Type query (भू, bhU, etc.)"></input>
+    placeholder="Type query (भू, bhU, etc.)"/>
 
   <ol>
     <template x-for="d in filteredDhatus()">
@@ -516,7 +527,7 @@
       </li>
     </template>
   </ol>
-</ol>
+</div>
 
       <p x-show="dhatus.length === 0">Loading &hellip;</p>
     </section>

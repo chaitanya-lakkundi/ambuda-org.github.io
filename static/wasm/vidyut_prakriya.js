@@ -180,153 +180,317 @@ function isLikeNone(x) {
     return x === undefined || x === null;
 }
 /**
-* The gender of some subanta.
-*/
-export const Linga = Object.freeze({
-/**
-* The masculine.
-*/
-Pum:0,"0":"Pum",
-/**
-* The feminine.
-*/
-Stri:1,"1":"Stri",
-/**
-* The neuter.
-*/
-Napumsaka:2,"2":"Napumsaka", });
-/**
-* The case ending of some subanta.
-*/
-export const Vibhakti = Object.freeze({
-/**
-* The first vibhakti . Sometimes called the *nominative case*.
-*/
-Prathama:0,"0":"Prathama",
-/**
-* The second vibhakti. Sometimes called the *accusative case*.
-*/
-Dvitiya:1,"1":"Dvitiya",
-/**
-* The third vibhakti. Sometimes called the *instrumental case*.
-*/
-Trtiya:2,"2":"Trtiya",
-/**
-* The fourth vibhakti. Sometimes called the *dative case*.
-*/
-Caturthi:3,"3":"Caturthi",
-/**
-* The fifth vibhakti. Sometimes called the *ablative case*.
-*/
-Panchami:4,"4":"Panchami",
-/**
-* The sixth vibhakti. Sometimes called the *genitive case*.
-*/
-Sasthi:5,"5":"Sasthi",
-/**
-* The seventh vibhakti. Sometimes called the *locative case*.
-*/
-Saptami:6,"6":"Saptami",
-/**
-* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+* The complete list of krt-pratyayas.
 *
-* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
-* that conditions the first vibhakti. But we felt that users would find it more convenient to
-* have this condition available on `Vibhakti` directly rather than have to define the
-* *sambodhana* condition separately.
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
 */
-Sambodhana:7,"7":"Sambodhana", });
+export const Krt = Object.freeze({
 /**
-* Defines a gaṇa.
-*
-* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
-* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
-* before sarvadhatuka suffixes.
+* -a
 */
-export const Gana = Object.freeze({
+ac:0,"0":"ac",
 /**
-* The first gaṇa, whose first dhatu is `BU`.
+* -a
 */
-Bhvadi:0,"0":"Bhvadi",
+aR:1,"1":"aR",
 /**
-* The second gaṇa, whose first dhatu is `ad`.
+* -at (jarat)
 */
-Adadi:1,"1":"Adadi",
+atfn:2,"2":"atfn",
 /**
-* The third gaṇa, whose first dhatu is `hu`.
+* -ani
 */
-Juhotyadi:2,"2":"Juhotyadi",
+ani:3,"3":"ani",
 /**
-* The fourth gaṇa, whose first dhatu is `div`.
+* -anIya (gamanIya, BavanIya, ...)
 */
-Divadi:3,"3":"Divadi",
+anIyar:4,"4":"anIyar",
 /**
-* The fifth gaṇa, whose first dhatu is `su`.
+* -Alu
 */
-Svadi:4,"4":"Svadi",
+Aluc:5,"5":"Aluc",
 /**
-* The sixth gaṇa, whose first dhatu is `tud`.
+* -Aru
 */
-Tudadi:5,"5":"Tudadi",
+Aru:6,"6":"Aru",
 /**
-* The seventh gaṇa, whose first dhatu is `rudh`.
+* -itra
 */
-Rudhadi:6,"6":"Rudhadi",
+itra:7,"7":"itra",
 /**
-* The eighth gaṇa, whose first dhatu is `tan`.
+* -in
 */
-Tanadi:7,"7":"Tanadi",
+ini:8,"8":"ini",
 /**
-* The ninth gaṇa, whose first dhatu is `krI`.
+* -izRu (alaMkarizRu, prajanizRu, ...)
 */
-Kryadi:8,"8":"Kryadi",
+izRuc:9,"9":"izRuc",
 /**
-* The tenth gaṇa, whose first dhatu is `cur`.
+* -u (yuyutsu, Bikzu, ...)
 */
-Curadi:9,"9":"Curadi", });
+u:10,"10":"u",
 /**
-* One of the three common *sanAdi* pratyayas.
-*
-* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
-* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
-* 3.4.114.
-*
-* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
-* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
-*
-* For details on what these pratyayas mean and what kinds of words they produce, see the comments
-* below.
+* -uka
 */
-export const Sanadi = Object.freeze({
+ukaY:11,"11":"ukaY",
 /**
-* `san`, which creates desiderative roots per 3.1.7.
-*
-* Examples: buBUzati, ninIzati.
+* -Uka
 */
-San:0,"0":"San",
+Uka:12,"12":"Uka",
 /**
-* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
-* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
-*
-* Examples: boBUyate, nenIyate.
-*
-* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
-* vowel. If this constraint is violated, our APIs will return an `Error`.
+* -Ana
 */
-Yan:1,"1":"Yan",
+cAnaS:13,"13":"cAnaS",
 /**
-* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
-* very different form.
-*
-* Examples: boBavIti, boBoti, nenayIti, neneti.
+* -a
 */
-YanLuk:2,"2":"YanLuk",
+ka:14,"14":"ka",
 /**
-* `Nic`, which creates causal roots per 3.1.26.
-*
-* Examples: BAvayati, nAyayati.
+* -Ana (cakrARa, ...)
 */
-Nic:3,"3":"Nic", });
+kAnac:15,"15":"kAnac",
+/**
+* -i (udaDi, ...)
+*/
+ki:16,"16":"ki",
+/**
+* -i
+*/
+kin:17,"17":"kin",
+/**
+* -ura (BaNgura, ...)
+*/
+kurac:18,"18":"kurac",
+/**
+* -ta (gata, bhUta, ...)
+*/
+kta:19,"19":"kta",
+/**
+* -tavat (gatavat, bhUtavat, ...)
+*/
+ktavatu:20,"20":"ktavatu",
+/**
+* -ti
+*/
+ktic:21,"21":"ktic",
+/**
+* -ti
+*/
+ktin:22,"22":"ktin",
+/**
+* -tri
+*/
+ktri:23,"23":"ktri",
+/**
+* -tvA (gatvA, bhUtva, ...)
+*/
+ktvA:24,"24":"ktvA",
+/**
+* -nu
+*/
+knu:25,"25":"knu",
+/**
+* -mara
+*/
+kmarac:26,"26":"kmarac",
+/**
+* -ya
+*/
+kyap:27,"27":"kyap",
+/**
+* -ru (BIru)
+*/
+kru:28,"28":"kru",
+/**
+* -ruka (BIruka)
+*/
+kruka:29,"29":"kruka",
+/**
+* -luka (BIluka)
+*/
+klukan:30,"30":"klukan",
+/**
+* -vara
+*/
+kvarap:31,"31":"kvarap",
+/**
+* -vas
+*/
+kvasu:32,"32":"kvasu",
+/**
+* -snu (glAsnu, jizRu, ...)
+*/
+ksnu:33,"33":"ksnu",
+/**
+* (empty suffix)
+*/
+kvin:34,"34":"kvin",
+/**
+* (empty suffix)
+*/
+kvip:35,"35":"kvip",
+/**
+* -a (Izatkara, duzkara, sukara, ...)
+*/
+Kal:36,"36":"Kal",
+/**
+* -a
+*/
+Ga:37,"37":"Ga",
+/**
+* -a
+*/
+GaY:38,"38":"GaY",
+/**
+* -in
+*/
+GinuR:39,"39":"GinuR",
+/**
+* -ura
+*/
+Gurac:40,"40":"Gurac",
+/**
+* -van
+*/
+Nvanip:41,"41":"Nvanip",
+/**
+* -a
+*/
+wak:42,"42":"wak",
+/**
+* -u
+*/
+qu:43,"43":"qu",
+/**
+* -a
+*/
+Ra:44,"44":"Ra",
+/**
+* -in
+*/
+Rini:45,"45":"Rini",
+/**
+* -ya
+*/
+Ryat:46,"46":"Ryat",
+/**
+* -ana
+*/
+Ryuw:47,"47":"Ryuw",
+/**
+* -aka
+*/
+Rvuc:48,"48":"Rvuc",
+/**
+* -aka
+*/
+Rvul:49,"49":"Rvul",
+/**
+* -tavya (gantavya, bhavitavya, ...)
+*/
+tavya:50,"50":"tavya",
+/**
+* -tavya
+*/
+tavyat:51,"51":"tavyat",
+/**
+* -tum (gantum, bhavitum, ...)
+*/
+tumun:52,"52":"tumun",
+/**
+* -tf (gantA, bhavitA, ...)
+*/
+tfc:53,"53":"tfc",
+/**
+* -tf
+*/
+tfn:54,"54":"tfn",
+/**
+* -Taka (gATaka)
+*/
+Takan:55,"55":"Takan",
+/**
+* -Tu (vepaTu). Allowed only for dhatus that are `qvit`.
+*/
+Tuc:56,"56":"Tuc",
+/**
+* -na
+*/
+naN:57,"57":"naN",
+/**
+* -naj
+*/
+najiN:58,"58":"najiN",
+/**
+* -na (svapna)
+*/
+nan:59,"59":"nan",
+/**
+* -a
+*/
+Sa:60,"60":"Sa",
+/**
+* -at (gacCat, Bavat, ...)
+*/
+Satf:61,"61":"Satf",
+/**
+* -Ana (laBamAna, sevamAna, ...)
+*/
+SAnac:62,"62":"SAnac",
+/**
+* -Ana
+*/
+SAnan:63,"63":"SAnan",
+/**
+* -ya
+*/
+yat:64,"64":"yat",
+/**
+* -ana
+*/
+yuc:65,"65":"yuc",
+/**
+* -na (namra, kampra, ...)
+*/
+ra:66,"66":"ra",
+/**
+* -ru
+*/
+ru:67,"67":"ru",
+/**
+* -ana
+*/
+lyu:68,"68":"lyu",
+/**
+* -ana
+*/
+lyuw:69,"69":"lyuw",
+/**
+* -vaca
+*/
+varac:70,"70":"varac",
+/**
+* -aka
+*/
+vuY:71,"71":"vuY",
+/**
+* -aka
+*/
+vun:72,"72":"vun",
+/**
+* -Aka
+*/
+zAkan:73,"73":"zAkan",
+/**
+* -tra
+*/
+zwran:74,"74":"zwran",
+/**
+* -aka
+*/
+zvun:75,"75":"zvun", });
 /**
 * The prayoga of some tinanta.
 */
@@ -437,313 +601,153 @@ Parasmai:0,"0":"Parasmai",
 */
 Atmane:1,"1":"Atmane", });
 /**
-* The complete list of krt-pratyayas.
+* The gender of some subanta.
+*/
+export const Linga = Object.freeze({
+/**
+* The masculine.
+*/
+Pum:0,"0":"Pum",
+/**
+* The feminine.
+*/
+Stri:1,"1":"Stri",
+/**
+* The neuter.
+*/
+Napumsaka:2,"2":"Napumsaka", });
+/**
+* The case ending of some subanta.
+*/
+export const Vibhakti = Object.freeze({
+/**
+* The first vibhakti . Sometimes called the *nominative case*.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second vibhakti. Sometimes called the *accusative case*.
+*/
+Dvitiya:1,"1":"Dvitiya",
+/**
+* The third vibhakti. Sometimes called the *instrumental case*.
+*/
+Trtiya:2,"2":"Trtiya",
+/**
+* The fourth vibhakti. Sometimes called the *dative case*.
+*/
+Caturthi:3,"3":"Caturthi",
+/**
+* The fifth vibhakti. Sometimes called the *ablative case*.
+*/
+Panchami:4,"4":"Panchami",
+/**
+* The sixth vibhakti. Sometimes called the *genitive case*.
+*/
+Sasthi:5,"5":"Sasthi",
+/**
+* The seventh vibhakti. Sometimes called the *locative case*.
+*/
+Saptami:6,"6":"Saptami",
+/**
+* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
 *
-* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
-* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
-* distinguish between pratyayas like `naN` and `nan`.
+* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
+* on the first vibhakti. But we felt that users would find it more convenient to have this
+* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
+* condition separately.
 */
-export const Krt = Object.freeze({
+Sambodhana:7,"7":"Sambodhana", });
 /**
-* -Alu
+* Defines a gaṇa.
+*
+* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
+* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
+* before sarvadhatuka suffixes.
 */
-Aluc:0,"0":"Aluc",
+export const Gana = Object.freeze({
 /**
-* -Aru
+* The first gaṇa, whose first dhatu is `BU`.
 */
-Aru:1,"1":"Aru",
+Bhvadi:0,"0":"Bhvadi",
 /**
-* -a
+* The second gaṇa, whose first dhatu is `ad`.
 */
-Ga:2,"2":"Ga",
+Adadi:1,"1":"Adadi",
 /**
-* -a
+* The third gaṇa, whose first dhatu is `hu`.
 */
-GaY:3,"3":"GaY",
+Juhotyadi:2,"2":"Juhotyadi",
 /**
-* -in
+* The fourth gaṇa, whose first dhatu is `div`.
 */
-GinuR:4,"4":"GinuR",
+Divadi:3,"3":"Divadi",
 /**
-* -ura
+* The fifth gaṇa, whose first dhatu is `su`.
 */
-Gurac:5,"5":"Gurac",
+Svadi:4,"4":"Svadi",
 /**
-* -a (Izatkara, duzkara, sukara, ...)
+* The sixth gaṇa, whose first dhatu is `tud`.
 */
-Kal:6,"6":"Kal",
+Tudadi:5,"5":"Tudadi",
 /**
-* -van
+* The seventh gaṇa, whose first dhatu is `rudh`.
 */
-Nvanip:7,"7":"Nvanip",
+Rudhadi:6,"6":"Rudhadi",
 /**
-* -a
+* The eighth gaṇa, whose first dhatu is `tan`.
 */
-Ra:8,"8":"Ra",
+Tanadi:7,"7":"Tanadi",
 /**
-* -in
+* The ninth gaṇa, whose first dhatu is `krI`.
 */
-Rini:9,"9":"Rini",
+Kryadi:8,"8":"Kryadi",
 /**
-* -aka
+* The tenth gaṇa, whose first dhatu is `cur`.
 */
-Rvuc:10,"10":"Rvuc",
+Curadi:9,"9":"Curadi", });
 /**
-* -aka
+* One of the three common *sanAdi* pratyayas.
+*
+* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
+* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
+* 3.4.114.
+*
+* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
+* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
+*
+* For details on what these pratyayas mean and what kinds of words they produce, see the comments
+* below.
 */
-Rvul:11,"11":"Rvul",
+export const Sanadi = Object.freeze({
 /**
-* -ya
+* `san`, which creates desiderative roots per 3.1.7.
+*
+* Examples: buBUzati, ninIzati.
 */
-Ryat:12,"12":"Ryat",
+San:0,"0":"San",
 /**
-* -ana
+* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
+* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
+*
+* Examples: boBUyate, nenIyate.
+*
+* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
+* vowel. If this constraint is violated, our APIs will return an `Error`.
 */
-Ryuw:13,"13":"Ryuw",
+Yan:1,"1":"Yan",
 /**
-* -Ana (laBamAna, sevamAna, ...)
+* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
+* very different form.
+*
+* Examples: boBavIti, boBoti, nenayIti, neneti.
 */
-SAnac:14,"14":"SAnac",
+YanLuk:2,"2":"YanLuk",
 /**
-* -Ana
+* `Nic`, which creates causal roots per 3.1.26.
+*
+* Examples: BAvayati, nAyayati.
 */
-SAnan:15,"15":"SAnan",
-/**
-* -a
-*/
-Sa:16,"16":"Sa",
-/**
-* -at (gacCat, Bavat, ...)
-*/
-Satf:17,"17":"Satf",
-/**
-* -Taka (gATaka)
-*/
-Takan:18,"18":"Takan",
-/**
-* -Tu (vepaTu). Allowed only for dhatus that are `qvit`.
-*/
-Tuc:19,"19":"Tuc",
-/**
-* -Uka
-*/
-Uka:20,"20":"Uka",
-/**
-* -a
-*/
-aR:21,"21":"aR",
-/**
-* -a
-*/
-ac:22,"22":"ac",
-/**
-* -anIya (gamanIya, BavanIya, ...)
-*/
-anIyar:23,"23":"anIyar",
-/**
-* -ani
-*/
-ani:24,"24":"ani",
-/**
-* -at (jarat)
-*/
-atfn:25,"25":"atfn",
-/**
-* -Ana
-*/
-cAnaS:26,"26":"cAnaS",
-/**
-* -in
-*/
-ini:27,"27":"ini",
-/**
-* -itra
-*/
-itra:28,"28":"itra",
-/**
-* -izRu (alaMkarizRu, prajanizRu, ...)
-*/
-izRuc:29,"29":"izRuc",
-/**
-* -a
-*/
-ka:30,"30":"ka",
-/**
-* -Ana (cakrARa, ...)
-*/
-kAnac:31,"31":"kAnac",
-/**
-* -i (udaDi, ...)
-*/
-ki:32,"32":"ki",
-/**
-* -i
-*/
-kin:33,"33":"kin",
-/**
-* -luka (BIluka)
-*/
-klukan:34,"34":"klukan",
-/**
-* -mara
-*/
-kmarac:35,"35":"kmarac",
-/**
-* -nu
-*/
-knu:36,"36":"knu",
-/**
-* -ru (BIru)
-*/
-kru:37,"37":"kru",
-/**
-* -ruka (BIruka)
-*/
-kruka:38,"38":"kruka",
-/**
-* -snu (glAsnu, jizRu, ...)
-*/
-ksnu:39,"39":"ksnu",
-/**
-* -ta (gata, bhUta, ...)
-*/
-kta:40,"40":"kta",
-/**
-* -tavat (gatavat, bhUtavat, ...)
-*/
-ktavatu:41,"41":"ktavatu",
-/**
-* -ti
-*/
-ktic:42,"42":"ktic",
-/**
-* -ti
-*/
-ktin:43,"43":"ktin",
-/**
-* -tri
-*/
-ktri:44,"44":"ktri",
-/**
-* -tvA (gatvA, bhUtva, ...)
-*/
-ktvA:45,"45":"ktvA",
-/**
-* -ura (BaNgura, ...)
-*/
-kurac:46,"46":"kurac",
-/**
-* -vara
-*/
-kvarap:47,"47":"kvarap",
-/**
-* -vas
-*/
-kvasu:48,"48":"kvasu",
-/**
-* (empty suffix)
-*/
-kvip:49,"49":"kvip",
-/**
-* -ya
-*/
-kyap:50,"50":"kyap",
-/**
-* -ana
-*/
-lyu:51,"51":"lyu",
-/**
-* -ana
-*/
-lyuw:52,"52":"lyuw",
-/**
-* -na
-*/
-naN:53,"53":"naN",
-/**
-* -naj
-*/
-najiN:54,"54":"najiN",
-/**
-* -na (svapna)
-*/
-nan:55,"55":"nan",
-/**
-* -u
-*/
-qu:56,"56":"qu",
-/**
-* -na (namra, kampra, ...)
-*/
-ra:57,"57":"ra",
-/**
-* -ru
-*/
-ru:58,"58":"ru",
-/**
-* -tavya (gantavya, bhavitavya, ...)
-*/
-tavya:59,"59":"tavya",
-/**
-* -tavya
-*/
-tavyat:60,"60":"tavyat",
-/**
-* -tf (gantA, bhavitA, ...)
-*/
-tfc:61,"61":"tfc",
-/**
-* -tf
-*/
-tfn:62,"62":"tfn",
-/**
-* -tum (gantum, bhavitum, ...)
-*/
-tumun:63,"63":"tumun",
-/**
-* -u (yuyutsu, Bikzu, ...)
-*/
-u:64,"64":"u",
-/**
-* -uka
-*/
-ukaY:65,"65":"ukaY",
-/**
-* -vaca
-*/
-varac:66,"66":"varac",
-/**
-* -aka
-*/
-vuY:67,"67":"vuY",
-/**
-* -aka
-*/
-vun:68,"68":"vun",
-/**
-* -a
-*/
-wak:69,"69":"wak",
-/**
-* -ya
-*/
-yat:70,"70":"yat",
-/**
-* -ana
-*/
-yuc:71,"71":"yuc",
-/**
-* -Aka
-*/
-zAkan:72,"72":"zAkan",
-/**
-* -aka
-*/
-zvun:73,"73":"zvun",
-/**
-* -tra
-*/
-zwran:74,"74":"zwran", });
+Nic:3,"3":"Nic", });
 /**
 * WebAssembly API for vidyut-prakriya.
 */

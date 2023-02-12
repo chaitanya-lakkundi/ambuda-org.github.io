@@ -2,6 +2,8 @@
 #
 # Usage: ./build.sh <path/to/vidyut-prakriya>
 
+set -e
+
 CRATE=$1
 
 pushd ${CRATE} && make wasm_release

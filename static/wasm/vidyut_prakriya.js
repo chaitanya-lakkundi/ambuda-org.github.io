@@ -1,7 +1,6 @@
-
 let wasm;
 
-const heap = new Array(32).fill(undefined);
+const heap = new Array(128).fill(undefined);
 
 heap.push(undefined, null, true, false);
 
@@ -10,7 +9,7 @@ function getObject(idx) { return heap[idx]; }
 let heap_next = heap.length;
 
 function dropObject(idx) {
-    if (idx < 36) return;
+    if (idx < 132) return;
     heap[idx] = heap_next;
     heap_next = idx;
 }
@@ -34,10 +33,10 @@ const cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: tru
 
 cachedTextDecoder.decode();
 
-let cachedUint8Memory0 = new Uint8Array();
+let cachedUint8Memory0 = null;
 
 function getUint8Memory0() {
-    if (cachedUint8Memory0.byteLength === 0) {
+    if (cachedUint8Memory0 === null || cachedUint8Memory0.byteLength === 0) {
         cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
     }
     return cachedUint8Memory0;
@@ -167,10 +166,10 @@ function passStringToWasm0(arg, malloc, realloc) {
     return ptr;
 }
 
-let cachedInt32Memory0 = new Int32Array();
+let cachedInt32Memory0 = null;
 
 function getInt32Memory0() {
-    if (cachedInt32Memory0.byteLength === 0) {
+    if (cachedInt32Memory0 === null || cachedInt32Memory0.byteLength === 0) {
         cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
     }
     return cachedInt32Memory0;
@@ -190,307 +189,531 @@ export const Krt = Object.freeze({
 /**
 * -a
 */
-ac:0,"0":"ac",
+a:0,"0":"a",
 /**
 * -a
 */
-aR:1,"1":"aR",
+ac:1,"1":"ac",
+/**
+* -a
+*/
+aR:2,"2":"aR",
 /**
 * -at (jarat)
 */
-atfn:2,"2":"atfn",
+atfn:3,"3":"atfn",
 /**
 * -ani
 */
-ani:3,"3":"ani",
+ani:4,"4":"ani",
 /**
 * -anIya (gamanIya, BavanIya, ...)
 */
-anIyar:4,"4":"anIyar",
+anIyar:5,"5":"anIyar",
+/**
+* -a
+*/
+ap:6,"6":"ap",
 /**
 * -Alu
 */
-Aluc:5,"5":"Aluc",
+Aluc:7,"7":"Aluc",
 /**
 * -Aru
 */
-Aru:6,"6":"Aru",
+Aru:8,"8":"Aru",
 /**
 * -itra
 */
-itra:7,"7":"itra",
+itra:9,"9":"itra",
+/**
+* -in. The trailing `_` is to avoid colliding with Rust's `in` keyword.
+*/
+in_:10,"10":"in_",
 /**
 * -in
 */
-ini:8,"8":"ini",
+ini:11,"11":"ini",
 /**
 * -izRu (alaMkarizRu, prajanizRu, ...)
 */
-izRuc:9,"9":"izRuc",
+izRuc:12,"12":"izRuc",
 /**
 * -u (yuyutsu, Bikzu, ...)
 */
-u:10,"10":"u",
+u:13,"13":"u",
 /**
 * -uka
 */
-ukaY:11,"11":"ukaY",
+ukaY:14,"14":"ukaY",
 /**
 * -Uka
 */
-Uka:12,"12":"Uka",
-/**
-* -Ana
-*/
-cAnaS:13,"13":"cAnaS",
+Uka:15,"15":"Uka",
 /**
 * -a
 */
-ka:14,"14":"ka",
+ka:16,"16":"ka",
+/**
+* -a
+*/
+kaY:17,"17":"kaY",
+/**
+* -am
+*/
+kamul:18,"18":"kamul",
+/**
+* -as (visfpaH, ...)
+*/
+kasun:19,"19":"kasun",
+/**
+* -a
+*/
+kap:20,"20":"kap",
 /**
 * -Ana (cakrARa, ...)
 */
-kAnac:15,"15":"kAnac",
+kAnac:21,"21":"kAnac",
 /**
 * -i (udaDi, ...)
 */
-ki:16,"16":"ki",
+ki:22,"22":"ki",
 /**
 * -i
 */
-kin:17,"17":"kin",
+kin:23,"23":"kin",
 /**
 * -ura (BaNgura, ...)
 */
-kurac:18,"18":"kurac",
+kurac:24,"24":"kurac",
+/**
+* -elima (pacelima, ...)
+*/
+kelimar:25,"25":"kelimar",
 /**
 * -ta (gata, bhUta, ...)
 */
-kta:19,"19":"kta",
+kta:26,"26":"kta",
 /**
 * -tavat (gatavat, bhUtavat, ...)
 */
-ktavatu:20,"20":"ktavatu",
+ktavatu:27,"27":"ktavatu",
 /**
 * -ti
 */
-ktic:21,"21":"ktic",
+ktic:28,"28":"ktic",
 /**
 * -ti
 */
-ktin:22,"22":"ktin",
+ktin:29,"29":"ktin",
 /**
 * -tri
 */
-ktri:23,"23":"ktri",
+ktri:30,"30":"ktri",
 /**
 * -tvA (gatvA, bhUtva, ...)
 */
-ktvA:24,"24":"ktvA",
+ktvA:31,"31":"ktvA",
 /**
 * -nu
 */
-knu:25,"25":"knu",
+knu:32,"32":"knu",
 /**
 * -mara
 */
-kmarac:26,"26":"kmarac",
+kmarac:33,"33":"kmarac",
 /**
 * -ya
 */
-kyap:27,"27":"kyap",
+kyap:34,"34":"kyap",
 /**
 * -ru (BIru)
 */
-kru:28,"28":"kru",
+kru:35,"35":"kru",
 /**
 * -ruka (BIruka)
 */
-kruka:29,"29":"kruka",
+kruka:36,"36":"kruka",
 /**
 * -luka (BIluka)
 */
-klukan:30,"30":"klukan",
-/**
-* -vara
-*/
-kvarap:31,"31":"kvarap",
-/**
-* -vas
-*/
-kvasu:32,"32":"kvasu",
-/**
-* -snu (glAsnu, jizRu, ...)
-*/
-ksnu:33,"33":"ksnu",
-/**
-* (empty suffix)
-*/
-kvin:34,"34":"kvin",
-/**
-* (empty suffix)
-*/
-kvip:35,"35":"kvip",
-/**
-* -a (Izatkara, duzkara, sukara, ...)
-*/
-Kal:36,"36":"Kal",
-/**
-* -a
-*/
-Ga:37,"37":"Ga",
-/**
-* -a
-*/
-GaY:38,"38":"GaY",
-/**
-* -in
-*/
-GinuR:39,"39":"GinuR",
-/**
-* -ura
-*/
-Gurac:40,"40":"Gurac",
+klukan:37,"37":"klukan",
 /**
 * -van
 */
-Nvanip:41,"41":"Nvanip",
+kvanip:38,"38":"kvanip",
+/**
+* -vara
+*/
+kvarap:39,"39":"kvarap",
+/**
+* -vas
+*/
+kvasu:40,"40":"kvasu",
+/**
+* -snu (glAsnu, jizRu, ...)
+*/
+ksnu:41,"41":"ksnu",
+/**
+* (empty suffix)
+*/
+kvin:42,"42":"kvin",
+/**
+* (empty suffix)
+*/
+kvip:43,"43":"kvip",
+/**
+* -a (priyaMvada, vaSaMvada)
+*/
+Kac:44,"44":"Kac",
 /**
 * -a
 */
-wak:42,"42":"wak",
+KaS:45,"45":"KaS",
 /**
-* -u
+* -a (Izatkara, duzkara, sukara, ...)
 */
-qu:43,"43":"qu",
+Kal:46,"46":"Kal",
+/**
+* -izRu
+*/
+KizRuc:47,"47":"KizRuc",
+/**
+* -uka
+*/
+KukaY:48,"48":"KukaY",
+/**
+* -ana
+*/
+Kyun:49,"49":"Kyun",
 /**
 * -a
 */
-Ra:44,"44":"Ra",
+Ga:50,"50":"Ga",
+/**
+* -a
+*/
+GaY:51,"51":"GaY",
 /**
 * -in
 */
-Rini:45,"45":"Rini",
+GinuR:52,"52":"GinuR",
 /**
-* -ya
+* -ura
 */
-Ryat:46,"46":"Ryat",
+Gurac:53,"53":"Gurac",
 /**
-* -ana
+* -van
 */
-Ryuw:47,"47":"Ryuw",
-/**
-* -aka
-*/
-Rvuc:48,"48":"Rvuc",
-/**
-* -aka
-*/
-Rvul:49,"49":"Rvul",
-/**
-* -tavya (gantavya, bhavitavya, ...)
-*/
-tavya:50,"50":"tavya",
-/**
-* -tavya
-*/
-tavyat:51,"51":"tavyat",
-/**
-* -tum (gantum, bhavitum, ...)
-*/
-tumun:52,"52":"tumun",
-/**
-* -tf (gantA, bhavitA, ...)
-*/
-tfc:53,"53":"tfc",
-/**
-* -tf
-*/
-tfn:54,"54":"tfn",
-/**
-* -Taka (gATaka)
-*/
-Takan:55,"55":"Takan",
-/**
-* -Tu (vepaTu). Allowed only for dhatus that are `qvit`.
-*/
-Tuc:56,"56":"Tuc",
-/**
-* -na
-*/
-naN:57,"57":"naN",
-/**
-* -naj
-*/
-najiN:58,"58":"najiN",
-/**
-* -na (svapna)
-*/
-nan:59,"59":"nan",
-/**
-* -a
-*/
-Sa:60,"60":"Sa",
-/**
-* -at (gacCat, Bavat, ...)
-*/
-Satf:61,"61":"Satf",
-/**
-* -Ana (laBamAna, sevamAna, ...)
-*/
-SAnac:62,"62":"SAnac",
+Nvanip:54,"54":"Nvanip",
 /**
 * -Ana
 */
-SAnan:63,"63":"SAnan",
+cAnaS:55,"55":"cAnaS",
+/**
+* -anta,
+*/
+Jac:56,"56":"Jac",
+/**
+* -a
+*/
+wa:57,"57":"wa",
+/**
+* -a
+*/
+wak:58,"58":"wak",
+/**
+* -a
+*/
+qa:59,"59":"qa",
+/**
+* -u
+*/
+qu:60,"60":"qu",
+/**
+* -a
+*/
+Ra:61,"61":"Ra",
+/**
+* -am
+*/
+Ramul:62,"62":"Ramul",
+/**
+* -in
+*/
+Rini:63,"63":"Rini",
 /**
 * -ya
 */
-yat:64,"64":"yat",
+Ryat:64,"64":"Ryat",
 /**
 * -ana
 */
-yuc:65,"65":"yuc",
+Ryuw:65,"65":"Ryuw",
+/**
+* (empty)
+*/
+Rvi:66,"66":"Rvi",
+/**
+* -aka
+*/
+Rvuc:67,"67":"Rvuc",
+/**
+* -aka
+*/
+Rvul:68,"68":"Rvul",
+/**
+* -tavya (gantavya, bhavitavya, ...)
+*/
+tavya:69,"69":"tavya",
+/**
+* -tavya
+*/
+tavyat:70,"70":"tavyat",
+/**
+* -tum (gantum, bhavitum, ...)
+*/
+tumun:71,"71":"tumun",
+/**
+* -tf (gantA, bhavitA, ...)
+*/
+tfc:72,"72":"tfc",
+/**
+* -tf
+*/
+tfn:73,"73":"tfn",
+/**
+* -Taka (gATaka)
+*/
+Takan:74,"74":"Takan",
+/**
+* -Tu (vepaTu). Allowed only for dhatus that are `qvit`.
+*/
+aTuc:75,"75":"aTuc",
+/**
+* -na
+*/
+naN:76,"76":"naN",
+/**
+* -naj
+*/
+najiN:77,"77":"najiN",
+/**
+* -na (svapna)
+*/
+nan:78,"78":"nan",
+/**
+* -man
+*/
+manin:79,"79":"manin",
+/**
+* -a
+*/
+Sa:80,"80":"Sa",
+/**
+* -at (gacCat, Bavat, ...)
+*/
+Satf:81,"81":"Satf",
+/**
+* -Ana (laBamAna, sevamAna, ...)
+*/
+SAnac:82,"82":"SAnac",
+/**
+* -Ana
+*/
+SAnan:83,"83":"SAnan",
+/**
+* -ya
+*/
+yat:84,"84":"yat",
+/**
+* -ana
+*/
+yuc:85,"85":"yuc",
 /**
 * -na (namra, kampra, ...)
 */
-ra:66,"66":"ra",
+ra:86,"86":"ra",
 /**
 * -ru
 */
-ru:67,"67":"ru",
+ru:87,"87":"ru",
 /**
 * -ana
 */
-lyu:68,"68":"lyu",
+lyu:88,"88":"lyu",
 /**
 * -ana
 */
-lyuw:69,"69":"lyuw",
+lyuw:89,"89":"lyuw",
 /**
-* -vaca
+* -van
 */
-varac:70,"70":"varac",
+vanip:90,"90":"vanip",
+/**
+* -vara
+*/
+varac:91,"91":"varac",
+/**
+* (empty suffix)
+*/
+vic:92,"92":"vic",
+/**
+* (none)
+*/
+viw:93,"93":"viw",
 /**
 * -aka
 */
-vuY:71,"71":"vuY",
+vuY:94,"94":"vuY",
 /**
 * -aka
 */
-vun:72,"72":"vun",
+vun:95,"95":"vun",
 /**
 * -Aka
 */
-zAkan:73,"73":"zAkan",
+zAkan:96,"96":"zAkan",
 /**
 * -tra
 */
-zwran:74,"74":"zwran",
+zwran:97,"97":"zwran",
 /**
 * -aka
 */
-zvun:75,"75":"zvun", });
+zvun:98,"98":"zvun",
+/**
+* -ama (praTama)
+*/
+amac:99,"99":"amac",
+/**
+* -ala (maNgala)
+*/
+alac:100,"100":"alac",
+/**
+* -Ayya
+*/
+Ayya:101,"101":"Ayya",
+/**
+* -itnu
+*/
+itnuc:102,"102":"itnuc",
+/**
+* -iTi
+*/
+iTin:103,"103":"iTin",
+/**
+* -iza
+*/
+wizac:104,"104":"wizac",
+/**
+* -izWu
+*/
+izWuc:105,"105":"izWuc",
+/**
+* -izWa
+*/
+izWac:106,"106":"izWac",
+/**
+* -isa
+*/
+isan:107,"107":"isan",
+/**
+* -is
+*/
+isi:108,"108":"isi",
+/**
+* -u (kAru)
+*/
+uR:109,"109":"uR",
+/**
+* -atu (kratu)
+*/
+katu:110,"110":"katu",
+/**
+* -ka
+*/
+kan:111,"111":"kan",
+/**
+* -Ta
+*/
+kTan:112,"112":"kTan",
+/**
+* -vi (jAgfvi)
+*/
+kvinUnadi:113,"113":"kvinUnadi",
+/**
+* -sara
+*/
+ksaran:114,"114":"ksaran",
+/**
+* -si
+*/
+ksi:115,"115":"ksi",
+/**
+* -su
+*/
+ksu:116,"116":"ksu",
+/**
+* -u (tAlu)
+*/
+YuR:117,"117":"YuR",
+/**
+* -ta
+*/
+tan:118,"118":"tan",
+/**
+* -tu
+*/
+tun:119,"119":"tun",
+/**
+* -tra,
+*/
+tran:120,"120":"tran",
+/**
+* -sa
+*/
+sa:121,"121":"sa",
+/**
+* -sara
+*/
+sara:122,"122":"sara",
+/**
+* -su
+*/
+suk:123,"123":"suk",
+/**
+* -atni,
+*/
+katnic:124,"124":"katnic",
+/**
+* -yatu,
+*/
+yatuc:125,"125":"yatuc",
+/**
+* -ali
+*/
+alic:126,"126":"alic",
+/**
+* -sya
+*/
+syan:127,"127":"syan",
+/**
+* -uli
+*/
+uli:128,"128":"uli",
+/**
+* -as (use trailing `_` since `as` is a reserved keyword in Rust.)
+*/
+asa:129,"129":"asa",
+/**
+* -As,
+*/
+Asa:130,"130":"Asa",
+/**
+* -Anu
+*/
+Anuk:131,"131":"Anuk", });
 /**
 * The prayoga of some tinanta.
 */
@@ -601,62 +824,297 @@ Parasmai:0,"0":"Parasmai",
 */
 Atmane:1,"1":"Atmane", });
 /**
-* The gender of some subanta.
-*/
-export const Linga = Object.freeze({
-/**
-* The masculine.
-*/
-Pum:0,"0":"Pum",
-/**
-* The feminine.
-*/
-Stri:1,"1":"Stri",
-/**
-* The neuter.
-*/
-Napumsaka:2,"2":"Napumsaka", });
-/**
-* The case ending of some subanta.
-*/
-export const Vibhakti = Object.freeze({
-/**
-* The first vibhakti . Sometimes called the *nominative case*.
-*/
-Prathama:0,"0":"Prathama",
-/**
-* The second vibhakti. Sometimes called the *accusative case*.
-*/
-Dvitiya:1,"1":"Dvitiya",
-/**
-* The third vibhakti. Sometimes called the *instrumental case*.
-*/
-Trtiya:2,"2":"Trtiya",
-/**
-* The fourth vibhakti. Sometimes called the *dative case*.
-*/
-Caturthi:3,"3":"Caturthi",
-/**
-* The fifth vibhakti. Sometimes called the *ablative case*.
-*/
-Panchami:4,"4":"Panchami",
-/**
-* The sixth vibhakti. Sometimes called the *genitive case*.
-*/
-Sasthi:5,"5":"Sasthi",
-/**
-* The seventh vibhakti. Sometimes called the *locative case*.
-*/
-Saptami:6,"6":"Saptami",
-/**
-* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+* The complete list of taddhita-pratyayas.
 *
-* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
-* on the first vibhakti. But we felt that users would find it more convenient to have this
-* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
-* condition separately.
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
 */
-Sambodhana:7,"7":"Sambodhana", });
+export const Taddhita = Object.freeze({
+/**
+* -aka
+*/
+akac:0,"0":"akac",
+/**
+* -a
+*/
+aR:1,"1":"aR",
+/**
+* -a
+*/
+aY:2,"2":"aY",
+/**
+* -a
+*/
+at:3,"3":"at",
+/**
+* -Ara
+*/
+Arak:4,"4":"Arak",
+/**
+* -i
+*/
+iY:5,"5":"iY",
+/**
+* -iman
+*/
+imanic:6,"6":"imanic",
+/**
+* -ila
+*/
+ilac:7,"7":"ilac",
+/**
+* -izWa
+*/
+izWan:8,"8":"izWan",
+/**
+* -Iyas
+*/
+Iyasun:9,"9":"Iyasun",
+/**
+* -era,
+*/
+Erak:10,"10":"Erak",
+/**
+* -ka
+*/
+kan:11,"11":"kan",
+/**
+* -kalpa
+*/
+kalpap:12,"12":"kalpap",
+/**
+* -kftvas
+*/
+kftvasuc:13,"13":"kftvasuc",
+/**
+* -Ina
+*/
+Ka:14,"14":"Ka",
+/**
+* -Ina
+*/
+KaY:15,"15":"KaY",
+/**
+* -iya
+*/
+Ga:16,"16":"Ga",
+/**
+* -iya
+*/
+Gac:17,"17":"Gac",
+/**
+* -iya
+*/
+Gas:18,"18":"Gas",
+/**
+* -Ayana
+*/
+cPaY:19,"19":"cPaY",
+/**
+* -Iya
+*/
+Ca:20,"20":"Ca",
+/**
+* -Iya,
+*/
+CaR:21,"21":"CaR",
+/**
+* -Iya,
+*/
+Cas:22,"22":"Cas",
+/**
+* -ya
+*/
+Yya:23,"23":"Yya",
+/**
+* -a
+*/
+waq:24,"24":"waq",
+/**
+* -ika
+*/
+Wak:25,"25":"Wak",
+/**
+* -ika
+*/
+WaY:26,"26":"WaY",
+/**
+* -mat
+*/
+qmatup:27,"27":"qmatup",
+/**
+* -aka
+*/
+qvun:28,"28":"qvun",
+/**
+* -eya
+*/
+Qak:29,"29":"Qak",
+/**
+* -eya
+*/
+QaY:30,"30":"QaY",
+/**
+* -era
+*/
+Qrak:31,"31":"Qrak",
+/**
+* -in
+*/
+Rini:32,"32":"Rini",
+/**
+* -tama
+*/
+tamap:33,"33":"tamap",
+/**
+* -tara
+*/
+tarap:34,"34":"tarap",
+/**
+* -ta (becomes -tA)
+*/
+tal:35,"35":"tal",
+/**
+* -tas
+*/
+tasi:36,"36":"tasi",
+/**
+* -tas
+*/
+tasil:37,"37":"tasil",
+/**
+* -tika
+*/
+tikan:38,"38":"tikan",
+/**
+* -tra
+*/
+tral:39,"39":"tral",
+/**
+* -tva
+*/
+tva:40,"40":"tva",
+/**
+* -Tam
+*/
+Tamu:41,"41":"Tamu",
+/**
+* -TA
+*/
+TAl:42,"42":"TAl",
+/**
+* -dA
+*/
+dA:43,"43":"dA",
+/**
+* -dAnIm
+*/
+dAnIm:44,"44":"dAnIm",
+/**
+* -deSya
+*/
+deSya:45,"45":"deSya",
+/**
+* -deSIya
+*/
+deSIyar:46,"46":"deSIyar",
+/**
+* -dhA
+*/
+DA:47,"47":"DA",
+/**
+* -na
+*/
+na:48,"48":"na",
+/**
+* -Ayana
+*/
+Pak:49,"49":"Pak",
+/**
+* -Ayana
+*/
+PaY:50,"50":"PaY",
+/**
+* -Ayani
+*/
+PiY:51,"51":"PiY",
+/**
+* -mat
+*/
+matup:52,"52":"matup",
+/**
+* -ma
+*/
+map:53,"53":"map",
+/**
+* -maya
+*/
+mayaw:54,"54":"mayaw",
+/**
+* -ya
+*/
+yak:55,"55":"yak",
+/**
+* -ya
+*/
+yaY:56,"56":"yaY",
+/**
+* -ya
+*/
+yat:57,"57":"yat",
+/**
+* -yu
+*/
+yus:58,"58":"yus",
+/**
+* -rUpa
+*/
+rUpap:59,"59":"rUpap",
+/**
+* -rhi
+*/
+rhil:60,"60":"rhil",
+/**
+* -la
+*/
+lac:61,"61":"lac",
+/**
+* -in
+*/
+vini:62,"62":"vini",
+/**
+* -aka
+*/
+vuY:63,"63":"vuY",
+/**
+* -aka
+*/
+vun:64,"64":"vun",
+/**
+* -Sa
+*/
+Sa:65,"65":"Sa",
+/**
+* -Sas
+*/
+Sas:66,"66":"Sas",
+/**
+* -ika
+*/
+zWan:67,"67":"zWan",
+/**
+* -sAt
+*/
+sAti:68,"68":"sAti",
+/**
+* -s
+*/
+suc:69,"69":"suc",
+/**
+* -ha
+*/
+ha:70,"70":"ha", });
 /**
 * Defines a gaṇa.
 *
@@ -749,6 +1207,63 @@ YanLuk:2,"2":"YanLuk",
 */
 Nic:3,"3":"Nic", });
 /**
+* The gender of some subanta.
+*/
+export const Linga = Object.freeze({
+/**
+* The masculine.
+*/
+Pum:0,"0":"Pum",
+/**
+* The feminine.
+*/
+Stri:1,"1":"Stri",
+/**
+* The neuter.
+*/
+Napumsaka:2,"2":"Napumsaka", });
+/**
+* The case ending of some subanta.
+*/
+export const Vibhakti = Object.freeze({
+/**
+* The first vibhakti . Sometimes called the *nominative case*.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second vibhakti. Sometimes called the *accusative case*.
+*/
+Dvitiya:1,"1":"Dvitiya",
+/**
+* The third vibhakti. Sometimes called the *instrumental case*.
+*/
+Trtiya:2,"2":"Trtiya",
+/**
+* The fourth vibhakti. Sometimes called the *dative case*.
+*/
+Caturthi:3,"3":"Caturthi",
+/**
+* The fifth vibhakti. Sometimes called the *ablative case*.
+*/
+Panchami:4,"4":"Panchami",
+/**
+* The sixth vibhakti. Sometimes called the *genitive case*.
+*/
+Sasthi:5,"5":"Sasthi",
+/**
+* The seventh vibhakti. Sometimes called the *locative case*.
+*/
+Saptami:6,"6":"Saptami",
+/**
+* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+*
+* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
+* on the first vibhakti. But we felt that users would find it more convenient to have this
+* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
+* condition separately.
+*/
+Sambodhana:7,"7":"Sambodhana", });
+/**
 * WebAssembly API for vidyut-prakriya.
 */
 export class Vidyut {
@@ -795,12 +1310,15 @@ export class Vidyut {
     * @param {number} vacana
     * @param {number | undefined} pada
     * @param {number | undefined} sanadi
+    * @param {string | undefined} upasarga
     * @returns {any}
     */
-    derive_tinantas(code, lakara, prayoga, purusha, vacana, pada, sanadi) {
+    deriveTinantas(code, lakara, prayoga, purusha, vacana, pada, sanadi, upasarga) {
         const ptr0 = passStringToWasm0(code, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_derive_tinantas(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi);
+        var ptr1 = isLikeNone(upasarga) ? 0 : passStringToWasm0(upasarga, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        const ret = wasm.vidyut_deriveTinantas(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi, ptr1, len1);
         return takeObject(ret);
     }
     /**
@@ -811,10 +1329,10 @@ export class Vidyut {
     * @param {number} vibhakti
     * @returns {any}
     */
-    derive_subantas(pratipadika, linga, vacana, vibhakti) {
+    deriveSubantas(pratipadika, linga, vacana, vibhakti) {
         const ptr0 = passStringToWasm0(pratipadika, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_derive_subantas(this.ptr, ptr0, len0, linga, vacana, vibhakti);
+        const ret = wasm.vidyut_deriveSubantas(this.ptr, ptr0, len0, linga, vacana, vibhakti);
         return takeObject(ret);
     }
     /**
@@ -823,12 +1341,16 @@ export class Vidyut {
     * TODO: how might we reduce the number of arguments here?
     * @param {string} code
     * @param {number} krt
+    * @param {number | undefined} sanadi
+    * @param {string | undefined} upasarga
     * @returns {any}
     */
-    derive_krdantas(code, krt) {
+    deriveKrdantas(code, krt, sanadi, upasarga) {
         const ptr0 = passStringToWasm0(code, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_derive_krdantas(this.ptr, ptr0, len0, krt);
+        var ptr1 = isLikeNone(upasarga) ? 0 : passStringToWasm0(upasarga, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        const ret = wasm.vidyut_deriveKrdantas(this.ptr, ptr0, len0, krt, isLikeNone(sanadi) ? 4 : sanadi, ptr1, len1);
         return takeObject(ret);
     }
 }
@@ -884,15 +1406,15 @@ function getImports() {
     imports.wbg.__wbg_set_20cbc34131e76824 = function(arg0, arg1, arg2) {
         getObject(arg0)[takeObject(arg1)] = takeObject(arg2);
     };
-    imports.wbg.__wbg_new_1d9a920c6bfc44a8 = function() {
+    imports.wbg.__wbg_new_b525de17f44a8943 = function() {
         const ret = new Array();
         return addHeapObject(ret);
     };
-    imports.wbg.__wbg_new_0b9bfdd97583284e = function() {
+    imports.wbg.__wbg_new_f9876326328f45ed = function() {
         const ret = new Object();
         return addHeapObject(ret);
     };
-    imports.wbg.__wbg_set_a68214f35c417fa9 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbg_set_17224bc548dd1d7b = function(arg0, arg1, arg2) {
         getObject(arg0)[arg1 >>> 0] = takeObject(arg2);
     };
     imports.wbg.__wbg_new_abda76e883ba8a5f = function() {
@@ -934,8 +1456,8 @@ function initMemory(imports, maybe_memory) {
 function finalizeInit(instance, module) {
     wasm = instance.exports;
     init.__wbindgen_wasm_module = module;
-    cachedInt32Memory0 = new Int32Array();
-    cachedUint8Memory0 = new Uint8Array();
+    cachedInt32Memory0 = null;
+    cachedUint8Memory0 = null;
 
 
     return wasm;

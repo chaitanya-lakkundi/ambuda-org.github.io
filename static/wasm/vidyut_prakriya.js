@@ -179,6 +179,1305 @@ function isLikeNone(x) {
     return x === undefined || x === null;
 }
 /**
+* The complete list of unadi-pratyayas.
+*
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
+*
+* NOTE: we generated this list programmatically. Many of these pratyayas have typos.
+*/
+export const Unadi = Object.freeze({
+/**
+* -aknu
+*/
+aknuc:0,"0":"aknuc",
+/**
+* -aNga
+*/
+aNgac:1,"1":"aNgac",
+/**
+* -adAnu
+*/
+radAnuk:2,"2":"radAnuk",
+/**
+* -a
+*/
+ac:3,"3":"ac",
+/**
+* -aji
+*/
+aji:4,"4":"aji",
+/**
+* -awa
+*/
+awan:5,"5":"awan",
+/**
+* -awi
+*/
+awi:6,"6":"awi",
+/**
+* -aWa
+*/
+aWa:7,"7":"aWa",
+/**
+* -aRqa
+*/
+aRqan:8,"8":"aRqan",
+/**
+* -ata
+*/
+atac:9,"9":"atac",
+/**
+* -ati
+*/
+ati:10,"10":"ati",
+/**
+* -atra
+*/
+atran:11,"11":"atran",
+/**
+* -atri
+*/
+atrin:12,"12":"atrin",
+/**
+* -aTa
+*/
+aTa:13,"13":"aTa",
+/**
+* -adi
+*/
+adi:14,"14":"adi",
+/**
+* -a
+*/
+an:15,"15":"an",
+/**
+* -ani
+*/
+ani:16,"16":"ani",
+/**
+* -anu
+*/
+anuN:17,"17":"anuN",
+/**
+* -anya
+*/
+anya:18,"18":"anya",
+/**
+* -anyu
+*/
+anyuc:19,"19":"anyuc",
+/**
+* -apa
+*/
+apa:20,"20":"apa",
+/**
+* -abaka
+*/
+abaka:21,"21":"abaka",
+/**
+* -aba
+*/
+abac:22,"22":"abac",
+/**
+* -aBa
+*/
+aBac:23,"23":"aBac",
+/**
+* -ama
+*/
+ama:24,"24":"ama",
+/**
+* -ama (praTama)
+*/
+amac:25,"25":"amac",
+/**
+* -amba
+*/
+ambaj:26,"26":"ambaj",
+/**
+* -ayu
+*/
+ayu:27,"27":"ayu",
+/**
+* -ara
+*/
+ara:28,"28":"ara",
+/**
+* -ara
+*/
+aran:29,"29":"aran",
+/**
+* -aru
+*/
+aru:30,"30":"aru",
+/**
+* -a
+*/
+al:31,"31":"al",
+/**
+* -ala (maNgala)
+*/
+alac:32,"32":"alac",
+/**
+* -ali
+*/
+alic:33,"33":"alic",
+/**
+* -avi
+*/
+avi:34,"34":"avi",
+/**
+* -a
+*/
+asa:35,"35":"asa",
+/**
+* -asa
+*/
+asac:36,"36":"asac",
+/**
+* -asAna
+*/
+asAnac:37,"37":"asAnac",
+/**
+* -asi
+*/
+asi:38,"38":"asi",
+/**
+* -as (cetas)
+*/
+asun:39,"39":"asun",
+/**
+* -A
+*/
+A:40,"40":"A",
+/**
+* -Aka
+*/
+Aka:41,"41":"Aka",
+/**
+* -AgU
+*/
+AgUc:42,"42":"AgUc",
+/**
+* -Awa
+*/
+Awac:43,"43":"Awac",
+/**
+* -ARaka
+*/
+ARaka:44,"44":"ARaka",
+/**
+* -Atu
+*/
+Atu:45,"45":"Atu",
+/**
+* -Atfka
+*/
+Atfkan:46,"46":"Atfkan",
+/**
+* -Anaka
+*/
+Anaka:47,"47":"Anaka",
+/**
+* -Ana
+*/
+Anac:48,"48":"Anac",
+/**
+* -Anu
+*/
+Anuk:49,"49":"Anuk",
+/**
+* -Anya
+*/
+Anya:50,"50":"Anya",
+/**
+* -Ayya
+*/
+Ayya:51,"51":"Ayya",
+/**
+* -Ara
+*/
+Aran:52,"52":"Aran",
+/**
+* -Ala
+*/
+Ala:53,"53":"Ala",
+/**
+* -Ala
+*/
+Alac:54,"54":"Alac",
+/**
+* -Ala
+*/
+AlaY:55,"55":"AlaY",
+/**
+* -AlIya
+*/
+AlIyac:56,"56":"AlIyac",
+/**
+* -A
+*/
+Asa:57,"57":"Asa",
+/**
+* -Asi
+*/
+Asi:58,"58":"Asi",
+/**
+* -i
+*/
+i:59,"59":"i",
+/**
+* -ika
+*/
+ikan:60,"60":"ikan",
+/**
+* -iji
+*/
+iji:61,"61":"iji",
+/**
+* -i
+*/
+iY:62,"62":"iY",
+/**
+* -i
+*/
+iR:63,"63":"iR",
+/**
+* -ita
+*/
+ita:64,"64":"ita",
+/**
+* -ita
+*/
+itac:65,"65":"itac",
+/**
+* -ita
+*/
+itan:66,"66":"itan",
+/**
+* -iti
+*/
+iti:67,"67":"iti",
+/**
+* -itnu
+*/
+itnuc:68,"68":"itnuc",
+/**
+* -itra
+*/
+itra:69,"69":"itra",
+/**
+* -itva
+*/
+itvan:70,"70":"itvan",
+/**
+* -iTi
+*/
+iTin:71,"71":"iTin",
+/**
+* -i
+*/
+in_:72,"72":"in_",
+/**
+* -ina
+*/
+inac:73,"73":"inac",
+/**
+* -ina
+*/
+inaR:74,"74":"inaR",
+/**
+* -ina
+*/
+inan:75,"75":"inan",
+/**
+* -in
+*/
+ini:76,"76":"ini",
+/**
+* -imani
+*/
+imanic:77,"77":"imanic",
+/**
+* -imani
+*/
+imanin:78,"78":"imanin",
+/**
+* -ila
+*/
+ilac:79,"79":"ilac",
+/**
+* -izWa
+*/
+izWac:80,"80":"izWac",
+/**
+* -izWu
+*/
+izWuc:81,"81":"izWuc",
+/**
+* -izRu
+*/
+izRuc:82,"82":"izRuc",
+/**
+* -isa
+*/
+isan:83,"83":"isan",
+/**
+* -is
+*/
+isi:84,"84":"isi",
+/**
+* -is
+*/
+isin:85,"85":"isin",
+/**
+* -I
+*/
+I:86,"86":"I",
+/**
+* -Ika
+*/
+Ikan:87,"87":"Ikan",
+/**
+* -Ici
+*/
+Ici:88,"88":"Ici",
+/**
+* -Ida
+*/
+Ida:89,"89":"Ida",
+/**
+* -Ira
+*/
+Irac:90,"90":"Irac",
+/**
+* -Ira
+*/
+Iran:91,"91":"Iran",
+/**
+* -Iza
+*/
+Izan:92,"92":"Izan",
+/**
+* -u
+*/
+u:93,"93":"u",
+/**
+* -uka
+*/
+ukan:94,"94":"ukan",
+/**
+* -uqa
+*/
+uqac:95,"95":"uqac",
+/**
+* -u
+*/
+uR:96,"96":"uR",
+/**
+* -uti
+*/
+uti:97,"97":"uti",
+/**
+* -utra
+*/
+utra:98,"98":"utra",
+/**
+* -una
+*/
+una:99,"99":"una",
+/**
+* -una
+*/
+unan:100,"100":"unan",
+/**
+* -unasi
+*/
+unasi:101,"101":"unasi",
+/**
+* -uni
+*/
+uni:102,"102":"uni",
+/**
+* -unta
+*/
+unta:103,"103":"unta",
+/**
+* -unti
+*/
+unti:104,"104":"unti",
+/**
+* -uma
+*/
+uma:105,"105":"uma",
+/**
+* -umBa
+*/
+umBa:106,"106":"umBa",
+/**
+* -ura
+*/
+urac:107,"107":"urac",
+/**
+* -ura
+*/
+uran:108,"108":"uran",
+/**
+* -uri
+*/
+urin:109,"109":"urin",
+/**
+* -ula
+*/
+ulac:110,"110":"ulac",
+/**
+* -uli
+*/
+uli:111,"111":"uli",
+/**
+* -uza
+*/
+uzac:112,"112":"uzac",
+/**
+* -us (Danus)
+*/
+usi:113,"113":"usi",
+/**
+* -U
+*/
+U:114,"114":"U",
+/**
+* -Uka
+*/
+Uka:115,"115":"Uka",
+/**
+* -Uka
+*/
+UkaR:116,"116":"UkaR",
+/**
+* -UKa
+*/
+UKa:117,"117":"UKa",
+/**
+* -UTa
+*/
+UTan:118,"118":"UTan",
+/**
+* -Uma
+*/
+Uma:119,"119":"Uma",
+/**
+* -U
+*/
+Ur:120,"120":"Ur",
+/**
+* -Ura
+*/
+Uran:121,"121":"Uran",
+/**
+* -Uza
+*/
+Uzan:122,"122":"Uzan",
+/**
+* -f
+*/
+f:123,"123":"f",
+/**
+* -fti
+*/
+ftin:124,"124":"ftin",
+/**
+* -f
+*/
+fn_:125,"125":"fn_",
+/**
+* -eRu
+*/
+eRu:126,"126":"eRu",
+/**
+* -eRya
+*/
+eRya:127,"127":"eRya",
+/**
+* -era
+*/
+erak:128,"128":"erak",
+/**
+* -elima
+*/
+elimac:129,"129":"elimac",
+/**
+* -ota
+*/
+otac:130,"130":"otac",
+/**
+* -ora
+*/
+oran:131,"131":"oran",
+/**
+* -ola
+*/
+olac:132,"132":"olac",
+/**
+* -ka
+*/
+ka:133,"133":"ka",
+/**
+* -ka
+*/
+kak:134,"134":"kak",
+/**
+* -kaNkaRa
+*/
+kaNkaRa:135,"135":"kaNkaRa",
+/**
+* -kaRa
+*/
+kaRa:136,"136":"kaRa",
+/**
+* -katu
+*/
+katu:137,"137":"katu",
+/**
+* -katni
+*/
+katnic:138,"138":"katnic",
+/**
+* -katra
+*/
+katra:139,"139":"katra",
+/**
+* -kTa
+*/
+kTan:140,"140":"kTan",
+/**
+* -ka
+*/
+kan:141,"141":"kan",
+/**
+* -kanasi
+*/
+kanasi:142,"142":"kanasi",
+/**
+* -kani
+*/
+kanin:143,"143":"kanin",
+/**
+* -kanu
+*/
+kanum:144,"144":"kanum",
+/**
+* -kanya
+*/
+kanyan:145,"145":"kanyan",
+/**
+* -kanyu
+*/
+kanyuc:146,"146":"kanyuc",
+/**
+* -kapa
+*/
+kapa:147,"147":"kapa",
+/**
+* -kapa
+*/
+kapan:148,"148":"kapan",
+/**
+* -kami
+*/
+kamin:149,"149":"kamin",
+/**
+* -kaya
+*/
+kayan:150,"150":"kayan",
+/**
+* -kara
+*/
+karan:151,"151":"karan",
+/**
+* -kala
+*/
+kala:152,"152":"kala",
+/**
+* -kAku
+*/
+kAku:153,"153":"kAku",
+/**
+* -kAla
+*/
+kAlan:154,"154":"kAlan",
+/**
+* -kika
+*/
+kikan:155,"155":"kikan",
+/**
+* -kita
+*/
+kitac:156,"156":"kitac",
+/**
+* -kinda
+*/
+kindac:157,"157":"kindac",
+/**
+* -kira
+*/
+kirac:158,"158":"kirac",
+/**
+* -kizya
+*/
+kizyan:159,"159":"kizyan",
+/**
+* -kIka
+*/
+kIkac:160,"160":"kIkac",
+/**
+* -kIka
+*/
+kIkan:161,"161":"kIkan",
+/**
+* -kIwa
+*/
+kIwan:162,"162":"kIwan",
+/**
+* -ku
+*/
+ku:163,"163":"ku",
+/**
+* -ku
+*/
+kuk:164,"164":"kuk",
+/**
+* -kuka
+*/
+kukan:165,"165":"kukan",
+/**
+* -kuza
+*/
+kuzan:166,"166":"kuzan",
+/**
+* -kU
+*/
+kU:167,"167":"kU",
+/**
+* -kta
+*/
+kta:168,"168":"kta",
+/**
+* -ktnu
+*/
+ktnu:169,"169":"ktnu",
+/**
+* -ktra
+*/
+ktra:170,"170":"ktra",
+/**
+* -kTi
+*/
+kTin:171,"171":"kTin",
+/**
+* -kna
+*/
+kna:172,"172":"kna",
+/**
+* -kni
+*/
+knin:173,"173":"knin",
+/**
+* -kmala
+*/
+kmalan:174,"174":"kmalan",
+/**
+* -kyu
+*/
+kyu:175,"175":"kyu",
+/**
+* -kyu
+*/
+kyun:176,"176":"kyun",
+/**
+* -kra
+*/
+kran:177,"177":"kran",
+/**
+* -krara
+*/
+kraran:178,"178":"kraran",
+/**
+* -kri
+*/
+kri:179,"179":"kri",
+/**
+* -kri
+*/
+krin:180,"180":"krin",
+/**
+* -kruka
+*/
+krukan:181,"181":"krukan",
+/**
+* -kru
+*/
+krun:182,"182":"krun",
+/**
+* -kla
+*/
+kla:183,"183":"kla",
+/**
+* -kva
+*/
+kvan:184,"184":"kvan",
+/**
+* -kvani
+*/
+kvanip:185,"185":"kvanip",
+/**
+* -kvi
+*/
+kvin:186,"186":"kvin",
+/**
+* -kvi
+*/
+kvip:187,"187":"kvip",
+/**
+* -kvu
+*/
+kvun:188,"188":"kvun",
+/**
+* -ksara
+*/
+ksaran:189,"189":"ksaran",
+/**
+* -ksi
+*/
+ksi:190,"190":"ksi",
+/**
+* -ksu
+*/
+ksu:191,"191":"ksu",
+/**
+* -kseyya
+*/
+kseyya:192,"192":"kseyya",
+/**
+* -ksna
+*/
+ksna:193,"193":"ksna",
+/**
+* -Ka
+*/
+Ka:194,"194":"Ka",
+/**
+* -ga
+*/
+ga:195,"195":"ga",
+/**
+* -ga
+*/
+gak:196,"196":"gak",
+/**
+* -ga
+*/
+gaR:197,"197":"gaR",
+/**
+* -ga
+*/
+gan:198,"198":"gan",
+/**
+* -GaTi
+*/
+GaTin:199,"199":"GaTin",
+/**
+* -ca
+*/
+caw:200,"200":"caw",
+/**
+* -catu
+*/
+catu:201,"201":"catu",
+/**
+* -ci
+*/
+cik:202,"202":"cik",
+/**
+* -Ja
+*/
+Jac:203,"203":"Jac",
+/**
+* -Ji
+*/
+Jic:204,"204":"Jic",
+/**
+* -Yu
+*/
+YuR:205,"205":"YuR",
+/**
+* -wa
+*/
+wa:206,"206":"wa",
+/**
+* -wa
+*/
+wan:207,"207":"wan",
+/**
+* -wiza
+*/
+wizac:208,"208":"wizac",
+/**
+* -Wa
+*/
+Wa:209,"209":"Wa",
+/**
+* -qa
+*/
+qa:210,"210":"qa",
+/**
+* -qau
+*/
+qau:211,"211":"qau",
+/**
+* -qa
+*/
+qaw:212,"212":"qaw",
+/**
+* -qati
+*/
+qati:213,"213":"qati",
+/**
+* -qavatu
+*/
+qavatu:214,"214":"qavatu",
+/**
+* -qimi
+*/
+qimi:215,"215":"qimi",
+/**
+* -quta
+*/
+qutac:216,"216":"qutac",
+/**
+* -qu
+*/
+qun:217,"217":"qun",
+/**
+* -qumsu
+*/
+qumsun:218,"218":"qumsun",
+/**
+* -qU
+*/
+qU:219,"219":"qU",
+/**
+* -qE
+*/
+qE:220,"220":"qE",
+/**
+* -qEsi
+*/
+qEsi:221,"221":"qEsi",
+/**
+* -qo
+*/
+qo:222,"222":"qo",
+/**
+* -qosi
+*/
+qosi:223,"223":"qosi",
+/**
+* -qO
+*/
+qO:224,"224":"qO",
+/**
+* -qri
+*/
+qri:225,"225":"qri",
+/**
+* -Qa
+*/
+Qa:226,"226":"Qa",
+/**
+* -Ritra
+*/
+Ritran:227,"227":"Ritran",
+/**
+* -Ru
+*/
+Ru:228,"228":"Ru",
+/**
+* -Ruka
+*/
+Rukan:229,"229":"Rukan",
+/**
+* -ta
+*/
+ta:230,"230":"ta",
+/**
+* -taka
+*/
+takan:231,"231":"takan",
+/**
+* -ta
+*/
+tan:232,"232":"tan",
+/**
+* -tana
+*/
+tanan:233,"233":"tanan",
+/**
+* -taSa
+*/
+taSan:234,"234":"taSan",
+/**
+* -taSasu
+*/
+taSasun:235,"235":"taSasun",
+/**
+* -ti
+*/
+ti:236,"236":"ti",
+/**
+* -tika
+*/
+tikan:237,"237":"tikan",
+/**
+* -tu
+*/
+tu:238,"238":"tu",
+/**
+* -tu
+*/
+tun:239,"239":"tun",
+/**
+* -tf
+*/
+tfc:240,"240":"tfc",
+/**
+* -tf
+*/
+tfn:241,"241":"tfn",
+/**
+* -tna
+*/
+tnaR:242,"242":"tnaR",
+/**
+* -tyu
+*/
+tyuk:243,"243":"tyuk",
+/**
+* -tra
+*/
+tra:244,"244":"tra",
+/**
+* -tra
+*/
+tran:245,"245":"tran",
+/**
+* -tri
+*/
+trin:246,"246":"trin",
+/**
+* -tri
+*/
+trip:247,"247":"trip",
+/**
+* -tva
+*/
+tvan:248,"248":"tvan",
+/**
+* -Ta
+*/
+Tak:249,"249":"Tak",
+/**
+* -da
+*/
+da:250,"250":"da",
+/**
+* -da
+*/
+dan:251,"251":"dan",
+/**
+* -Du
+*/
+Duk:252,"252":"Duk",
+/**
+* -na
+*/
+na:253,"253":"na",
+/**
+* -na
+*/
+nak:254,"254":"nak",
+/**
+* -ni
+*/
+ni:255,"255":"ni",
+/**
+* -nu
+*/
+nu:256,"256":"nu",
+/**
+* -pa
+*/
+pa:257,"257":"pa",
+/**
+* -pAsa
+*/
+pAsa:258,"258":"pAsa",
+/**
+* -Pa
+*/
+Pak:259,"259":"Pak",
+/**
+* -ba
+*/
+ban:260,"260":"ban",
+/**
+* -Ba
+*/
+Ba:261,"261":"Ba",
+/**
+* -Ba
+*/
+Ban:262,"262":"Ban",
+/**
+* -ma
+*/
+mak:263,"263":"mak",
+/**
+* -madi
+*/
+madik:264,"264":"madik",
+/**
+* -ma
+*/
+man:265,"265":"man",
+/**
+* -man
+*/
+mani:266,"266":"mani",
+/**
+* -man
+*/
+maniR:267,"267":"maniR",
+/**
+* -man
+*/
+manin:268,"268":"manin",
+/**
+* -mi
+*/
+mi:269,"269":"mi",
+/**
+* -mi
+*/
+min:270,"270":"min",
+/**
+* -mu
+*/
+muk:271,"271":"muk",
+/**
+* -ya
+*/
+ya:272,"272":"ya",
+/**
+* -ya
+*/
+yak:273,"273":"yak",
+/**
+* -ya
+*/
+yat:274,"274":"yat",
+/**
+* -yatu
+*/
+yatuc:275,"275":"yatuc",
+/**
+* -yu
+*/
+yuk:276,"276":"yuk",
+/**
+* -yu
+*/
+yuc:277,"277":"yuc",
+/**
+* -yu
+*/
+yun:278,"278":"yun",
+/**
+* -ra
+*/
+ra:279,"279":"ra",
+/**
+* -ra
+*/
+rak:280,"280":"rak",
+/**
+* -ra
+*/
+ran:281,"281":"ran",
+/**
+* -ru
+*/
+ru:282,"282":"ru",
+/**
+* -la
+*/
+lak:283,"283":"lak",
+/**
+* -va
+*/
+va:284,"284":"va",
+/**
+* -va
+*/
+vaR:285,"285":"vaR",
+/**
+* -va
+*/
+van:286,"286":"van",
+/**
+* -vani
+*/
+vanip:287,"287":"vanip",
+/**
+* -vara
+*/
+varaw:288,"288":"varaw",
+/**
+* -vala
+*/
+valaY:289,"289":"valaY",
+/**
+* -vAla
+*/
+vAlac:290,"290":"vAlac",
+/**
+* -vAla
+*/
+vAlan:291,"291":"vAlan",
+/**
+* -vi
+*/
+vin:292,"292":"vin",
+/**
+* -vu
+*/
+vun:293,"293":"vun",
+/**
+* -Sa
+*/
+Sak:294,"294":"Sak",
+/**
+* -Su
+*/
+Sun:295,"295":"Sun",
+/**
+* -Sva
+*/
+SvaR:296,"296":"SvaR",
+/**
+* -ziva
+*/
+zivan:297,"297":"zivan",
+/**
+* -zwra
+*/
+zwran:298,"298":"zwran",
+/**
+* -zvara
+*/
+zvarac:299,"299":"zvarac",
+/**
+* -sa
+*/
+sa:300,"300":"sa",
+/**
+* -sa
+*/
+san:301,"301":"san",
+/**
+* -sara
+*/
+sara:302,"302":"sara",
+/**
+* -sika
+*/
+sikan:303,"303":"sikan",
+/**
+* -sTa
+*/
+sTan:304,"304":"sTan",
+/**
+* -sma
+*/
+sman:305,"305":"sman",
+/**
+* -sya
+*/
+sya:306,"306":"sya",
+/**
+* -sya
+*/
+syan:307,"307":"syan", });
+/**
+* The gender of some subanta.
+*/
+export const Linga = Object.freeze({
+/**
+* The masculine.
+*/
+Pum:0,"0":"Pum",
+/**
+* The feminine.
+*/
+Stri:1,"1":"Stri",
+/**
+* The neuter.
+*/
+Napumsaka:2,"2":"Napumsaka", });
+/**
+* The case ending of some subanta.
+*/
+export const Vibhakti = Object.freeze({
+/**
+* The first vibhakti . Sometimes called the *nominative case*.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second vibhakti. Sometimes called the *accusative case*.
+*/
+Dvitiya:1,"1":"Dvitiya",
+/**
+* The third vibhakti. Sometimes called the *instrumental case*.
+*/
+Trtiya:2,"2":"Trtiya",
+/**
+* The fourth vibhakti. Sometimes called the *dative case*.
+*/
+Caturthi:3,"3":"Caturthi",
+/**
+* The fifth vibhakti. Sometimes called the *ablative case*.
+*/
+Panchami:4,"4":"Panchami",
+/**
+* The sixth vibhakti. Sometimes called the *genitive case*.
+*/
+Sasthi:5,"5":"Sasthi",
+/**
+* The seventh vibhakti. Sometimes called the *locative case*.
+*/
+Saptami:6,"6":"Saptami",
+/**
+* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+*
+* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
+* on the first vibhakti. But we felt that users would find it more convenient to have this
+* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
+* condition separately.
+*/
+Sambodhana:7,"7":"Sambodhana", });
+/**
 * The prayoga of some tinanta.
 */
 export const Prayoga = Object.freeze({
@@ -276,9 +1575,9 @@ Lun:9,"9":"Lun",
 */
 Lrn:10,"10":"Lrn", });
 /**
-* The pada of some tinanta.
+* The pada of some tinanta or krdanta.
 */
-export const Pada = Object.freeze({
+export const DhatuPada = Object.freeze({
 /**
 * Parasmaipada.
 */
@@ -288,13 +1587,705 @@ Parasmai:0,"0":"Parasmai",
 */
 Atmane:1,"1":"Atmane", });
 /**
-* The complete list of krt-pratyayas.
+* The complete list of taddhita-pratyayas.
 *
 * Rust's naming convention is to start enum values with capital letters. However, we allow mixed
 * case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
 * distinguish between pratyayas like `naN` and `nan`.
 */
-export const Krt = Object.freeze({
+export const Taddhita = Object.freeze({
+/**
+* a
+*/
+a:0,"0":"a",
+/**
+* -aka
+*/
+akac:1,"1":"akac",
+/**
+* -a
+*/
+ac:2,"2":"ac",
+/**
+* -aWa
+*/
+aWac:3,"3":"aWac",
+/**
+* -a
+*/
+aR:4,"4":"aR",
+/**
+* -a
+*/
+aY:5,"5":"aY",
+/**
+* -a
+*/
+at:6,"6":"at",
+/**
+* -atas
+*/
+atasuc:7,"7":"atasuc",
+/**
+* -an
+*/
+anic:8,"8":"anic",
+/**
+* -a
+*/
+ap:9,"9":"ap",
+/**
+* -as
+*/
+asic:10,"10":"asic",
+/**
+* -astAt
+*/
+astAti:11,"11":"astAti",
+/**
+* -Akin,
+*/
+Akinic:12,"12":"Akinic",
+/**
+* -Ara
+*/
+Arak:13,"13":"Arak",
+/**
+* -i
+*/
+iY:14,"14":"iY",
+/**
+* -ita
+*/
+itac:15,"15":"itac",
+/**
+* -ina
+*/
+inac:16,"16":"inac",
+/**
+* -in
+*/
+ini:17,"17":"ini",
+/**
+* -iman
+*/
+imanic:18,"18":"imanic",
+/**
+* -ila
+*/
+ila:19,"19":"ila",
+/**
+* -ila
+*/
+ilac:20,"20":"ilac",
+/**
+* -izWa
+*/
+izWan:21,"21":"izWan",
+/**
+* -Ika,
+*/
+Ikak:22,"22":"Ikak",
+/**
+* -Iyas
+*/
+Iyasun:23,"23":"Iyasun",
+/**
+* -eRya
+*/
+eRya:24,"24":"eRya",
+/**
+* -Era
+*/
+Erak:25,"25":"Erak",
+/**
+* -ka
+*/
+ka:26,"26":"ka",
+/**
+* -ka
+*/
+kak:27,"27":"kak",
+/**
+* -kawa
+*/
+kawac:28,"28":"kawac",
+/**
+* -ka
+*/
+kan:29,"29":"kan",
+/**
+* -ka
+*/
+kap:30,"30":"kap",
+/**
+* -kalpa
+*/
+kalpap:31,"31":"kalpap",
+/**
+* -kftvas
+*/
+kftvasuc:32,"32":"kftvasuc",
+/**
+* -kuwAra
+*/
+kuwArac:33,"33":"kuwArac",
+/**
+* -kura,
+*/
+kuRap:34,"34":"kuRap",
+/**
+* -Ina
+*/
+Ka:35,"35":"Ka",
+/**
+* -Ina
+*/
+KaY:36,"36":"KaY",
+/**
+* -iya
+*/
+Ga:37,"37":"Ga",
+/**
+* -iya
+*/
+Gac:38,"38":"Gac",
+/**
+* -iya
+*/
+Gan:39,"39":"Gan",
+/**
+* -iya
+*/
+Gas:40,"40":"Gas",
+/**
+* -caRa
+*/
+caRap:41,"41":"caRap",
+/**
+* -cara
+*/
+caraw:42,"42":"caraw",
+/**
+* -cuYcu
+*/
+cuYcup:43,"43":"cuYcup",
+/**
+* -Ayana
+*/
+cPaY:44,"44":"cPaY",
+/**
+* --
+*/
+cvi:45,"45":"cvi",
+/**
+* -Iya
+*/
+Ca:46,"46":"Ca",
+/**
+* -Iya,
+*/
+CaR:47,"47":"CaR",
+/**
+* -Iya,
+*/
+Cas:48,"48":"Cas",
+/**
+* -jAtIya
+*/
+jAtIyar:49,"49":"jAtIyar",
+/**
+* -jAha
+*/
+jAhac:50,"50":"jAhac",
+/**
+* -a,
+*/
+Ya:51,"51":"Ya",
+/**
+* -ika
+*/
+YiW:52,"52":"YiW",
+/**
+* -ya
+*/
+Yya:53,"53":"Yya",
+/**
+* -ya,
+*/
+YyaN:54,"54":"YyaN",
+/**
+* -ya
+*/
+Yyaw:55,"55":"Yyaw",
+/**
+* -a
+*/
+wac:56,"56":"wac",
+/**
+* -a
+*/
+waq:57,"57":"waq",
+/**
+* -iWa
+*/
+wiWan:58,"58":"wiWan",
+/**
+* -wIwa
+*/
+wIwac:59,"59":"wIwac",
+/**
+* -eRya
+*/
+weRyaR:60,"60":"weRyaR",
+/**
+* -ya
+*/
+wyaR:61,"61":"wyaR",
+/**
+* -ana
+*/
+wyu:62,"62":"wyu",
+/**
+* -ana
+*/
+wyul:63,"63":"wyul",
+/**
+* -la
+*/
+wlaY:64,"64":"wlaY",
+/**
+* -ika
+*/
+Wak:65,"65":"Wak",
+/**
+* -ika
+*/
+Wac:66,"66":"Wac",
+/**
+* -ika
+*/
+WaY:67,"67":"WaY",
+/**
+* -ika
+*/
+Wan:68,"68":"Wan",
+/**
+* -ika
+*/
+Wap:69,"69":"Wap",
+/**
+* -a
+*/
+qaw:70,"70":"qaw",
+/**
+* -ati
+*/
+qati:71,"71":"qati",
+/**
+* -atara
+*/
+qatarac:72,"72":"qatarac",
+/**
+* -atama
+*/
+qatamac:73,"73":"qatamac",
+/**
+* -pa
+*/
+qupac:74,"74":"qupac",
+/**
+* -mat
+*/
+qmatup:75,"75":"qmatup",
+/**
+* -ya
+*/
+qyaR:76,"76":"qyaR",
+/**
+* -vala
+*/
+qvalac:77,"77":"qvalac",
+/**
+* -aka
+*/
+qvun:78,"78":"qvun",
+/**
+* -eya
+*/
+Qak:79,"79":"Qak",
+/**
+* -eyaka
+*/
+QakaY:80,"80":"QakaY",
+/**
+* -eya
+*/
+Qa:81,"81":"Qa",
+/**
+* -eya
+*/
+QaY:82,"82":"QaY",
+/**
+* -eyin
+*/
+Qinuk:83,"83":"Qinuk",
+/**
+* -era
+*/
+Qrak:84,"84":"Qrak",
+/**
+* -a
+*/
+Ra:85,"85":"Ra",
+/**
+* -in
+*/
+Rini:86,"86":"Rini",
+/**
+* -ya
+*/
+Rya:87,"87":"Rya",
+/**
+* -tama
+*/
+tamap:88,"88":"tamap",
+/**
+* -taya
+*/
+tayap:89,"89":"tayap",
+/**
+* -tara
+*/
+tarap:90,"90":"tarap",
+/**
+* -ta (becomes -tA)
+*/
+tal:91,"91":"tal",
+/**
+* -tas
+*/
+tasi:92,"92":"tasi",
+/**
+* -tas
+*/
+tasil:93,"93":"tasil",
+/**
+* -ti
+*/
+ti:94,"94":"ti",
+/**
+* -tika
+*/
+tikan:95,"95":"tikan",
+/**
+* -tIya
+*/
+tIya:96,"96":"tIya",
+/**
+* -tya
+*/
+tyak:97,"97":"tyak",
+/**
+* -tyaka
+*/
+tyakan:98,"98":"tyakan",
+/**
+* -tya
+*/
+tyap:99,"99":"tyap",
+/**
+* -tana
+*/
+tyu:100,"100":"tyu",
+/**
+* -tana
+*/
+tyul:101,"101":"tyul",
+/**
+* -tra
+*/
+tral:102,"102":"tral",
+/**
+* -trA
+*/
+trA:103,"103":"trA",
+/**
+* -tva
+*/
+tva:104,"104":"tva",
+/**
+* -Tam
+*/
+Tamu:105,"105":"Tamu",
+/**
+* -Tya
+*/
+Tyan:106,"106":"Tyan",
+/**
+* -TA
+*/
+TAl:107,"107":"TAl",
+/**
+* -daGna
+*/
+daGnac:108,"108":"daGnac",
+/**
+* -dA
+*/
+dA:109,"109":"dA",
+/**
+* -dAnIm
+*/
+dAnIm:110,"110":"dAnIm",
+/**
+* -deSya
+*/
+deSya:111,"111":"deSya",
+/**
+* -deSIya
+*/
+deSIyar:112,"112":"deSIyar",
+/**
+* -dvayasa
+*/
+dvayasac:113,"113":"dvayasac",
+/**
+* -dhA
+*/
+DA:114,"114":"DA",
+/**
+* -na
+*/
+na:115,"115":"na",
+/**
+* -na
+*/
+naY:116,"116":"naY",
+/**
+* -nAwa
+*/
+nAwac:117,"117":"nAwac",
+/**
+* -Ayana
+*/
+Pak:118,"118":"Pak",
+/**
+* -Ayana
+*/
+PaY:119,"119":"PaY",
+/**
+* -Ayani
+*/
+PiY:120,"120":"PiY",
+/**
+* -bahu
+*/
+bahuc:121,"121":"bahuc",
+/**
+* -biqa
+*/
+biqac:122,"122":"biqac",
+/**
+* -birIsa
+*/
+birIsac:123,"123":"birIsac",
+/**
+* -Bakta
+*/
+Baktal:124,"124":"Baktal",
+/**
+* -Brawa
+*/
+Brawac:125,"125":"Brawac",
+/**
+* -ma
+*/
+ma:126,"126":"ma",
+/**
+* -mat
+*/
+matup:127,"127":"matup",
+/**
+* -ma
+*/
+map:128,"128":"map",
+/**
+* -maya
+*/
+mayaw:129,"129":"mayaw",
+/**
+* -mAtra
+*/
+mAtrac:130,"130":"mAtrac",
+/**
+* -pASa
+*/
+pASap:131,"131":"pASap",
+/**
+* -piwa
+*/
+piwac:132,"132":"piwac",
+/**
+* -ya
+*/
+ya:133,"133":"ya",
+/**
+* -ya
+*/
+yak:134,"134":"yak",
+/**
+* -ya
+*/
+yaY:135,"135":"yaY",
+/**
+* -ya
+*/
+yat:136,"136":"yat",
+/**
+* -ya
+*/
+yan:137,"137":"yan",
+/**
+* -yu
+*/
+yus:138,"138":"yus",
+/**
+* -ra
+*/
+ra:139,"139":"ra",
+/**
+* -rUpa
+*/
+rUpap:140,"140":"rUpap",
+/**
+* -rhi
+*/
+rhil:141,"141":"rhil",
+/**
+* -rUpya
+*/
+rUpya:142,"142":"rUpya",
+/**
+* -la
+*/
+lac:143,"143":"lac",
+/**
+* -vat
+*/
+vatup:144,"144":"vatup",
+/**
+* -vaya
+*/
+vaya:145,"145":"vaya",
+/**
+* -vala
+*/
+valac:146,"146":"valac",
+/**
+* -vin
+*/
+vini:147,"147":"vini",
+/**
+* -viDu
+*/
+viDal:148,"148":"viDal",
+/**
+* -aka
+*/
+vuk:149,"149":"vuk",
+/**
+* -aka
+*/
+vuY:150,"150":"vuY",
+/**
+* -aka
+*/
+vun:151,"151":"vun",
+/**
+* -vya
+*/
+vyat:152,"152":"vyat",
+/**
+* -vya
+*/
+vyan:153,"153":"vyan",
+/**
+* -Sa
+*/
+Sa:154,"154":"Sa",
+/**
+* -SaNkawa
+*/
+SaNkawac:155,"155":"SaNkawac",
+/**
+* -SAla
+*/
+SAlac:156,"156":"SAlac",
+/**
+* -Sas
+*/
+Sas:157,"157":"Sas",
+/**
+* -za
+*/
+za:158,"158":"za",
+/**
+* -ka
+*/
+zkan:159,"159":"zkan",
+/**
+* -tra
+*/
+zwarac:160,"160":"zwarac",
+/**
+* -ika
+*/
+zWac:161,"161":"zWac",
+/**
+* -ika
+*/
+zWan:162,"162":"zWan",
+/**
+* -ika
+*/
+zWal:163,"163":"zWal",
+/**
+* Ayana
+*/
+zPak:164,"164":"zPak",
+/**
+* -sa
+*/
+sa:165,"165":"sa",
+/**
+* -sna
+*/
+sna:166,"166":"sna",
+/**
+* -sAt
+*/
+sAti:167,"167":"sAti",
+/**
+* -s
+*/
+suc:168,"168":"suc",
+/**
+* -sna
+*/
+snaY:169,"169":"snaY",
+/**
+* -ha
+*/
+ha:170,"170":"ha", });
+/**
+* The complete list of ordinary krt-pratyayas.
+*
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
+*/
+export const BaseKrt = Object.freeze({
 /**
 * -a
 */
@@ -336,503 +2327,371 @@ Aluc:8,"8":"Aluc",
 */
 Aru:9,"9":"Aru",
 /**
+* -ika
+*/
+ika:10,"10":"ika",
+/**
+* -ikavaka
+*/
+ikavaka:11,"11":"ikavaka",
+/**
 * -itra
 */
-itra:10,"10":"itra",
+itra:12,"12":"itra",
 /**
 * -in. The trailing `_` is to avoid colliding with Rust's `in` keyword.
 */
-in_:11,"11":"in_",
+in_:13,"13":"in_",
 /**
 * -in
 */
-ini:12,"12":"ini",
+ini:14,"14":"ini",
 /**
 * -izRu (alaMkarizRu, prajanizRu, ...)
 */
-izRuc:13,"13":"izRuc",
+izRuc:15,"15":"izRuc",
 /**
 * -u (yuyutsu, Bikzu, ...)
 */
-u:14,"14":"u",
+u:16,"16":"u",
 /**
 * -uka
 */
-ukaY:15,"15":"ukaY",
+ukaY:17,"17":"ukaY",
 /**
 * -Uka
 */
-Uka:16,"16":"Uka",
+Uka:18,"18":"Uka",
 /**
 * -a
 */
-ka:17,"17":"ka",
+ka:19,"19":"ka",
 /**
 * -a
 */
-kaY:18,"18":"kaY",
+kaY:20,"20":"kaY",
 /**
 * -am
 */
-kamul:19,"19":"kamul",
+kamul:21,"21":"kamul",
 /**
 * -as (visfpaH, ...)
 */
-kasun:20,"20":"kasun",
+kasun:22,"22":"kasun",
 /**
 * -a
 */
-kap:21,"21":"kap",
+kap:23,"23":"kap",
 /**
 * -Ana (cakrARa, ...)
 */
-kAnac:22,"22":"kAnac",
+kAnac:24,"24":"kAnac",
 /**
 * -i (udaDi, ...)
 */
-ki:23,"23":"ki",
+ki:25,"25":"ki",
 /**
 * -i
 */
-kin:24,"24":"kin",
+kin:26,"26":"kin",
 /**
 * -ura (BaNgura, ...)
 */
-kurac:25,"25":"kurac",
+kurac:27,"27":"kurac",
 /**
 * -elima (pacelima, ...)
 */
-kelimar:26,"26":"kelimar",
+kelimar:28,"28":"kelimar",
 /**
 * -ta (gata, bhUta, ...)
 */
-kta:27,"27":"kta",
+kta:29,"29":"kta",
 /**
 * -tavat (gatavat, bhUtavat, ...)
 */
-ktavatu:28,"28":"ktavatu",
+ktavatu:30,"30":"ktavatu",
 /**
 * -ti
 */
-ktic:29,"29":"ktic",
+ktic:31,"31":"ktic",
 /**
 * -ti
 */
-ktin:30,"30":"ktin",
+ktin:32,"32":"ktin",
 /**
 * -tri
 */
-ktri:31,"31":"ktri",
+ktri:33,"33":"ktri",
 /**
 * -tvA (gatvA, bhUtva, ...)
 */
-ktvA:32,"32":"ktvA",
+ktvA:34,"34":"ktvA",
 /**
 * -nu
 */
-knu:33,"33":"knu",
+knu:35,"35":"knu",
 /**
 * -mara
 */
-kmarac:34,"34":"kmarac",
+kmarac:36,"36":"kmarac",
 /**
 * -ya
 */
-kyap:35,"35":"kyap",
+kyap:37,"37":"kyap",
 /**
 * -ru (BIru)
 */
-kru:36,"36":"kru",
+kru:38,"38":"kru",
 /**
 * -ruka (BIruka)
 */
-kruka:37,"37":"kruka",
+kruka:39,"39":"kruka",
 /**
 * -luka (BIluka)
 */
-klukan:38,"38":"klukan",
+klukan:40,"40":"klukan",
 /**
 * -van
 */
-kvanip:39,"39":"kvanip",
+kvanip:41,"41":"kvanip",
 /**
 * -vara
 */
-kvarap:40,"40":"kvarap",
+kvarap:42,"42":"kvarap",
 /**
 * -vas
 */
-kvasu:41,"41":"kvasu",
+kvasu:43,"43":"kvasu",
 /**
 * -snu (glAsnu, jizRu, ...)
 */
-ksnu:42,"42":"ksnu",
+ksnu:44,"44":"ksnu",
 /**
 * (empty suffix)
 */
-kvin:43,"43":"kvin",
+kvin:45,"45":"kvin",
 /**
 * (empty suffix)
 */
-kvip:44,"44":"kvip",
+kvip:46,"46":"kvip",
 /**
 * -a (priyaMvada, vaSaMvada)
 */
-Kac:45,"45":"Kac",
+Kac:47,"47":"Kac",
 /**
 * -a
 */
-KaS:46,"46":"KaS",
+KaS:48,"48":"KaS",
 /**
 * -a (Izatkara, duzkara, sukara, ...)
 */
-Kal:47,"47":"Kal",
+Kal:49,"49":"Kal",
 /**
 * -izRu
 */
-KizRuc:48,"48":"KizRuc",
+KizRuc:50,"50":"KizRuc",
 /**
 * -uka
 */
-KukaY:49,"49":"KukaY",
+KukaY:51,"51":"KukaY",
 /**
 * -ana
 */
-Kyun:50,"50":"Kyun",
+Kyun:52,"52":"Kyun",
 /**
 * -a
 */
-Ga:51,"51":"Ga",
+Ga:53,"53":"Ga",
 /**
 * -a
 */
-GaY:52,"52":"GaY",
+GaY:54,"54":"GaY",
 /**
 * -in
 */
-GinuR:53,"53":"GinuR",
+GinuR:55,"55":"GinuR",
 /**
 * -ura
 */
-Gurac:54,"54":"Gurac",
+Gurac:56,"56":"Gurac",
 /**
 * -van
 */
-Nvanip:55,"55":"Nvanip",
+Nvanip:57,"57":"Nvanip",
 /**
 * -Ana
 */
-cAnaS:56,"56":"cAnaS",
-/**
-* -anta,
-*/
-Jac:57,"57":"Jac",
+cAnaS:58,"58":"cAnaS",
 /**
 * -a
 */
-wa:58,"58":"wa",
+wa:59,"59":"wa",
 /**
 * -a
 */
-wak:59,"59":"wak",
+wak:60,"60":"wak",
 /**
 * -a
 */
-qa:60,"60":"qa",
+qa:61,"61":"qa",
+/**
+* -ara,
+*/
+qara:62,"62":"qara",
 /**
 * -u
 */
-qu:61,"61":"qu",
+qu:63,"63":"qu",
 /**
 * -a
 */
-Ra:62,"62":"Ra",
+Ra:64,"64":"Ra",
 /**
 * -am
 */
-Ramul:63,"63":"Ramul",
+Ramul:65,"65":"Ramul",
 /**
 * -in
 */
-Rini:64,"64":"Rini",
+Rini:66,"66":"Rini",
 /**
 * -ya
 */
-Ryat:65,"65":"Ryat",
+Ryat:67,"67":"Ryat",
 /**
 * -ana
 */
-Ryuw:66,"66":"Ryuw",
+Ryuw:68,"68":"Ryuw",
 /**
 * (empty)
 */
-Rvi:67,"67":"Rvi",
+Rvi:69,"69":"Rvi",
 /**
 * -aka
 */
-Rvuc:68,"68":"Rvuc",
+Rvuc:70,"70":"Rvuc",
 /**
 * -aka
 */
-Rvul:69,"69":"Rvul",
+Rvul:71,"71":"Rvul",
 /**
 * -tavya (gantavya, bhavitavya, ...)
 */
-tavya:70,"70":"tavya",
+tavya:72,"72":"tavya",
 /**
 * -tavya
 */
-tavyat:71,"71":"tavyat",
+tavyat:73,"73":"tavyat",
 /**
 * -tum (gantum, bhavitum, ...)
 */
-tumun:72,"72":"tumun",
+tumun:74,"74":"tumun",
 /**
 * -tf (gantA, bhavitA, ...)
 */
-tfc:73,"73":"tfc",
+tfc:75,"75":"tfc",
 /**
 * -tf
 */
-tfn:74,"74":"tfn",
+tfn:76,"76":"tfn",
 /**
 * -Taka (gATaka)
 */
-Takan:75,"75":"Takan",
+Takan:77,"77":"Takan",
 /**
 * -na
 */
-naN:76,"76":"naN",
+naN:78,"78":"naN",
 /**
 * -naj
 */
-najiN:77,"77":"najiN",
+najiN:79,"79":"najiN",
 /**
 * -na (svapna)
 */
-nan:78,"78":"nan",
+nan:80,"80":"nan",
 /**
 * -man
 */
-manin:79,"79":"manin",
+manin:81,"81":"manin",
 /**
 * -a
 */
-Sa:80,"80":"Sa",
+Sa:82,"82":"Sa",
 /**
 * -at (gacCat, Bavat, ...)
 */
-Satf:81,"81":"Satf",
+Satf:83,"83":"Satf",
 /**
 * -Ana (laBamAna, sevamAna, ...)
 */
-SAnac:82,"82":"SAnac",
+SAnac:84,"84":"SAnac",
 /**
 * -Ana
 */
-SAnan:83,"83":"SAnan",
+SAnan:85,"85":"SAnan",
 /**
 * -ya
 */
-yat:84,"84":"yat",
+yat:86,"86":"yat",
 /**
 * -ana
 */
-yuc:85,"85":"yuc",
+yuc:87,"87":"yuc",
 /**
 * -na (namra, kampra, ...)
 */
-ra:86,"86":"ra",
+ra:88,"88":"ra",
 /**
 * -ru
 */
-ru:87,"87":"ru",
+ru:89,"89":"ru",
 /**
 * -ana
 */
-lyu:88,"88":"lyu",
+lyu:90,"90":"lyu",
 /**
 * -ana
 */
-lyuw:89,"89":"lyuw",
+lyuw:91,"91":"lyuw",
 /**
 * -van
 */
-vanip:90,"90":"vanip",
+vanip:92,"92":"vanip",
 /**
 * -vara
 */
-varac:91,"91":"varac",
+varac:93,"93":"varac",
 /**
 * (empty suffix)
 */
-vic:92,"92":"vic",
+vic:94,"94":"vic",
 /**
 * (none)
 */
-viw:93,"93":"viw",
+viw:95,"95":"viw",
 /**
 * -aka
 */
-vuY:94,"94":"vuY",
+vuY:96,"96":"vuY",
 /**
 * -aka
 */
-vun:95,"95":"vun",
+vun:97,"97":"vun",
 /**
 * -Aka
 */
-zAkan:96,"96":"zAkan",
+zAkan:98,"98":"zAkan",
 /**
 * -tra
 */
-zwran:97,"97":"zwran",
+zwran:99,"99":"zwran",
 /**
 * -aka
 */
-zvun:98,"98":"zvun",
+zvun:100,"100":"zvun", });
 /**
-* -ama (praTama)
-*/
-amac:99,"99":"amac",
-/**
-* -ala (maNgala)
-*/
-alac:100,"100":"alac",
-/**
-* -as (cetaH)
-*/
-asun:101,"101":"asun",
-/**
-* -Ayya
-*/
-Ayya:102,"102":"Ayya",
-/**
-* -itnu
-*/
-itnuc:103,"103":"itnuc",
-/**
-* -iTi
-*/
-iTin:104,"104":"iTin",
-/**
-* -iza
-*/
-wizac:105,"105":"wizac",
-/**
-* -izWu
-*/
-izWuc:106,"106":"izWuc",
-/**
-* -izWa
-*/
-izWac:107,"107":"izWac",
-/**
-* -isa
-*/
-isan:108,"108":"isan",
-/**
-* -is
-*/
-isi:109,"109":"isi",
-/**
-* -u (kAru)
-*/
-uR:110,"110":"uR",
-/**
-* -us (Danus)
-*/
-usi:111,"111":"usi",
-/**
-* -atu (kratu)
-*/
-katu:112,"112":"katu",
-/**
-* -ka
-*/
-kan:113,"113":"kan",
-/**
-* -Ta
-*/
-kTan:114,"114":"kTan",
-/**
-* -vi (jAgfvi)
-*/
-kvinUnadi:115,"115":"kvinUnadi",
-/**
-* -sara
-*/
-ksaran:116,"116":"ksaran",
-/**
-* -si
-*/
-ksi:117,"117":"ksi",
-/**
-* -su
-*/
-ksu:118,"118":"ksu",
-/**
-* -u (tAlu)
-*/
-YuR:119,"119":"YuR",
-/**
-* -ta
-*/
-tan:120,"120":"tan",
-/**
-* -tu
-*/
-tun:121,"121":"tun",
-/**
-* -tra,
-*/
-tran:122,"122":"tran",
-/**
-* -sa
-*/
-sa:123,"123":"sa",
-/**
-* -sara
-*/
-sara:124,"124":"sara",
-/**
-* -su
-*/
-suk:125,"125":"suk",
-/**
-* -atni,
-*/
-katnic:126,"126":"katnic",
-/**
-* -yatu,
-*/
-yatuc:127,"127":"yatuc",
-/**
-* -ali
-*/
-alic:128,"128":"alic",
-/**
-* -sya
-*/
-syan:129,"129":"syan",
-/**
-* -uli
-*/
-uli:130,"130":"uli",
-/**
-* -as (use trailing `_` since `as` is a reserved keyword in Rust.)
-*/
-asa:131,"131":"asa",
-/**
-* -As,
-*/
-Asa:132,"132":"Asa",
-/**
-* -Anu
-*/
-Anuk:133,"133":"Anuk", });
-/**
-* Defines a gaṇa.
+* Defines a *gaṇa*.
 *
 * The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
 * add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
@@ -894,11 +2753,23 @@ Curadi:9,"9":"Curadi", });
 */
 export const Sanadi = Object.freeze({
 /**
-* `san`, which creates desiderative roots per 3.1.7.
-*
-* Examples: buBUzati, ninIzati.
+* `kAmyac`, which creates nAma-dhAtus per 3.1.9.
 */
-San:0,"0":"San",
+kAmyac:0,"0":"kAmyac",
+/**
+* `kyaN`, which creates nAma-dhAtus per 3.1.11.
+*/
+kyaN:1,"1":"kyaN",
+/**
+* `kyac`, which creates nAma-dhAtus per 3.1.8.
+*/
+kyac:2,"2":"kyac",
+/**
+* `Nic`, which creates causal roots per 3.1.26.
+*
+* Examples: BAvayati, nAyayati.
+*/
+Ric:3,"3":"Ric",
 /**
 * `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
 * instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
@@ -908,573 +2779,20 @@ San:0,"0":"San",
 * Constraints: can be used only if the dhatu starts with a consonant and has exactly one
 * vowel. If this constraint is violated, our APIs will return an `Error`.
 */
-Yan:1,"1":"Yan",
+yaN:4,"4":"yaN",
 /**
 * `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
 * very different form.
 *
 * Examples: boBavIti, boBoti, nenayIti, neneti.
 */
-YanLuk:2,"2":"YanLuk",
+yaNLuk:5,"5":"yaNLuk",
 /**
-* `Nic`, which creates causal roots per 3.1.26.
+* `san`, which creates desiderative roots per 3.1.7.
 *
-* Examples: BAvayati, nAyayati.
+* Examples: buBUzati, ninIzati.
 */
-Nic:3,"3":"Nic", });
-/**
-* The gender of some subanta.
-*/
-export const Linga = Object.freeze({
-/**
-* The masculine.
-*/
-Pum:0,"0":"Pum",
-/**
-* The feminine.
-*/
-Stri:1,"1":"Stri",
-/**
-* The neuter.
-*/
-Napumsaka:2,"2":"Napumsaka", });
-/**
-* The case ending of some subanta.
-*/
-export const Vibhakti = Object.freeze({
-/**
-* The first vibhakti . Sometimes called the *nominative case*.
-*/
-Prathama:0,"0":"Prathama",
-/**
-* The second vibhakti. Sometimes called the *accusative case*.
-*/
-Dvitiya:1,"1":"Dvitiya",
-/**
-* The third vibhakti. Sometimes called the *instrumental case*.
-*/
-Trtiya:2,"2":"Trtiya",
-/**
-* The fourth vibhakti. Sometimes called the *dative case*.
-*/
-Caturthi:3,"3":"Caturthi",
-/**
-* The fifth vibhakti. Sometimes called the *ablative case*.
-*/
-Panchami:4,"4":"Panchami",
-/**
-* The sixth vibhakti. Sometimes called the *genitive case*.
-*/
-Sasthi:5,"5":"Sasthi",
-/**
-* The seventh vibhakti. Sometimes called the *locative case*.
-*/
-Saptami:6,"6":"Saptami",
-/**
-* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
-*
-* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
-* on the first vibhakti. But we felt that users would find it more convenient to have this
-* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
-* condition separately.
-*/
-Sambodhana:7,"7":"Sambodhana", });
-/**
-* The complete list of taddhita-pratyayas.
-*
-* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
-* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
-* distinguish between pratyayas like `naN` and `nan`.
-*/
-export const Taddhita = Object.freeze({
-/**
-* a
-*/
-a:0,"0":"a",
-/**
-* -aka
-*/
-akac:1,"1":"akac",
-/**
-* -a
-*/
-ac:2,"2":"ac",
-/**
-* -a
-*/
-aR:3,"3":"aR",
-/**
-* -a
-*/
-aY:4,"4":"aY",
-/**
-* -a
-*/
-at:5,"5":"at",
-/**
-* -atas
-*/
-atasuc:6,"6":"atasuc",
-/**
-* -astAt
-*/
-astAti:7,"7":"astAti",
-/**
-* -Ara
-*/
-Arak:8,"8":"Arak",
-/**
-* -i
-*/
-iY:9,"9":"iY",
-/**
-* -in
-*/
-ini:10,"10":"ini",
-/**
-* -iman
-*/
-imanic:11,"11":"imanic",
-/**
-* -ila
-*/
-ila:12,"12":"ila",
-/**
-* -ila
-*/
-ilac:13,"13":"ilac",
-/**
-* -izWa
-*/
-izWan:14,"14":"izWan",
-/**
-* -Ika,
-*/
-Ikak:15,"15":"Ikak",
-/**
-* -Iyas
-*/
-Iyasun:16,"16":"Iyasun",
-/**
-* -eRya
-*/
-eRya:17,"17":"eRya",
-/**
-* -Era
-*/
-Erak:18,"18":"Erak",
-/**
-* -ka
-*/
-kak:19,"19":"kak",
-/**
-* -ka
-*/
-kan:20,"20":"kan",
-/**
-* -kalpa
-*/
-kalpap:21,"21":"kalpap",
-/**
-* -kftvas
-*/
-kftvasuc:22,"22":"kftvasuc",
-/**
-* -ka
-*/
-ka:23,"23":"ka",
-/**
-* -Ina
-*/
-Ka:24,"24":"Ka",
-/**
-* -Ina
-*/
-KaY:25,"25":"KaY",
-/**
-* -iya
-*/
-Ga:26,"26":"Ga",
-/**
-* -iya
-*/
-Gac:27,"27":"Gac",
-/**
-* -iya
-*/
-Gan:28,"28":"Gan",
-/**
-* -iya
-*/
-Gas:29,"29":"Gas",
-/**
-* -Ayana
-*/
-cPaY:30,"30":"cPaY",
-/**
-* --
-*/
-cvi:31,"31":"cvi",
-/**
-* -Iya
-*/
-Ca:32,"32":"Ca",
-/**
-* -Iya,
-*/
-CaR:33,"33":"CaR",
-/**
-* -Iya,
-*/
-Cas:34,"34":"Cas",
-/**
-* -a,
-*/
-Ya:35,"35":"Ya",
-/**
-* -ika
-*/
-YiW:36,"36":"YiW",
-/**
-* -ya,
-*/
-YyaN:37,"37":"YyaN",
-/**
-* -ya
-*/
-Yya:38,"38":"Yya",
-/**
-* -a
-*/
-waq:39,"39":"waq",
-/**
-* -iWa
-*/
-wiWan:40,"40":"wiWan",
-/**
-* -ya
-*/
-wyaR:41,"41":"wyaR",
-/**
-* -ana
-*/
-wyu:42,"42":"wyu",
-/**
-* -ana
-*/
-wyul:43,"43":"wyul",
-/**
-* -la
-*/
-wlaY:44,"44":"wlaY",
-/**
-* -ika
-*/
-Wak:45,"45":"Wak",
-/**
-* -ika
-*/
-Wac:46,"46":"Wac",
-/**
-* -ika
-*/
-WaY:47,"47":"WaY",
-/**
-* -ika
-*/
-Wan:48,"48":"Wan",
-/**
-* -ika
-*/
-Wap:49,"49":"Wap",
-/**
-* -pa
-*/
-qupac:50,"50":"qupac",
-/**
-* -mat
-*/
-qmatup:51,"51":"qmatup",
-/**
-* -vala
-*/
-qvalac:52,"52":"qvalac",
-/**
-* -aka
-*/
-qvun:53,"53":"qvun",
-/**
-* -eya
-*/
-Qak:54,"54":"Qak",
-/**
-* -eyaka
-*/
-QakaY:55,"55":"QakaY",
-/**
-* -eya
-*/
-Qa:56,"56":"Qa",
-/**
-* -eya
-*/
-QaY:57,"57":"QaY",
-/**
-* -eyin
-*/
-Qinuk:58,"58":"Qinuk",
-/**
-* -era
-*/
-Qrak:59,"59":"Qrak",
-/**
-* -a
-*/
-Ra:60,"60":"Ra",
-/**
-* -in
-*/
-Rini:61,"61":"Rini",
-/**
-* -ya
-*/
-Rya:62,"62":"Rya",
-/**
-* -tama
-*/
-tamap:63,"63":"tamap",
-/**
-* -tara
-*/
-tarap:64,"64":"tarap",
-/**
-* -ta (becomes -tA)
-*/
-tal:65,"65":"tal",
-/**
-* -tas
-*/
-tasi:66,"66":"tasi",
-/**
-* -tas
-*/
-tasil:67,"67":"tasil",
-/**
-* -ti
-*/
-ti:68,"68":"ti",
-/**
-* -tika
-*/
-tikan:69,"69":"tikan",
-/**
-* -tya
-*/
-tyak:70,"70":"tyak",
-/**
-* -tya
-*/
-tyap:71,"71":"tyap",
-/**
-* -tra
-*/
-tral:72,"72":"tral",
-/**
-* -trA
-*/
-trA:73,"73":"trA",
-/**
-* -tva
-*/
-tva:74,"74":"tva",
-/**
-* -Tam
-*/
-Tamu:75,"75":"Tamu",
-/**
-* -Tya
-*/
-Tyan:76,"76":"Tyan",
-/**
-* -TA
-*/
-TAl:77,"77":"TAl",
-/**
-* -dA
-*/
-dA:78,"78":"dA",
-/**
-* -dAnIm
-*/
-dAnIm:79,"79":"dAnIm",
-/**
-* -deSya
-*/
-deSya:80,"80":"deSya",
-/**
-* -deSIya
-*/
-deSIyar:81,"81":"deSIyar",
-/**
-* -dhA
-*/
-DA:82,"82":"DA",
-/**
-* -na
-*/
-na:83,"83":"na",
-/**
-* -na
-*/
-naY:84,"84":"naY",
-/**
-* -Ayana
-*/
-Pak:85,"85":"Pak",
-/**
-* -Ayana
-*/
-PaY:86,"86":"PaY",
-/**
-* -Ayani
-*/
-PiY:87,"87":"PiY",
-/**
-* -Bakta
-*/
-Baktal:88,"88":"Baktal",
-/**
-* -ma
-*/
-ma:89,"89":"ma",
-/**
-* -mat
-*/
-matup:90,"90":"matup",
-/**
-* -ma
-*/
-map:91,"91":"map",
-/**
-* -maya
-*/
-mayaw:92,"92":"mayaw",
-/**
-* -ya
-*/
-ya:93,"93":"ya",
-/**
-* -ya
-*/
-yak:94,"94":"yak",
-/**
-* -ya
-*/
-yaY:95,"95":"yaY",
-/**
-* -ya
-*/
-yat:96,"96":"yat",
-/**
-* -ya
-*/
-yan:97,"97":"yan",
-/**
-* -yu
-*/
-yus:98,"98":"yus",
-/**
-* -ra
-*/
-ra:99,"99":"ra",
-/**
-* -rUpa
-*/
-rUpap:100,"100":"rUpap",
-/**
-* -rhi
-*/
-rhil:101,"101":"rhil",
-/**
-* -la
-*/
-lac:102,"102":"lac",
-/**
-* -vaya
-*/
-vaya:103,"103":"vaya",
-/**
-* -vin
-*/
-vini:104,"104":"vini",
-/**
-* -viDu
-*/
-viDal:105,"105":"viDal",
-/**
-* -aka
-*/
-vuk:106,"106":"vuk",
-/**
-* -aka
-*/
-vuY:107,"107":"vuY",
-/**
-* -aka
-*/
-vun:108,"108":"vun",
-/**
-* -vya
-*/
-vyat:109,"109":"vyat",
-/**
-* -vya
-*/
-vyan:110,"110":"vyan",
-/**
-* -Sa
-*/
-Sa:111,"111":"Sa",
-/**
-* -Sas
-*/
-Sas:112,"112":"Sas",
-/**
-* -tra
-*/
-zwarac:113,"113":"zwarac",
-/**
-* -ika
-*/
-zWac:114,"114":"zWac",
-/**
-* -ika
-*/
-zWan:115,"115":"zWan",
-/**
-* -ika
-*/
-zWal:116,"116":"zWal",
-/**
-* Ayana
-*/
-zPak:117,"117":"zPak",
-/**
-* -sAt
-*/
-sAti:118,"118":"sAti",
-/**
-* -s
-*/
-suc:119,"119":"suc",
-/**
-* -sna
-*/
-snaY:120,"120":"snaY",
-/**
-* -ha
-*/
-ha:121,"121":"ha", });
+san:6,"6":"san", });
 /**
 * WebAssembly API for vidyut-prakriya.
 *
@@ -1515,7 +2833,7 @@ export class Vidyut {
         return Vidyut.__wrap(ret);
     }
     /**
-    * Wrapper for `Ashtadhyayi::derive_tinantas`.
+    * Wrapper for `Vyakarana::derive_tinantas`.
     *
     * TODO: how might we reduce the number of arguments here?
     * @param {string} code
@@ -1533,25 +2851,25 @@ export class Vidyut {
         const len0 = WASM_VECTOR_LEN;
         var ptr1 = isLikeNone(upasarga) ? 0 : passStringToWasm0(upasarga, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len1 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_deriveTinantas(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 4 : sanadi, ptr1, len1);
+        const ret = wasm.vidyut_deriveTinantas(this.ptr, ptr0, len0, lakara, prayoga, purusha, vacana, isLikeNone(pada) ? 2 : pada, isLikeNone(sanadi) ? 7 : sanadi, ptr1, len1);
         return takeObject(ret);
     }
     /**
-    * Wrapper for `Ashtadhyayi::derive_subantas`.
+    * Wrapper for `Vyakarana::derive_subantas`.
     * @param {string} pratipadika
     * @param {number} linga
-    * @param {number} vacana
     * @param {number} vibhakti
+    * @param {number} vacana
     * @returns {any}
     */
-    deriveSubantas(pratipadika, linga, vacana, vibhakti) {
+    deriveSubantas(pratipadika, linga, vibhakti, vacana) {
         const ptr0 = passStringToWasm0(pratipadika, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_deriveSubantas(this.ptr, ptr0, len0, linga, vacana, vibhakti);
+        const ret = wasm.vidyut_deriveSubantas(this.ptr, ptr0, len0, linga, vibhakti, vacana);
         return takeObject(ret);
     }
     /**
-    * Wrapper for `Ashtadhyayi::derive_krdantas`.
+    * Wrapper for `Vyakarana::derive_krdantas`.
     * @param {string} code
     * @param {number} krt
     * @param {number | undefined} sanadi
@@ -1563,7 +2881,7 @@ export class Vidyut {
         const len0 = WASM_VECTOR_LEN;
         var ptr1 = isLikeNone(upasarga) ? 0 : passStringToWasm0(upasarga, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len1 = WASM_VECTOR_LEN;
-        const ret = wasm.vidyut_deriveKrdantas(this.ptr, ptr0, len0, krt, isLikeNone(sanadi) ? 4 : sanadi, ptr1, len1);
+        const ret = wasm.vidyut_deriveKrdantas(this.ptr, ptr0, len0, krt, isLikeNone(sanadi) ? 7 : sanadi, ptr1, len1);
         return takeObject(ret);
     }
 }
@@ -1602,11 +2920,19 @@ async function load(module, imports) {
 function getImports() {
     const imports = {};
     imports.wbg = {};
+    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1) {
+        console.error(getStringFromWasm0(arg0, arg1));
+    };
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
-    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1) {
-        console.error(getStringFromWasm0(arg0, arg1));
+    imports.wbg.__wbindgen_number_new = function(arg0) {
+        const ret = arg0;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_bigint_from_u64 = function(arg0) {
+        const ret = BigInt.asUintN(64, arg0);
+        return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
         const ret = getObject(arg0);
@@ -1614,6 +2940,10 @@ function getImports() {
     };
     imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
         const ret = getStringFromWasm0(arg0, arg1);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_error_new = function(arg0, arg1) {
+        const ret = new Error(getStringFromWasm0(arg0, arg1));
         return addHeapObject(ret);
     };
     imports.wbg.__wbg_set_20cbc34131e76824 = function(arg0, arg1, arg2) {

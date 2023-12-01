@@ -59,6 +59,7 @@
   <!-- Dhatu select tab + tinantas -->
   <section x-show="activeTab === 'dhatu'">
     <div x-show="!activeDhatu">
+      <p class="my-4">Click on a dhatu to see its forms. Click on a form to see its prakriya.</p>
       <input type="text" x-model="dhatuFilter" class="w-full border p-1 my-2"
         placeholder="Type query (भू, bhU, etc.)"/>
       <ol>
@@ -254,6 +255,7 @@
   <!-- Subanta select tab -->
   <section x-show="activeTab === 'subanta'">
     <div x-show="!supActivePratipadika">
+      <p class="my-4">(UI in progress) Click on a stem to see its forms. Click on a form to see its prakriya.</p>
       <input type="text" x-model="supFilter" class="w-full border p-1 my-2"
         placeholder="Type query (राम, rAma, etc.)"/>
       <ol>
@@ -347,7 +349,6 @@
         href="https://ambuda.org">Ambuda</a> project.</p>
 
       <ul class="my-4">
-
         <li class="my-4"><p><strong>Why does this matter?</strong> &mdash; Our
           program generates an enormous Sanskrit word list with detailed
           grammatical information. This data will let us build powerful new

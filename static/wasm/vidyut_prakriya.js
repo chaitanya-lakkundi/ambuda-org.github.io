@@ -2786,7 +2786,7 @@ yaN:4,"4":"yaN",
 *
 * Examples: boBavIti, boBoti, nenayIti, neneti.
 */
-yaNLuk:5,"5":"yaNLuk",
+yaNluk:5,"5":"yaNluk",
 /**
 * `san`, which creates desiderative roots per 3.1.7.
 *

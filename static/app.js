@@ -69,7 +69,7 @@ class Vidyut {
             tinanta.prayoga,
             tinanta.purusha,
             tinanta.vacana,
-            null,
+            tinanta.pada,
             tinanta.sanadi || null,
             tinanta.upasarga || null,
         );
@@ -762,6 +762,7 @@ const App = () => ({
             results.push(laResults);
         }
 
+        console.log(results);
         return results;
     },
 });

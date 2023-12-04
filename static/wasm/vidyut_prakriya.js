@@ -179,6 +179,1379 @@ function isLikeNone(x) {
     return x === undefined || x === null;
 }
 /**
+* The complete list of ordinary krt-pratyayas.
+*
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
+*/
+export const BaseKrt = Object.freeze({
+/**
+* -a
+*/
+a:0,"0":"a",
+/**
+* -a
+*/
+ac:1,"1":"ac",
+/**
+* -a
+*/
+aR:2,"2":"aR",
+/**
+* -at (jarat)
+*/
+atfn:3,"3":"atfn",
+/**
+* -aTu (vepaTu). Allowed only for dhatus that are `qvit`.
+*/
+aTuc:4,"4":"aTuc",
+/**
+* -ani
+*/
+ani:5,"5":"ani",
+/**
+* -anIya (gamanIya, BavanIya, ...)
+*/
+anIyar:6,"6":"anIyar",
+/**
+* -a
+*/
+ap:7,"7":"ap",
+/**
+* -Alu
+*/
+Aluc:8,"8":"Aluc",
+/**
+* -Aru
+*/
+Aru:9,"9":"Aru",
+/**
+* -ika
+*/
+ika:10,"10":"ika",
+/**
+* -ikavaka
+*/
+ikavaka:11,"11":"ikavaka",
+/**
+* -itra
+*/
+itra:12,"12":"itra",
+/**
+* -in. The trailing `_` is to avoid colliding with Rust's `in` keyword.
+*/
+in_:13,"13":"in_",
+/**
+* -in
+*/
+ini:14,"14":"ini",
+/**
+* -izRu (alaMkarizRu, prajanizRu, ...)
+*/
+izRuc:15,"15":"izRuc",
+/**
+* -u (yuyutsu, Bikzu, ...)
+*/
+u:16,"16":"u",
+/**
+* -uka
+*/
+ukaY:17,"17":"ukaY",
+/**
+* -Uka
+*/
+Uka:18,"18":"Uka",
+/**
+* -a
+*/
+ka:19,"19":"ka",
+/**
+* -a
+*/
+kaY:20,"20":"kaY",
+/**
+* -am
+*/
+kamul:21,"21":"kamul",
+/**
+* -as (visfpaH, ...)
+*/
+kasun:22,"22":"kasun",
+/**
+* -a
+*/
+kap:23,"23":"kap",
+/**
+* -Ana (cakrARa, ...)
+*/
+kAnac:24,"24":"kAnac",
+/**
+* -i (udaDi, ...)
+*/
+ki:25,"25":"ki",
+/**
+* -i
+*/
+kin:26,"26":"kin",
+/**
+* -ura (BaNgura, ...)
+*/
+kurac:27,"27":"kurac",
+/**
+* -elima (pacelima, ...)
+*/
+kelimar:28,"28":"kelimar",
+/**
+* -ta (gata, bhUta, ...)
+*/
+kta:29,"29":"kta",
+/**
+* -tavat (gatavat, bhUtavat, ...)
+*/
+ktavatu:30,"30":"ktavatu",
+/**
+* -ti
+*/
+ktic:31,"31":"ktic",
+/**
+* -ti
+*/
+ktin:32,"32":"ktin",
+/**
+* -tri
+*/
+ktri:33,"33":"ktri",
+/**
+* -tvA (gatvA, bhUtva, ...)
+*/
+ktvA:34,"34":"ktvA",
+/**
+* -nu
+*/
+knu:35,"35":"knu",
+/**
+* -mara
+*/
+kmarac:36,"36":"kmarac",
+/**
+* -ya
+*/
+kyap:37,"37":"kyap",
+/**
+* -ru (BIru)
+*/
+kru:38,"38":"kru",
+/**
+* -ruka (BIruka)
+*/
+kruka:39,"39":"kruka",
+/**
+* -luka (BIluka)
+*/
+klukan:40,"40":"klukan",
+/**
+* -van
+*/
+kvanip:41,"41":"kvanip",
+/**
+* -vara
+*/
+kvarap:42,"42":"kvarap",
+/**
+* -vas
+*/
+kvasu:43,"43":"kvasu",
+/**
+* -snu (glAsnu, jizRu, ...)
+*/
+ksnu:44,"44":"ksnu",
+/**
+* (empty suffix)
+*/
+kvin:45,"45":"kvin",
+/**
+* (empty suffix)
+*/
+kvip:46,"46":"kvip",
+/**
+* -a (priyaMvada, vaSaMvada)
+*/
+Kac:47,"47":"Kac",
+/**
+* -a
+*/
+KaS:48,"48":"KaS",
+/**
+* -a (Izatkara, duzkara, sukara, ...)
+*/
+Kal:49,"49":"Kal",
+/**
+* -izRu
+*/
+KizRuc:50,"50":"KizRuc",
+/**
+* -uka
+*/
+KukaY:51,"51":"KukaY",
+/**
+* -ana
+*/
+Kyun:52,"52":"Kyun",
+/**
+* -a
+*/
+Ga:53,"53":"Ga",
+/**
+* -a
+*/
+GaY:54,"54":"GaY",
+/**
+* -in
+*/
+GinuR:55,"55":"GinuR",
+/**
+* -ura
+*/
+Gurac:56,"56":"Gurac",
+/**
+* -van
+*/
+Nvanip:57,"57":"Nvanip",
+/**
+* -Ana
+*/
+cAnaS:58,"58":"cAnaS",
+/**
+* -a
+*/
+wa:59,"59":"wa",
+/**
+* -a
+*/
+wak:60,"60":"wak",
+/**
+* -a
+*/
+qa:61,"61":"qa",
+/**
+* -ara,
+*/
+qara:62,"62":"qara",
+/**
+* -u
+*/
+qu:63,"63":"qu",
+/**
+* -a
+*/
+Ra:64,"64":"Ra",
+/**
+* -am
+*/
+Ramul:65,"65":"Ramul",
+/**
+* -in
+*/
+Rini:66,"66":"Rini",
+/**
+* -ya
+*/
+Ryat:67,"67":"Ryat",
+/**
+* -ana
+*/
+Ryuw:68,"68":"Ryuw",
+/**
+* (empty)
+*/
+Rvi:69,"69":"Rvi",
+/**
+* -aka
+*/
+Rvuc:70,"70":"Rvuc",
+/**
+* -aka
+*/
+Rvul:71,"71":"Rvul",
+/**
+* -tavya (gantavya, bhavitavya, ...)
+*/
+tavya:72,"72":"tavya",
+/**
+* -tavya
+*/
+tavyat:73,"73":"tavyat",
+/**
+* -tum (gantum, bhavitum, ...)
+*/
+tumun:74,"74":"tumun",
+/**
+* -tf (gantA, bhavitA, ...)
+*/
+tfc:75,"75":"tfc",
+/**
+* -tf
+*/
+tfn:76,"76":"tfn",
+/**
+* -Taka (gATaka)
+*/
+Takan:77,"77":"Takan",
+/**
+* -na
+*/
+naN:78,"78":"naN",
+/**
+* -naj
+*/
+najiN:79,"79":"najiN",
+/**
+* -na (svapna)
+*/
+nan:80,"80":"nan",
+/**
+* -man
+*/
+manin:81,"81":"manin",
+/**
+* -a
+*/
+Sa:82,"82":"Sa",
+/**
+* -at (gacCat, Bavat, ...)
+*/
+Satf:83,"83":"Satf",
+/**
+* -Ana (laBamAna, sevamAna, ...)
+*/
+SAnac:84,"84":"SAnac",
+/**
+* -Ana
+*/
+SAnan:85,"85":"SAnan",
+/**
+* -ya
+*/
+yat:86,"86":"yat",
+/**
+* -ana
+*/
+yuc:87,"87":"yuc",
+/**
+* -na (namra, kampra, ...)
+*/
+ra:88,"88":"ra",
+/**
+* -ru
+*/
+ru:89,"89":"ru",
+/**
+* -ana
+*/
+lyu:90,"90":"lyu",
+/**
+* -ana
+*/
+lyuw:91,"91":"lyuw",
+/**
+* -van
+*/
+vanip:92,"92":"vanip",
+/**
+* -vara
+*/
+varac:93,"93":"varac",
+/**
+* (empty suffix)
+*/
+vic:94,"94":"vic",
+/**
+* (none)
+*/
+viw:95,"95":"viw",
+/**
+* -aka
+*/
+vuY:96,"96":"vuY",
+/**
+* -aka
+*/
+vun:97,"97":"vun",
+/**
+* -Aka
+*/
+zAkan:98,"98":"zAkan",
+/**
+* -tra
+*/
+zwran:99,"99":"zwran",
+/**
+* -aka
+*/
+zvun:100,"100":"zvun", });
+/**
+* The prayoga of some tinanta.
+*/
+export const Prayoga = Object.freeze({
+/**
+* Usage coreferent with the agent, e.g. "The horse *goes* to the village."
+*/
+Kartari:0,"0":"Kartari",
+/**
+* Usage coreferent with the object, e.g. "The village *is gone to* by the horse."
+*/
+Karmani:1,"1":"Karmani",
+/**
+* Usage without a referent, e.g. "*There is motion* by the horse to the village."
+* bhAve prayoga generally produces the same forms as karmani prayoga.
+*/
+Bhave:2,"2":"Bhave", });
+/**
+* The person of some tinanta.
+*/
+export const Purusha = Object.freeze({
+/**
+* The third person.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second person.
+*/
+Madhyama:1,"1":"Madhyama",
+/**
+* The first person.
+*/
+Uttama:2,"2":"Uttama", });
+/**
+* The number of some tinanta or subanta.
+*/
+export const Vacana = Object.freeze({
+/**
+* The singular.
+*/
+Eka:0,"0":"Eka",
+/**
+* The dual.
+*/
+Dvi:1,"1":"Dvi",
+/**
+* The plural.
+*/
+Bahu:2,"2":"Bahu", });
+/**
+* The tense/mood of some tinanta.
+*/
+export const Lakara = Object.freeze({
+/**
+* Describes action in the present tense. Ssometimes called the *present indicative*.
+*/
+Lat:0,"0":"Lat",
+/**
+* Describes unwitnessed past action. Sometimes called the *perfect*.
+*/
+Lit:1,"1":"Lit",
+/**
+* Describes future action after the current day. Sometimes called the *periphrastic future*.
+*/
+Lut:2,"2":"Lut",
+/**
+* Describes general future action. Sometimes called the *simple future*.
+*/
+Lrt:3,"3":"Lrt",
+/**
+* The Vedic subjunctive. `vidyut-prakriya` currently has poor support for this lakara.
+*/
+Let:4,"4":"Let",
+/**
+* Describes commands. Sometimes called the *imperative*.
+*/
+Lot:5,"5":"Lot",
+/**
+* Describes past action before the current day. Sometimes called the *imperfect*.
+*/
+Lan:6,"6":"Lan",
+/**
+* Describes potential or hypothetical actions. Sometimes called the *optative*.
+*/
+VidhiLin:7,"7":"VidhiLin",
+/**
+* Describes wishes and prayers. Sometimes called the *benedictive*.
+*/
+AshirLin:8,"8":"AshirLin",
+/**
+* Describes general past action. Sometimes called the *aorist*.
+*/
+Lun:9,"9":"Lun",
+/**
+* Describes past counterfactuals ("would not have ..."). Sometimes called the *conditional*.
+*/
+Lrn:10,"10":"Lrn", });
+/**
+* The pada of some tinanta or krdanta.
+*/
+export const DhatuPada = Object.freeze({
+/**
+* Parasmaipada.
+*/
+Parasmai:0,"0":"Parasmai",
+/**
+* Atmanepada.
+*/
+Atmane:1,"1":"Atmane", });
+/**
+* The complete list of taddhita-pratyayas.
+*
+* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
+* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
+* distinguish between pratyayas like `naN` and `nan`.
+*/
+export const Taddhita = Object.freeze({
+/**
+* a
+*/
+a:0,"0":"a",
+/**
+* -aka
+*/
+akac:1,"1":"akac",
+/**
+* -a
+*/
+ac:2,"2":"ac",
+/**
+* -aWa
+*/
+aWac:3,"3":"aWac",
+/**
+* -a
+*/
+aR:4,"4":"aR",
+/**
+* -a
+*/
+aY:5,"5":"aY",
+/**
+* -a
+*/
+at:6,"6":"at",
+/**
+* -atas
+*/
+atasuc:7,"7":"atasuc",
+/**
+* -an
+*/
+anic:8,"8":"anic",
+/**
+* -a
+*/
+ap:9,"9":"ap",
+/**
+* -as
+*/
+asic:10,"10":"asic",
+/**
+* -astAt
+*/
+astAti:11,"11":"astAti",
+/**
+* -Akin,
+*/
+Akinic:12,"12":"Akinic",
+/**
+* -Ara
+*/
+Arak:13,"13":"Arak",
+/**
+* -i
+*/
+iY:14,"14":"iY",
+/**
+* -ita
+*/
+itac:15,"15":"itac",
+/**
+* -ina
+*/
+inac:16,"16":"inac",
+/**
+* -in
+*/
+ini:17,"17":"ini",
+/**
+* -iman
+*/
+imanic:18,"18":"imanic",
+/**
+* -ila
+*/
+ila:19,"19":"ila",
+/**
+* -ila
+*/
+ilac:20,"20":"ilac",
+/**
+* -izWa
+*/
+izWan:21,"21":"izWan",
+/**
+* -Ika,
+*/
+Ikak:22,"22":"Ikak",
+/**
+* -Iyas
+*/
+Iyasun:23,"23":"Iyasun",
+/**
+* -eRya
+*/
+eRya:24,"24":"eRya",
+/**
+* -Era
+*/
+Erak:25,"25":"Erak",
+/**
+* -ka
+*/
+ka:26,"26":"ka",
+/**
+* -ka
+*/
+kak:27,"27":"kak",
+/**
+* -kawa
+*/
+kawac:28,"28":"kawac",
+/**
+* -ka
+*/
+kan:29,"29":"kan",
+/**
+* -ka
+*/
+kap:30,"30":"kap",
+/**
+* -kalpa
+*/
+kalpap:31,"31":"kalpap",
+/**
+* -kftvas
+*/
+kftvasuc:32,"32":"kftvasuc",
+/**
+* -kuwAra
+*/
+kuwArac:33,"33":"kuwArac",
+/**
+* -kura,
+*/
+kuRap:34,"34":"kuRap",
+/**
+* -Ina
+*/
+Ka:35,"35":"Ka",
+/**
+* -Ina
+*/
+KaY:36,"36":"KaY",
+/**
+* -iya
+*/
+Ga:37,"37":"Ga",
+/**
+* -iya
+*/
+Gac:38,"38":"Gac",
+/**
+* -iya
+*/
+Gan:39,"39":"Gan",
+/**
+* -iya
+*/
+Gas:40,"40":"Gas",
+/**
+* -caRa
+*/
+caRap:41,"41":"caRap",
+/**
+* -cara
+*/
+caraw:42,"42":"caraw",
+/**
+* -cuYcu
+*/
+cuYcup:43,"43":"cuYcup",
+/**
+* -Ayana
+*/
+cPaY:44,"44":"cPaY",
+/**
+* --
+*/
+cvi:45,"45":"cvi",
+/**
+* -Iya
+*/
+Ca:46,"46":"Ca",
+/**
+* -Iya,
+*/
+CaR:47,"47":"CaR",
+/**
+* -Iya,
+*/
+Cas:48,"48":"Cas",
+/**
+* -jAtIya
+*/
+jAtIyar:49,"49":"jAtIyar",
+/**
+* -jAha
+*/
+jAhac:50,"50":"jAhac",
+/**
+* -a,
+*/
+Ya:51,"51":"Ya",
+/**
+* -ika
+*/
+YiW:52,"52":"YiW",
+/**
+* -ya
+*/
+Yya:53,"53":"Yya",
+/**
+* -ya,
+*/
+YyaN:54,"54":"YyaN",
+/**
+* -ya
+*/
+Yyaw:55,"55":"Yyaw",
+/**
+* -a
+*/
+wac:56,"56":"wac",
+/**
+* -a
+*/
+waq:57,"57":"waq",
+/**
+* -iWa
+*/
+wiWan:58,"58":"wiWan",
+/**
+* -wIwa
+*/
+wIwac:59,"59":"wIwac",
+/**
+* -eRya
+*/
+weRyaR:60,"60":"weRyaR",
+/**
+* -ya
+*/
+wyaR:61,"61":"wyaR",
+/**
+* -ana
+*/
+wyu:62,"62":"wyu",
+/**
+* -ana
+*/
+wyul:63,"63":"wyul",
+/**
+* -la
+*/
+wlaY:64,"64":"wlaY",
+/**
+* -ika
+*/
+Wak:65,"65":"Wak",
+/**
+* -ika
+*/
+Wac:66,"66":"Wac",
+/**
+* -ika
+*/
+WaY:67,"67":"WaY",
+/**
+* -ika
+*/
+Wan:68,"68":"Wan",
+/**
+* -ika
+*/
+Wap:69,"69":"Wap",
+/**
+* -a
+*/
+qaw:70,"70":"qaw",
+/**
+* -ati
+*/
+qati:71,"71":"qati",
+/**
+* -atara
+*/
+qatarac:72,"72":"qatarac",
+/**
+* -atama
+*/
+qatamac:73,"73":"qatamac",
+/**
+* -pa
+*/
+qupac:74,"74":"qupac",
+/**
+* -mat
+*/
+qmatup:75,"75":"qmatup",
+/**
+* -ya
+*/
+qyaR:76,"76":"qyaR",
+/**
+* -vala
+*/
+qvalac:77,"77":"qvalac",
+/**
+* -aka
+*/
+qvun:78,"78":"qvun",
+/**
+* -eya
+*/
+Qak:79,"79":"Qak",
+/**
+* -eyaka
+*/
+QakaY:80,"80":"QakaY",
+/**
+* -eya
+*/
+Qa:81,"81":"Qa",
+/**
+* -eya
+*/
+QaY:82,"82":"QaY",
+/**
+* -eyin
+*/
+Qinuk:83,"83":"Qinuk",
+/**
+* -era
+*/
+Qrak:84,"84":"Qrak",
+/**
+* -a
+*/
+Ra:85,"85":"Ra",
+/**
+* -in
+*/
+Rini:86,"86":"Rini",
+/**
+* -ya
+*/
+Rya:87,"87":"Rya",
+/**
+* -tama
+*/
+tamap:88,"88":"tamap",
+/**
+* -taya
+*/
+tayap:89,"89":"tayap",
+/**
+* -tara
+*/
+tarap:90,"90":"tarap",
+/**
+* -ta (becomes -tA)
+*/
+tal:91,"91":"tal",
+/**
+* -tas
+*/
+tasi:92,"92":"tasi",
+/**
+* -tas
+*/
+tasil:93,"93":"tasil",
+/**
+* -ti
+*/
+ti:94,"94":"ti",
+/**
+* -tika
+*/
+tikan:95,"95":"tikan",
+/**
+* -tIya
+*/
+tIya:96,"96":"tIya",
+/**
+* -tya
+*/
+tyak:97,"97":"tyak",
+/**
+* -tyaka
+*/
+tyakan:98,"98":"tyakan",
+/**
+* -tya
+*/
+tyap:99,"99":"tyap",
+/**
+* -tana
+*/
+tyu:100,"100":"tyu",
+/**
+* -tana
+*/
+tyul:101,"101":"tyul",
+/**
+* -tra
+*/
+tral:102,"102":"tral",
+/**
+* -trA
+*/
+trA:103,"103":"trA",
+/**
+* -tva
+*/
+tva:104,"104":"tva",
+/**
+* -Tam
+*/
+Tamu:105,"105":"Tamu",
+/**
+* -Tya
+*/
+Tyan:106,"106":"Tyan",
+/**
+* -TA
+*/
+TAl:107,"107":"TAl",
+/**
+* -daGna
+*/
+daGnac:108,"108":"daGnac",
+/**
+* -dA
+*/
+dA:109,"109":"dA",
+/**
+* -dAnIm
+*/
+dAnIm:110,"110":"dAnIm",
+/**
+* -deSya
+*/
+deSya:111,"111":"deSya",
+/**
+* -deSIya
+*/
+deSIyar:112,"112":"deSIyar",
+/**
+* -dvayasa
+*/
+dvayasac:113,"113":"dvayasac",
+/**
+* -dhA
+*/
+DA:114,"114":"DA",
+/**
+* -na
+*/
+na:115,"115":"na",
+/**
+* -na
+*/
+naY:116,"116":"naY",
+/**
+* -nAwa
+*/
+nAwac:117,"117":"nAwac",
+/**
+* -Ayana
+*/
+Pak:118,"118":"Pak",
+/**
+* -Ayana
+*/
+PaY:119,"119":"PaY",
+/**
+* -Ayani
+*/
+PiY:120,"120":"PiY",
+/**
+* -bahu
+*/
+bahuc:121,"121":"bahuc",
+/**
+* -biqa
+*/
+biqac:122,"122":"biqac",
+/**
+* -birIsa
+*/
+birIsac:123,"123":"birIsac",
+/**
+* -Bakta
+*/
+Baktal:124,"124":"Baktal",
+/**
+* -Brawa
+*/
+Brawac:125,"125":"Brawac",
+/**
+* -ma
+*/
+ma:126,"126":"ma",
+/**
+* -mat
+*/
+matup:127,"127":"matup",
+/**
+* -ma
+*/
+map:128,"128":"map",
+/**
+* -maya
+*/
+mayaw:129,"129":"mayaw",
+/**
+* -mAtra
+*/
+mAtrac:130,"130":"mAtrac",
+/**
+* -pASa
+*/
+pASap:131,"131":"pASap",
+/**
+* -piwa
+*/
+piwac:132,"132":"piwac",
+/**
+* -ya
+*/
+ya:133,"133":"ya",
+/**
+* -ya
+*/
+yak:134,"134":"yak",
+/**
+* -ya
+*/
+yaY:135,"135":"yaY",
+/**
+* -ya
+*/
+yat:136,"136":"yat",
+/**
+* -ya
+*/
+yan:137,"137":"yan",
+/**
+* -yu
+*/
+yus:138,"138":"yus",
+/**
+* -ra
+*/
+ra:139,"139":"ra",
+/**
+* -rUpa
+*/
+rUpap:140,"140":"rUpap",
+/**
+* -rhi
+*/
+rhil:141,"141":"rhil",
+/**
+* -rUpya
+*/
+rUpya:142,"142":"rUpya",
+/**
+* -la
+*/
+lac:143,"143":"lac",
+/**
+* -vat
+*/
+vatup:144,"144":"vatup",
+/**
+* -vaya
+*/
+vaya:145,"145":"vaya",
+/**
+* -vala
+*/
+valac:146,"146":"valac",
+/**
+* -vin
+*/
+vini:147,"147":"vini",
+/**
+* -viDu
+*/
+viDal:148,"148":"viDal",
+/**
+* -aka
+*/
+vuk:149,"149":"vuk",
+/**
+* -aka
+*/
+vuY:150,"150":"vuY",
+/**
+* -aka
+*/
+vun:151,"151":"vun",
+/**
+* -vya
+*/
+vyat:152,"152":"vyat",
+/**
+* -vya
+*/
+vyan:153,"153":"vyan",
+/**
+* -Sa
+*/
+Sa:154,"154":"Sa",
+/**
+* -SaNkawa
+*/
+SaNkawac:155,"155":"SaNkawac",
+/**
+* -SAla
+*/
+SAlac:156,"156":"SAlac",
+/**
+* -Sas
+*/
+Sas:157,"157":"Sas",
+/**
+* -za
+*/
+za:158,"158":"za",
+/**
+* -ka
+*/
+zkan:159,"159":"zkan",
+/**
+* -tra
+*/
+zwarac:160,"160":"zwarac",
+/**
+* -ika
+*/
+zWac:161,"161":"zWac",
+/**
+* -ika
+*/
+zWan:162,"162":"zWan",
+/**
+* -ika
+*/
+zWal:163,"163":"zWal",
+/**
+* Ayana
+*/
+zPak:164,"164":"zPak",
+/**
+* -sa
+*/
+sa:165,"165":"sa",
+/**
+* -sna
+*/
+sna:166,"166":"sna",
+/**
+* -sAt
+*/
+sAti:167,"167":"sAti",
+/**
+* -s
+*/
+suc:168,"168":"suc",
+/**
+* -sna
+*/
+snaY:169,"169":"snaY",
+/**
+* -ha
+*/
+ha:170,"170":"ha", });
+/**
+* Defines a *gaṇa*.
+*
+* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
+* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
+* before sarvadhatuka suffixes.
+*/
+export const Gana = Object.freeze({
+/**
+* The first gaṇa, whose first dhatu is `BU`.
+*/
+Bhvadi:0,"0":"Bhvadi",
+/**
+* The second gaṇa, whose first dhatu is `ad`.
+*/
+Adadi:1,"1":"Adadi",
+/**
+* The third gaṇa, whose first dhatu is `hu`.
+*/
+Juhotyadi:2,"2":"Juhotyadi",
+/**
+* The fourth gaṇa, whose first dhatu is `div`.
+*/
+Divadi:3,"3":"Divadi",
+/**
+* The fifth gaṇa, whose first dhatu is `su`.
+*/
+Svadi:4,"4":"Svadi",
+/**
+* The sixth gaṇa, whose first dhatu is `tud`.
+*/
+Tudadi:5,"5":"Tudadi",
+/**
+* The seventh gaṇa, whose first dhatu is `rudh`.
+*/
+Rudhadi:6,"6":"Rudhadi",
+/**
+* The eighth gaṇa, whose first dhatu is `tan`.
+*/
+Tanadi:7,"7":"Tanadi",
+/**
+* The ninth gaṇa, whose first dhatu is `krI`.
+*/
+Kryadi:8,"8":"Kryadi",
+/**
+* The tenth gaṇa, whose first dhatu is `cur`.
+*/
+Curadi:9,"9":"Curadi", });
+/**
+* One of the three common *sanAdi* pratyayas.
+*
+* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
+* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
+* 3.4.114.
+*
+* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
+* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
+*
+* For details on what these pratyayas mean and what kinds of words they produce, see the comments
+* below.
+*/
+export const Sanadi = Object.freeze({
+/**
+* `kAmyac`, which creates nAma-dhAtus per 3.1.9.
+*/
+kAmyac:0,"0":"kAmyac",
+/**
+* `kyaN`, which creates nAma-dhAtus per 3.1.11.
+*/
+kyaN:1,"1":"kyaN",
+/**
+* `kyac`, which creates nAma-dhAtus per 3.1.8.
+*/
+kyac:2,"2":"kyac",
+/**
+* `Nic`, which creates causal roots per 3.1.26.
+*
+* Examples: BAvayati, nAyayati.
+*/
+Ric:3,"3":"Ric",
+/**
+* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
+* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
+*
+* Examples: boBUyate, nenIyate.
+*
+* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
+* vowel. If this constraint is violated, our APIs will return an `Error`.
+*/
+yaN:4,"4":"yaN",
+/**
+* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
+* very different form.
+*
+* Examples: boBavIti, boBoti, nenayIti, neneti.
+*/
+yaNluk:5,"5":"yaNluk",
+/**
+* `san`, which creates desiderative roots per 3.1.7.
+*
+* Examples: buBUzati, ninIzati.
+*/
+san:6,"6":"san", });
+/**
+* The gender of some subanta.
+*/
+export const Linga = Object.freeze({
+/**
+* The masculine.
+*/
+Pum:0,"0":"Pum",
+/**
+* The feminine.
+*/
+Stri:1,"1":"Stri",
+/**
+* The neuter.
+*/
+Napumsaka:2,"2":"Napumsaka", });
+/**
+* The case ending of some subanta.
+*/
+export const Vibhakti = Object.freeze({
+/**
+* The first vibhakti . Sometimes called the *nominative case*.
+*/
+Prathama:0,"0":"Prathama",
+/**
+* The second vibhakti. Sometimes called the *accusative case*.
+*/
+Dvitiya:1,"1":"Dvitiya",
+/**
+* The third vibhakti. Sometimes called the *instrumental case*.
+*/
+Trtiya:2,"2":"Trtiya",
+/**
+* The fourth vibhakti. Sometimes called the *dative case*.
+*/
+Caturthi:3,"3":"Caturthi",
+/**
+* The fifth vibhakti. Sometimes called the *ablative case*.
+*/
+Panchami:4,"4":"Panchami",
+/**
+* The sixth vibhakti. Sometimes called the *genitive case*.
+*/
+Sasthi:5,"5":"Sasthi",
+/**
+* The seventh vibhakti. Sometimes called the *locative case*.
+*/
+Saptami:6,"6":"Saptami",
+/**
+* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
+*
+* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
+* on the first vibhakti. But we felt that users would find it more convenient to have this
+* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
+* condition separately.
+*/
+Sambodhana:7,"7":"Sambodhana", });
+/**
 * The complete list of unadi-pratyayas.
 *
 * Rust's naming convention is to start enum values with capital letters. However, we allow mixed
@@ -1421,1379 +2794,6 @@ sya:306,"306":"sya",
 */
 syan:307,"307":"syan", });
 /**
-* The gender of some subanta.
-*/
-export const Linga = Object.freeze({
-/**
-* The masculine.
-*/
-Pum:0,"0":"Pum",
-/**
-* The feminine.
-*/
-Stri:1,"1":"Stri",
-/**
-* The neuter.
-*/
-Napumsaka:2,"2":"Napumsaka", });
-/**
-* The case ending of some subanta.
-*/
-export const Vibhakti = Object.freeze({
-/**
-* The first vibhakti . Sometimes called the *nominative case*.
-*/
-Prathama:0,"0":"Prathama",
-/**
-* The second vibhakti. Sometimes called the *accusative case*.
-*/
-Dvitiya:1,"1":"Dvitiya",
-/**
-* The third vibhakti. Sometimes called the *instrumental case*.
-*/
-Trtiya:2,"2":"Trtiya",
-/**
-* The fourth vibhakti. Sometimes called the *dative case*.
-*/
-Caturthi:3,"3":"Caturthi",
-/**
-* The fifth vibhakti. Sometimes called the *ablative case*.
-*/
-Panchami:4,"4":"Panchami",
-/**
-* The sixth vibhakti. Sometimes called the *genitive case*.
-*/
-Sasthi:5,"5":"Sasthi",
-/**
-* The seventh vibhakti. Sometimes called the *locative case*.
-*/
-Saptami:6,"6":"Saptami",
-/**
-* The first vibhakti used in the sense of *sambodhana*. Sometimes called the *vocative case*.
-*
-* *Sambodhana* is technically not a *vibhakti but rather an additional semantic condition
-* on the first vibhakti. But we felt that users would find it more convenient to have this
-* condition available on `Vibhakti` directly rather than have to define the *sambodhana*
-* condition separately.
-*/
-Sambodhana:7,"7":"Sambodhana", });
-/**
-* The prayoga of some tinanta.
-*/
-export const Prayoga = Object.freeze({
-/**
-* Usage coreferent with the agent, e.g. "The horse *goes* to the village."
-*/
-Kartari:0,"0":"Kartari",
-/**
-* Usage coreferent with the object, e.g. "The village *is gone to* by the horse."
-*/
-Karmani:1,"1":"Karmani",
-/**
-* Usage without a referent, e.g. "*There is motion* by the horse to the village."
-* bhAve prayoga generally produces the same forms as karmani prayoga.
-*/
-Bhave:2,"2":"Bhave", });
-/**
-* The person of some tinanta.
-*/
-export const Purusha = Object.freeze({
-/**
-* The third person.
-*/
-Prathama:0,"0":"Prathama",
-/**
-* The second person.
-*/
-Madhyama:1,"1":"Madhyama",
-/**
-* The first person.
-*/
-Uttama:2,"2":"Uttama", });
-/**
-* The number of some tinanta or subanta.
-*/
-export const Vacana = Object.freeze({
-/**
-* The singular.
-*/
-Eka:0,"0":"Eka",
-/**
-* The dual.
-*/
-Dvi:1,"1":"Dvi",
-/**
-* The plural.
-*/
-Bahu:2,"2":"Bahu", });
-/**
-* The tense/mood of some tinanta.
-*/
-export const Lakara = Object.freeze({
-/**
-* Describes action in the present tense. Ssometimes called the *present indicative*.
-*/
-Lat:0,"0":"Lat",
-/**
-* Describes unwitnessed past action. Sometimes called the *perfect*.
-*/
-Lit:1,"1":"Lit",
-/**
-* Describes future action after the current day. Sometimes called the *periphrastic future*.
-*/
-Lut:2,"2":"Lut",
-/**
-* Describes general future action. Sometimes called the *simple future*.
-*/
-Lrt:3,"3":"Lrt",
-/**
-* The Vedic subjunctive. `vidyut-prakriya` currently has poor support for this lakara.
-*/
-Let:4,"4":"Let",
-/**
-* Describes commands. Sometimes called the *imperative*.
-*/
-Lot:5,"5":"Lot",
-/**
-* Describes past action before the current day. Sometimes called the *imperfect*.
-*/
-Lan:6,"6":"Lan",
-/**
-* Describes potential or hypothetical actions. Sometimes called the *optative*.
-*/
-VidhiLin:7,"7":"VidhiLin",
-/**
-* Describes wishes and prayers. Sometimes called the *benedictive*.
-*/
-AshirLin:8,"8":"AshirLin",
-/**
-* Describes general past action. Sometimes called the *aorist*.
-*/
-Lun:9,"9":"Lun",
-/**
-* Describes past counterfactuals ("would not have ..."). Sometimes called the *conditional*.
-*/
-Lrn:10,"10":"Lrn", });
-/**
-* The pada of some tinanta or krdanta.
-*/
-export const DhatuPada = Object.freeze({
-/**
-* Parasmaipada.
-*/
-Parasmai:0,"0":"Parasmai",
-/**
-* Atmanepada.
-*/
-Atmane:1,"1":"Atmane", });
-/**
-* The complete list of taddhita-pratyayas.
-*
-* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
-* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
-* distinguish between pratyayas like `naN` and `nan`.
-*/
-export const Taddhita = Object.freeze({
-/**
-* a
-*/
-a:0,"0":"a",
-/**
-* -aka
-*/
-akac:1,"1":"akac",
-/**
-* -a
-*/
-ac:2,"2":"ac",
-/**
-* -aWa
-*/
-aWac:3,"3":"aWac",
-/**
-* -a
-*/
-aR:4,"4":"aR",
-/**
-* -a
-*/
-aY:5,"5":"aY",
-/**
-* -a
-*/
-at:6,"6":"at",
-/**
-* -atas
-*/
-atasuc:7,"7":"atasuc",
-/**
-* -an
-*/
-anic:8,"8":"anic",
-/**
-* -a
-*/
-ap:9,"9":"ap",
-/**
-* -as
-*/
-asic:10,"10":"asic",
-/**
-* -astAt
-*/
-astAti:11,"11":"astAti",
-/**
-* -Akin,
-*/
-Akinic:12,"12":"Akinic",
-/**
-* -Ara
-*/
-Arak:13,"13":"Arak",
-/**
-* -i
-*/
-iY:14,"14":"iY",
-/**
-* -ita
-*/
-itac:15,"15":"itac",
-/**
-* -ina
-*/
-inac:16,"16":"inac",
-/**
-* -in
-*/
-ini:17,"17":"ini",
-/**
-* -iman
-*/
-imanic:18,"18":"imanic",
-/**
-* -ila
-*/
-ila:19,"19":"ila",
-/**
-* -ila
-*/
-ilac:20,"20":"ilac",
-/**
-* -izWa
-*/
-izWan:21,"21":"izWan",
-/**
-* -Ika,
-*/
-Ikak:22,"22":"Ikak",
-/**
-* -Iyas
-*/
-Iyasun:23,"23":"Iyasun",
-/**
-* -eRya
-*/
-eRya:24,"24":"eRya",
-/**
-* -Era
-*/
-Erak:25,"25":"Erak",
-/**
-* -ka
-*/
-ka:26,"26":"ka",
-/**
-* -ka
-*/
-kak:27,"27":"kak",
-/**
-* -kawa
-*/
-kawac:28,"28":"kawac",
-/**
-* -ka
-*/
-kan:29,"29":"kan",
-/**
-* -ka
-*/
-kap:30,"30":"kap",
-/**
-* -kalpa
-*/
-kalpap:31,"31":"kalpap",
-/**
-* -kftvas
-*/
-kftvasuc:32,"32":"kftvasuc",
-/**
-* -kuwAra
-*/
-kuwArac:33,"33":"kuwArac",
-/**
-* -kura,
-*/
-kuRap:34,"34":"kuRap",
-/**
-* -Ina
-*/
-Ka:35,"35":"Ka",
-/**
-* -Ina
-*/
-KaY:36,"36":"KaY",
-/**
-* -iya
-*/
-Ga:37,"37":"Ga",
-/**
-* -iya
-*/
-Gac:38,"38":"Gac",
-/**
-* -iya
-*/
-Gan:39,"39":"Gan",
-/**
-* -iya
-*/
-Gas:40,"40":"Gas",
-/**
-* -caRa
-*/
-caRap:41,"41":"caRap",
-/**
-* -cara
-*/
-caraw:42,"42":"caraw",
-/**
-* -cuYcu
-*/
-cuYcup:43,"43":"cuYcup",
-/**
-* -Ayana
-*/
-cPaY:44,"44":"cPaY",
-/**
-* --
-*/
-cvi:45,"45":"cvi",
-/**
-* -Iya
-*/
-Ca:46,"46":"Ca",
-/**
-* -Iya,
-*/
-CaR:47,"47":"CaR",
-/**
-* -Iya,
-*/
-Cas:48,"48":"Cas",
-/**
-* -jAtIya
-*/
-jAtIyar:49,"49":"jAtIyar",
-/**
-* -jAha
-*/
-jAhac:50,"50":"jAhac",
-/**
-* -a,
-*/
-Ya:51,"51":"Ya",
-/**
-* -ika
-*/
-YiW:52,"52":"YiW",
-/**
-* -ya
-*/
-Yya:53,"53":"Yya",
-/**
-* -ya,
-*/
-YyaN:54,"54":"YyaN",
-/**
-* -ya
-*/
-Yyaw:55,"55":"Yyaw",
-/**
-* -a
-*/
-wac:56,"56":"wac",
-/**
-* -a
-*/
-waq:57,"57":"waq",
-/**
-* -iWa
-*/
-wiWan:58,"58":"wiWan",
-/**
-* -wIwa
-*/
-wIwac:59,"59":"wIwac",
-/**
-* -eRya
-*/
-weRyaR:60,"60":"weRyaR",
-/**
-* -ya
-*/
-wyaR:61,"61":"wyaR",
-/**
-* -ana
-*/
-wyu:62,"62":"wyu",
-/**
-* -ana
-*/
-wyul:63,"63":"wyul",
-/**
-* -la
-*/
-wlaY:64,"64":"wlaY",
-/**
-* -ika
-*/
-Wak:65,"65":"Wak",
-/**
-* -ika
-*/
-Wac:66,"66":"Wac",
-/**
-* -ika
-*/
-WaY:67,"67":"WaY",
-/**
-* -ika
-*/
-Wan:68,"68":"Wan",
-/**
-* -ika
-*/
-Wap:69,"69":"Wap",
-/**
-* -a
-*/
-qaw:70,"70":"qaw",
-/**
-* -ati
-*/
-qati:71,"71":"qati",
-/**
-* -atara
-*/
-qatarac:72,"72":"qatarac",
-/**
-* -atama
-*/
-qatamac:73,"73":"qatamac",
-/**
-* -pa
-*/
-qupac:74,"74":"qupac",
-/**
-* -mat
-*/
-qmatup:75,"75":"qmatup",
-/**
-* -ya
-*/
-qyaR:76,"76":"qyaR",
-/**
-* -vala
-*/
-qvalac:77,"77":"qvalac",
-/**
-* -aka
-*/
-qvun:78,"78":"qvun",
-/**
-* -eya
-*/
-Qak:79,"79":"Qak",
-/**
-* -eyaka
-*/
-QakaY:80,"80":"QakaY",
-/**
-* -eya
-*/
-Qa:81,"81":"Qa",
-/**
-* -eya
-*/
-QaY:82,"82":"QaY",
-/**
-* -eyin
-*/
-Qinuk:83,"83":"Qinuk",
-/**
-* -era
-*/
-Qrak:84,"84":"Qrak",
-/**
-* -a
-*/
-Ra:85,"85":"Ra",
-/**
-* -in
-*/
-Rini:86,"86":"Rini",
-/**
-* -ya
-*/
-Rya:87,"87":"Rya",
-/**
-* -tama
-*/
-tamap:88,"88":"tamap",
-/**
-* -taya
-*/
-tayap:89,"89":"tayap",
-/**
-* -tara
-*/
-tarap:90,"90":"tarap",
-/**
-* -ta (becomes -tA)
-*/
-tal:91,"91":"tal",
-/**
-* -tas
-*/
-tasi:92,"92":"tasi",
-/**
-* -tas
-*/
-tasil:93,"93":"tasil",
-/**
-* -ti
-*/
-ti:94,"94":"ti",
-/**
-* -tika
-*/
-tikan:95,"95":"tikan",
-/**
-* -tIya
-*/
-tIya:96,"96":"tIya",
-/**
-* -tya
-*/
-tyak:97,"97":"tyak",
-/**
-* -tyaka
-*/
-tyakan:98,"98":"tyakan",
-/**
-* -tya
-*/
-tyap:99,"99":"tyap",
-/**
-* -tana
-*/
-tyu:100,"100":"tyu",
-/**
-* -tana
-*/
-tyul:101,"101":"tyul",
-/**
-* -tra
-*/
-tral:102,"102":"tral",
-/**
-* -trA
-*/
-trA:103,"103":"trA",
-/**
-* -tva
-*/
-tva:104,"104":"tva",
-/**
-* -Tam
-*/
-Tamu:105,"105":"Tamu",
-/**
-* -Tya
-*/
-Tyan:106,"106":"Tyan",
-/**
-* -TA
-*/
-TAl:107,"107":"TAl",
-/**
-* -daGna
-*/
-daGnac:108,"108":"daGnac",
-/**
-* -dA
-*/
-dA:109,"109":"dA",
-/**
-* -dAnIm
-*/
-dAnIm:110,"110":"dAnIm",
-/**
-* -deSya
-*/
-deSya:111,"111":"deSya",
-/**
-* -deSIya
-*/
-deSIyar:112,"112":"deSIyar",
-/**
-* -dvayasa
-*/
-dvayasac:113,"113":"dvayasac",
-/**
-* -dhA
-*/
-DA:114,"114":"DA",
-/**
-* -na
-*/
-na:115,"115":"na",
-/**
-* -na
-*/
-naY:116,"116":"naY",
-/**
-* -nAwa
-*/
-nAwac:117,"117":"nAwac",
-/**
-* -Ayana
-*/
-Pak:118,"118":"Pak",
-/**
-* -Ayana
-*/
-PaY:119,"119":"PaY",
-/**
-* -Ayani
-*/
-PiY:120,"120":"PiY",
-/**
-* -bahu
-*/
-bahuc:121,"121":"bahuc",
-/**
-* -biqa
-*/
-biqac:122,"122":"biqac",
-/**
-* -birIsa
-*/
-birIsac:123,"123":"birIsac",
-/**
-* -Bakta
-*/
-Baktal:124,"124":"Baktal",
-/**
-* -Brawa
-*/
-Brawac:125,"125":"Brawac",
-/**
-* -ma
-*/
-ma:126,"126":"ma",
-/**
-* -mat
-*/
-matup:127,"127":"matup",
-/**
-* -ma
-*/
-map:128,"128":"map",
-/**
-* -maya
-*/
-mayaw:129,"129":"mayaw",
-/**
-* -mAtra
-*/
-mAtrac:130,"130":"mAtrac",
-/**
-* -pASa
-*/
-pASap:131,"131":"pASap",
-/**
-* -piwa
-*/
-piwac:132,"132":"piwac",
-/**
-* -ya
-*/
-ya:133,"133":"ya",
-/**
-* -ya
-*/
-yak:134,"134":"yak",
-/**
-* -ya
-*/
-yaY:135,"135":"yaY",
-/**
-* -ya
-*/
-yat:136,"136":"yat",
-/**
-* -ya
-*/
-yan:137,"137":"yan",
-/**
-* -yu
-*/
-yus:138,"138":"yus",
-/**
-* -ra
-*/
-ra:139,"139":"ra",
-/**
-* -rUpa
-*/
-rUpap:140,"140":"rUpap",
-/**
-* -rhi
-*/
-rhil:141,"141":"rhil",
-/**
-* -rUpya
-*/
-rUpya:142,"142":"rUpya",
-/**
-* -la
-*/
-lac:143,"143":"lac",
-/**
-* -vat
-*/
-vatup:144,"144":"vatup",
-/**
-* -vaya
-*/
-vaya:145,"145":"vaya",
-/**
-* -vala
-*/
-valac:146,"146":"valac",
-/**
-* -vin
-*/
-vini:147,"147":"vini",
-/**
-* -viDu
-*/
-viDal:148,"148":"viDal",
-/**
-* -aka
-*/
-vuk:149,"149":"vuk",
-/**
-* -aka
-*/
-vuY:150,"150":"vuY",
-/**
-* -aka
-*/
-vun:151,"151":"vun",
-/**
-* -vya
-*/
-vyat:152,"152":"vyat",
-/**
-* -vya
-*/
-vyan:153,"153":"vyan",
-/**
-* -Sa
-*/
-Sa:154,"154":"Sa",
-/**
-* -SaNkawa
-*/
-SaNkawac:155,"155":"SaNkawac",
-/**
-* -SAla
-*/
-SAlac:156,"156":"SAlac",
-/**
-* -Sas
-*/
-Sas:157,"157":"Sas",
-/**
-* -za
-*/
-za:158,"158":"za",
-/**
-* -ka
-*/
-zkan:159,"159":"zkan",
-/**
-* -tra
-*/
-zwarac:160,"160":"zwarac",
-/**
-* -ika
-*/
-zWac:161,"161":"zWac",
-/**
-* -ika
-*/
-zWan:162,"162":"zWan",
-/**
-* -ika
-*/
-zWal:163,"163":"zWal",
-/**
-* Ayana
-*/
-zPak:164,"164":"zPak",
-/**
-* -sa
-*/
-sa:165,"165":"sa",
-/**
-* -sna
-*/
-sna:166,"166":"sna",
-/**
-* -sAt
-*/
-sAti:167,"167":"sAti",
-/**
-* -s
-*/
-suc:168,"168":"suc",
-/**
-* -sna
-*/
-snaY:169,"169":"snaY",
-/**
-* -ha
-*/
-ha:170,"170":"ha", });
-/**
-* The complete list of ordinary krt-pratyayas.
-*
-* Rust's naming convention is to start enum values with capital letters. However, we allow mixed
-* case explicitly here so that we can name pratyayas more concisely with SLP1. Doing so helps us
-* distinguish between pratyayas like `naN` and `nan`.
-*/
-export const BaseKrt = Object.freeze({
-/**
-* -a
-*/
-a:0,"0":"a",
-/**
-* -a
-*/
-ac:1,"1":"ac",
-/**
-* -a
-*/
-aR:2,"2":"aR",
-/**
-* -at (jarat)
-*/
-atfn:3,"3":"atfn",
-/**
-* -aTu (vepaTu). Allowed only for dhatus that are `qvit`.
-*/
-aTuc:4,"4":"aTuc",
-/**
-* -ani
-*/
-ani:5,"5":"ani",
-/**
-* -anIya (gamanIya, BavanIya, ...)
-*/
-anIyar:6,"6":"anIyar",
-/**
-* -a
-*/
-ap:7,"7":"ap",
-/**
-* -Alu
-*/
-Aluc:8,"8":"Aluc",
-/**
-* -Aru
-*/
-Aru:9,"9":"Aru",
-/**
-* -ika
-*/
-ika:10,"10":"ika",
-/**
-* -ikavaka
-*/
-ikavaka:11,"11":"ikavaka",
-/**
-* -itra
-*/
-itra:12,"12":"itra",
-/**
-* -in. The trailing `_` is to avoid colliding with Rust's `in` keyword.
-*/
-in_:13,"13":"in_",
-/**
-* -in
-*/
-ini:14,"14":"ini",
-/**
-* -izRu (alaMkarizRu, prajanizRu, ...)
-*/
-izRuc:15,"15":"izRuc",
-/**
-* -u (yuyutsu, Bikzu, ...)
-*/
-u:16,"16":"u",
-/**
-* -uka
-*/
-ukaY:17,"17":"ukaY",
-/**
-* -Uka
-*/
-Uka:18,"18":"Uka",
-/**
-* -a
-*/
-ka:19,"19":"ka",
-/**
-* -a
-*/
-kaY:20,"20":"kaY",
-/**
-* -am
-*/
-kamul:21,"21":"kamul",
-/**
-* -as (visfpaH, ...)
-*/
-kasun:22,"22":"kasun",
-/**
-* -a
-*/
-kap:23,"23":"kap",
-/**
-* -Ana (cakrARa, ...)
-*/
-kAnac:24,"24":"kAnac",
-/**
-* -i (udaDi, ...)
-*/
-ki:25,"25":"ki",
-/**
-* -i
-*/
-kin:26,"26":"kin",
-/**
-* -ura (BaNgura, ...)
-*/
-kurac:27,"27":"kurac",
-/**
-* -elima (pacelima, ...)
-*/
-kelimar:28,"28":"kelimar",
-/**
-* -ta (gata, bhUta, ...)
-*/
-kta:29,"29":"kta",
-/**
-* -tavat (gatavat, bhUtavat, ...)
-*/
-ktavatu:30,"30":"ktavatu",
-/**
-* -ti
-*/
-ktic:31,"31":"ktic",
-/**
-* -ti
-*/
-ktin:32,"32":"ktin",
-/**
-* -tri
-*/
-ktri:33,"33":"ktri",
-/**
-* -tvA (gatvA, bhUtva, ...)
-*/
-ktvA:34,"34":"ktvA",
-/**
-* -nu
-*/
-knu:35,"35":"knu",
-/**
-* -mara
-*/
-kmarac:36,"36":"kmarac",
-/**
-* -ya
-*/
-kyap:37,"37":"kyap",
-/**
-* -ru (BIru)
-*/
-kru:38,"38":"kru",
-/**
-* -ruka (BIruka)
-*/
-kruka:39,"39":"kruka",
-/**
-* -luka (BIluka)
-*/
-klukan:40,"40":"klukan",
-/**
-* -van
-*/
-kvanip:41,"41":"kvanip",
-/**
-* -vara
-*/
-kvarap:42,"42":"kvarap",
-/**
-* -vas
-*/
-kvasu:43,"43":"kvasu",
-/**
-* -snu (glAsnu, jizRu, ...)
-*/
-ksnu:44,"44":"ksnu",
-/**
-* (empty suffix)
-*/
-kvin:45,"45":"kvin",
-/**
-* (empty suffix)
-*/
-kvip:46,"46":"kvip",
-/**
-* -a (priyaMvada, vaSaMvada)
-*/
-Kac:47,"47":"Kac",
-/**
-* -a
-*/
-KaS:48,"48":"KaS",
-/**
-* -a (Izatkara, duzkara, sukara, ...)
-*/
-Kal:49,"49":"Kal",
-/**
-* -izRu
-*/
-KizRuc:50,"50":"KizRuc",
-/**
-* -uka
-*/
-KukaY:51,"51":"KukaY",
-/**
-* -ana
-*/
-Kyun:52,"52":"Kyun",
-/**
-* -a
-*/
-Ga:53,"53":"Ga",
-/**
-* -a
-*/
-GaY:54,"54":"GaY",
-/**
-* -in
-*/
-GinuR:55,"55":"GinuR",
-/**
-* -ura
-*/
-Gurac:56,"56":"Gurac",
-/**
-* -van
-*/
-Nvanip:57,"57":"Nvanip",
-/**
-* -Ana
-*/
-cAnaS:58,"58":"cAnaS",
-/**
-* -a
-*/
-wa:59,"59":"wa",
-/**
-* -a
-*/
-wak:60,"60":"wak",
-/**
-* -a
-*/
-qa:61,"61":"qa",
-/**
-* -ara,
-*/
-qara:62,"62":"qara",
-/**
-* -u
-*/
-qu:63,"63":"qu",
-/**
-* -a
-*/
-Ra:64,"64":"Ra",
-/**
-* -am
-*/
-Ramul:65,"65":"Ramul",
-/**
-* -in
-*/
-Rini:66,"66":"Rini",
-/**
-* -ya
-*/
-Ryat:67,"67":"Ryat",
-/**
-* -ana
-*/
-Ryuw:68,"68":"Ryuw",
-/**
-* (empty)
-*/
-Rvi:69,"69":"Rvi",
-/**
-* -aka
-*/
-Rvuc:70,"70":"Rvuc",
-/**
-* -aka
-*/
-Rvul:71,"71":"Rvul",
-/**
-* -tavya (gantavya, bhavitavya, ...)
-*/
-tavya:72,"72":"tavya",
-/**
-* -tavya
-*/
-tavyat:73,"73":"tavyat",
-/**
-* -tum (gantum, bhavitum, ...)
-*/
-tumun:74,"74":"tumun",
-/**
-* -tf (gantA, bhavitA, ...)
-*/
-tfc:75,"75":"tfc",
-/**
-* -tf
-*/
-tfn:76,"76":"tfn",
-/**
-* -Taka (gATaka)
-*/
-Takan:77,"77":"Takan",
-/**
-* -na
-*/
-naN:78,"78":"naN",
-/**
-* -naj
-*/
-najiN:79,"79":"najiN",
-/**
-* -na (svapna)
-*/
-nan:80,"80":"nan",
-/**
-* -man
-*/
-manin:81,"81":"manin",
-/**
-* -a
-*/
-Sa:82,"82":"Sa",
-/**
-* -at (gacCat, Bavat, ...)
-*/
-Satf:83,"83":"Satf",
-/**
-* -Ana (laBamAna, sevamAna, ...)
-*/
-SAnac:84,"84":"SAnac",
-/**
-* -Ana
-*/
-SAnan:85,"85":"SAnan",
-/**
-* -ya
-*/
-yat:86,"86":"yat",
-/**
-* -ana
-*/
-yuc:87,"87":"yuc",
-/**
-* -na (namra, kampra, ...)
-*/
-ra:88,"88":"ra",
-/**
-* -ru
-*/
-ru:89,"89":"ru",
-/**
-* -ana
-*/
-lyu:90,"90":"lyu",
-/**
-* -ana
-*/
-lyuw:91,"91":"lyuw",
-/**
-* -van
-*/
-vanip:92,"92":"vanip",
-/**
-* -vara
-*/
-varac:93,"93":"varac",
-/**
-* (empty suffix)
-*/
-vic:94,"94":"vic",
-/**
-* (none)
-*/
-viw:95,"95":"viw",
-/**
-* -aka
-*/
-vuY:96,"96":"vuY",
-/**
-* -aka
-*/
-vun:97,"97":"vun",
-/**
-* -Aka
-*/
-zAkan:98,"98":"zAkan",
-/**
-* -tra
-*/
-zwran:99,"99":"zwran",
-/**
-* -aka
-*/
-zvun:100,"100":"zvun", });
-/**
-* Defines a *gaṇa*.
-*
-* The dhatus in the Dhatupatha are organized in ten large *gaṇa*s or classes. These gaṇas
-* add various properties to the dhatu, most notably the specific *vikaraṇa* (stem suffix) we use
-* before sarvadhatuka suffixes.
-*/
-export const Gana = Object.freeze({
-/**
-* The first gaṇa, whose first dhatu is `BU`.
-*/
-Bhvadi:0,"0":"Bhvadi",
-/**
-* The second gaṇa, whose first dhatu is `ad`.
-*/
-Adadi:1,"1":"Adadi",
-/**
-* The third gaṇa, whose first dhatu is `hu`.
-*/
-Juhotyadi:2,"2":"Juhotyadi",
-/**
-* The fourth gaṇa, whose first dhatu is `div`.
-*/
-Divadi:3,"3":"Divadi",
-/**
-* The fifth gaṇa, whose first dhatu is `su`.
-*/
-Svadi:4,"4":"Svadi",
-/**
-* The sixth gaṇa, whose first dhatu is `tud`.
-*/
-Tudadi:5,"5":"Tudadi",
-/**
-* The seventh gaṇa, whose first dhatu is `rudh`.
-*/
-Rudhadi:6,"6":"Rudhadi",
-/**
-* The eighth gaṇa, whose first dhatu is `tan`.
-*/
-Tanadi:7,"7":"Tanadi",
-/**
-* The ninth gaṇa, whose first dhatu is `krI`.
-*/
-Kryadi:8,"8":"Kryadi",
-/**
-* The tenth gaṇa, whose first dhatu is `cur`.
-*/
-Curadi:9,"9":"Curadi", });
-/**
-* One of the three common *sanAdi* pratyayas.
-*
-* The *sanAdi* pratyayas create new dhatus per 3.1.32. They are introduced in rules 3.1.7 -
-* 3.1.30, and since rule 3.1.7 contains the word "dhAtoH", they can be called Ardhadhatuka by
-* 3.4.114.
-*
-* Of the sanAdi pratyayas, most are added after either subantas or a handful of dhatus. But
-* three of these pratyayas are added after dhatus more generally: `san`, `yaN`, and `Ric`.
-*
-* For details on what these pratyayas mean and what kinds of words they produce, see the comments
-* below.
-*/
-export const Sanadi = Object.freeze({
-/**
-* `kAmyac`, which creates nAma-dhAtus per 3.1.9.
-*/
-kAmyac:0,"0":"kAmyac",
-/**
-* `kyaN`, which creates nAma-dhAtus per 3.1.11.
-*/
-kyaN:1,"1":"kyaN",
-/**
-* `kyac`, which creates nAma-dhAtus per 3.1.8.
-*/
-kyac:2,"2":"kyac",
-/**
-* `Nic`, which creates causal roots per 3.1.26.
-*
-* Examples: BAvayati, nAyayati.
-*/
-Ric:3,"3":"Ric",
-/**
-* `yaN`, which creates intensive roots per 3.1.22. For certain dhatus, the semantics are
-* instead "crooked movement" (by 3.1.23) or "contemptible" action (by 3.1.24).
-*
-* Examples: boBUyate, nenIyate.
-*
-* Constraints: can be used only if the dhatu starts with a consonant and has exactly one
-* vowel. If this constraint is violated, our APIs will return an `Error`.
-*/
-yaN:4,"4":"yaN",
-/**
-* `yaN`, with elision per 2.4.74. This is often listed separately due to its rarity and its
-* very different form.
-*
-* Examples: boBavIti, boBoti, nenayIti, neneti.
-*/
-yaNluk:5,"5":"yaNluk",
-/**
-* `san`, which creates desiderative roots per 3.1.7.
-*
-* Examples: buBUzati, ninIzati.
-*/
-san:6,"6":"san", });
-/**
 * WebAssembly API for vidyut-prakriya.
 *
 * Within reason, we have tried to mimic a native JavaScript API. At some point, we wish to
@@ -2920,11 +2920,11 @@ async function load(module, imports) {
 function getImports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1) {
-        console.error(getStringFromWasm0(arg0, arg1));
-    };
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
+    };
+    imports.wbg.__wbg_error_51d875a0547f9e36 = function(arg0, arg1) {
+        console.error(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbindgen_number_new = function(arg0) {
         const ret = arg0;

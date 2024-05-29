@@ -8,7 +8,7 @@
   <title>Vidyullekha</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript@1.2.7/sanscript.min.js"></script>
-  <script type="module" src="/static/app.js"></script>
+  <script type="module" src="/static/vidyut-prakriya-app.js"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style type="text/css">
     .a-underline a {
@@ -167,6 +167,8 @@
               <option :value="Sanadi.yaNluk" x-text="deva('yaNlugante')"></option>
             </select>
           </div>
+
+          <p class="text-slate-500">(Click on a <i>pada</i> to see its <i>prakriyā</i>.)</p>
 
           <template x-for="la in createAllTinantas()">
             <section>
